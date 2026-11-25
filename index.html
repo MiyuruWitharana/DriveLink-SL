@@ -960,6 +960,206 @@
             font-weight: 700;
         }
 
+
+        /* Live Availability Map Section */
+        .map-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 0.85fr;
+            gap: 26px;
+            align-items: stretch;
+        }
+
+        .map-stage {
+            position: relative;
+            min-height: 430px;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-gold);
+            background:
+                radial-gradient(circle at 48% 52%, rgba(245, 185, 66, 0.14), transparent 55%),
+                linear-gradient(160deg, #0b1222 0%, #060913 100%);
+            overflow: hidden;
+            box-shadow: var(--glow-gold);
+        }
+
+        .map-road {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(245, 185, 66, 0.12);
+        }
+
+        .map-road-h1 { top: 28%; left: -5%; width: 110%; height: 10px; transform: rotate(-3deg); }
+        .map-road-h2 { top: 64%; left: -5%; width: 110%; height: 12px; transform: rotate(2deg); }
+        .map-road-v1 { left: 26%; top: -5%; width: 10px; height: 110%; transform: rotate(4deg); }
+        .map-road-v2 { left: 66%; top: -5%; width: 11px; height: 110%; transform: rotate(-2deg); }
+
+        .map-zone-tag {
+            position: absolute;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: rgba(203, 213, 225, 0.45);
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        .map-top-bar {
+            position: relative;
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 14px 16px;
+            background: rgba(5, 7, 13, 0.78);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .map-pills {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .map-filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-soft);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .map-filter-btn.active,
+        .map-filter-btn:hover {
+            background: var(--gold-bright);
+            color: #080b12;
+            border-color: var(--gold-bright);
+        }
+
+        .map-pin {
+            position: absolute;
+            z-index: 5;
+            transform: translate(-50%, -50%);
+            border: 1.5px solid var(--gold-bright);
+            background: rgba(10, 15, 29, 0.94);
+            color: #ffffff;
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65);
+            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+            font-family: inherit;
+        }
+
+        .map-pin:hover,
+        .map-pin.selected {
+            transform: translate(-50%, -58%) scale(1.06);
+            background: linear-gradient(135deg, #f5b942, #d98a1c);
+            color: #080b12;
+        }
+
+        .map-pin-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4ade80;
+            flex-shrink: 0;
+        }
+
+        .map-pin.selected .map-pin-dot {
+            background: #080b12;
+        }
+
+        .map-side-panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .unit-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 295px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .unit-item {
+            background: rgba(5, 7, 13, 0.75);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            cursor: pointer;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .unit-item:hover,
+        .unit-item.active {
+            border-color: var(--gold-bright);
+            transform: translateX(2px);
+        }
+
+        .unit-item h4 {
+            font-size: 0.9rem;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+
+        .unit-item p {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+        }
+
+        .unit-meta {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .unit-status {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: #4ade80;
+            background: rgba(74, 222, 128, 0.12);
+            padding: 2px 8px;
+            border-radius: 999px;
+            margin-bottom: 3px;
+        }
+
+        .unit-rate {
+            display: block;
+            font-size: 0.84rem;
+            font-weight: 800;
+            color: var(--gold-bright);
+        }
+
+        @media (max-width: 990px) {
+            .map-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 990px) {
             .hero-grid,
@@ -1040,8 +1240,10 @@
             <nav class="nav-menu" id="navMenu">
                 <a href="#services" data-si="සේවාවන්" data-en="Services">සේවාවන්</a>
                 <a href="#fleet" data-si="වාහන සහ රියදුරන්" data-en="Fleet & Drivers">වාහන සහ රියදුරන්</a>
+                <a href="#live-map" data-si="සජීවී සිතියම" data-en="Live Map">සජීවී සිතියම</a>
                 <a href="#earnings" data-si="ආදායම් ගණකය" data-en="Revenue Simulator">ආදායම් ගණකය</a>
                 <a href="#partners" data-si="ලියාපදිංචිය" data-en="Join Network">ලියාපදිංචිය</a>
+                <a href="#payments" data-si="ගෙවීම්" data-en="Payments">ගෙවීම්</a>
                 <a href="#faq" data-si="ප්‍රශ්න" data-en="FAQ">ප්‍රශ්න</a>
             </nav>
 
@@ -1154,12 +1356,27 @@
                         </div>
                     </div>
 
-                    <div class="price-banner">
-                        <span data-si="ඇස්තමේන්තුගත මූලික ගාස්තුව:" data-en="Estimated Base Rate:">ඇස්තමේන්තුගත මූලික ගාස්තුව:</span>
-                        <strong id="heroEstimatePrice">LKR 8,500</strong>
+                    <div class="field">
+                        <label for="hPayMethod" data-si="ගෙවීමේ ක්‍රමය (Payment Method)" data-en="Payment Method">ගෙවීමේ ක්‍රමය (Payment Method)</label>
+                        <select id="hPayMethod">
+                            <option value="Bank Transfer / Slip" data-si="බැංකු ගිණුමට (Bank Transfer / Slip)" data-en="Bank Transfer / Slip Upload">බැංකු ගිණුමට (Bank Transfer / Slip)</option>
+                            <option value="Online Card / Checkout" data-si="Online Card / Payment Gateway" data-en="Online Card / Payment Gateway">Online Card / Payment Gateway</option>
+                            <option value="Cash on Pickup / Trip" data-si="වාහනය ලබාගන්නා විට මුදලින් (Cash)" data-en="Cash on Pickup / Trip">වාහනය ලබාගන්නා විට මුදලින් (Cash)</option>
+                        </select>
                     </div>
 
-                    <button type="submit" class="btn btn-gold full-btn" data-si="WhatsApp හරහා Request යවන්න" data-en="Send Request via WhatsApp">WhatsApp හරහා Request යවන්න</button>
+                    <div class="price-banner" style="flex-direction:column;align-items:stretch;gap:6px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span data-si="ඇස්තමේන්තුගත මුළු ගාස්තුව:" data-en="Estimated Total Rate:">ඇස්තමේන්තුගත මුළු ගාස්තුව:</span>
+                            <strong id="heroEstimatePrice">LKR 8,500</strong>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--text-muted);border-top:1px solid rgba(245,185,66,0.18);padding-top:6px;">
+                            <span data-si="වෙන්කිරීමට අත්තිකාරම් (20% Advance):" data-en="Booking Advance (20%):">වෙන්කිරීමට අත්තිකාරම් (20% Advance):</span>
+                            <span id="heroAdvancePrice" style="color:#fde68a;font-weight:700;">LKR 1,700</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-gold full-btn" data-si="ගෙවීම් විස්තර සමඟ WhatsApp යවන්න" data-en="Continue & Send via WhatsApp">ගෙවීම් විස්තර සමඟ WhatsApp යවන්න</button>
                 </form>
             </div>
         </div>
@@ -1322,6 +1539,64 @@
         </div>
     </section>
 
+    <!-- Live Availability Map Section -->
+    <section class="section section-darker" id="live-map">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow" data-si="සජීවී සිතියම" data-en="LIVE AVAILABILITY MAP">සජීවී සිතියම</span>
+                <h2 data-si="අවට ඇති වාහන සහ රියදුරන් සිතියමෙන් බලන්න" data-en="Explore Available Cars & Drivers on the Map">අවට ඇති වාහන සහ රියදුරන් සිතියමෙන් බලන්න</h2>
+                <p data-si="ප්‍රදේශය හෝ සේවා වර්ගය තෝරා දැනට available වාහන සහ රියදුරන් ක්ෂණිකව තෝරා වෙන්කරගන්න." data-en="Filter by area or service type, click any map pin, and book an available vehicle or driver immediately.">ප්‍රදේශය හෝ සේවා වර්ගය තෝරා දැනට available වාහන සහ රියදුරන් ක්ෂණිකව තෝරා වෙන්කරගන්න.</p>
+            </div>
+
+            <div class="map-grid">
+                <div class="map-stage" id="mapStage">
+                    <div class="map-top-bar">
+                        <div class="field" style="flex-direction:row;align-items:center;gap:8px;min-width:210px;">
+                            <select id="mapAreaSelect" style="padding:7px 11px;font-size:0.8rem;">
+                                <option value="all" data-si="සියලු ප්‍රදේශ (Matara / Deiyandara / Galle)" data-en="All Areas (Matara / Deiyandara / Galle)">සියලු ප්‍රදේශ (Matara / Deiyandara / Galle)</option>
+                                <option value="Matara" data-si="මාතර (Matara)" data-en="Matara">මාතර (Matara)</option>
+                                <option value="Deiyandara" data-si="දෙයියන්දර (Deiyandara)" data-en="Deiyandara">දෙයියන්දර (Deiyandara)</option>
+                                <option value="Galle" data-si="ගාල්ල (Galle)" data-en="Galle">ගාල්ල (Galle)</option>
+                            </select>
+                        </div>
+
+                        <div class="map-pills">
+                            <button type="button" class="map-filter-btn active" data-mfilter="all" data-si="සියල්ල" data-en="All">සියල්ල</button>
+                            <button type="button" class="map-filter-btn" data-mfilter="self-drive" data-si="Self-Drive" data-en="Self-Drive">Self-Drive</button>
+                            <button type="button" class="map-filter-btn" data-mfilter="with-driver" data-si="වාහනය + රියදුරු" data-en="Car + Driver">වාහනය + රියදුරු</button>
+                            <button type="button" class="map-filter-btn" data-mfilter="driver-only" data-si="රියදුරු" data-en="Drivers">රියදුරු</button>
+                        </div>
+                    </div>
+
+                    <!-- Stylized Road Grid & Area Labels -->
+                    <div class="map-road map-road-h1"></div>
+                    <div class="map-road map-road-h2"></div>
+                    <div class="map-road map-road-v1"></div>
+                    <div class="map-road map-road-v2"></div>
+
+                    <span class="map-zone-tag" style="top:18%;left:9%;">Galle Corridor</span>
+                    <span class="map-zone-tag" style="top:46%;left:45%;">Matara Hub</span>
+                    <span class="map-zone-tag" style="top:78%;left:62%;">Deiyandara Zone</span>
+
+                    <!-- Interactive Pins injected by JS -->
+                    <div id="mapPinsLayer"></div>
+                </div>
+
+                <div class="map-side-panel">
+                    <div>
+                        <span class="card-eyebrow" id="mapSelectedBadge" data-si="තෝරාගත් ස්ථානය: සියලු ප්‍රදේශ" data-en="SELECTED ZONE: ALL AREAS">තෝරාගත් ස්ථානය: සියලු ප්‍රදේශ</span>
+                        <h3 id="mapFocusTitle" style="color:#fff;font-size:1.18rem;margin-bottom:4px;" data-si="දැනට Available වාහන සහ රියදුරන්" data-en="Available Cars & Drivers Nearby">දැනට Available වාහන සහ රියදුරන්</h3>
+                        <p id="mapFocusDesc" style="font-size:0.82rem;color:var(--text-muted);margin-bottom:14px;" data-si="Pin එකක් හෝ පහළ ලැයිස්තුවෙන් එකක් තෝරන්න" data-en="Select a pin on the map or choose from the live list below">Pin එකක් හෝ පහළ ලැයිස්තුවෙන් එකක් තෝරන්න</p>
+
+                        <div class="unit-list" id="mapUnitList"></div>
+                    </div>
+
+                    <button type="button" class="btn btn-gold full-btn" id="mapBookSelectedBtn" data-si="තෝරාගත් එක වෙන්කරන්න" data-en="Book Selected Unit">තෝරාගත් එක වෙන්කරන්න</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Commission Simulator -->
     <section class="section section-darker" id="earnings">
         <div class="container calc-wrapper">
@@ -1459,6 +1734,58 @@
         </div>
     </section>
 
+    <!-- Payment & Security Deposit Section -->
+    <section class="section" id="payments">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">PAYMENTS & ESCROW PROTECTION</span>
+                <h2 data-si="ගෙවීම් ක්‍රම සහ ආරක්ෂක තැන්පතු" data-en="Payment Methods & Security Deposits">ගෙවීම් ක්‍රම සහ ආරක්ෂක තැන්පතු</h2>
+                <p data-si="පාරිභෝගිකයින්ට, වාහන හිමියන්ට සහ රියදුරන්ට පැහැදිලි, ආරක්ෂිත ගෙවීම් ක්‍රමවේදයක්." data-en="Clear, flexible payment options and transparent deposit rules for every trip.">පාරිභෝගිකයින්ට, වාහන හිමියන්ට සහ රියදුරන්ට පැහැදිලි, ආරක්ෂිත ගෙවීම් ක්‍රමවේදයක්.</p>
+            </div>
+
+            <div class="pillars-grid">
+                <article class="pillar-card">
+                    <div>
+                        <div class="pillar-icon-box">🏦</div>
+                        <h3 data-si="Bank Transfer & Slip Verification" data-en="Bank Transfer & Slip">Bank Transfer & Slip</h3>
+                        <p data-si="Commercial Bank / Sampath / BOC ගිණුම් වලට මුදල් බැර කර WhatsApp හරහා slip එක එවීමෙන් booking එක ක්ෂණිකව තහවුරු කරගත හැක." data-en="Transfer via local bank transfer and share your payment slip on WhatsApp for instant confirmation.">Commercial Bank / Sampath / BOC ගිණුම් වලට මුදල් බැර කර WhatsApp හරහා slip එක එවීමෙන් booking එක ක්ෂණිකව තහවුරු කරගත හැක.</p>
+                        <ul class="pillar-list">
+                            <li><span>✓</span> <span data-si="20% Advance Booking Hold" data-en="20% advance holds your slot">20% Advance Booking Hold</span></li>
+                            <li><span>✓</span> <span data-si="Receipt / Slip Reference ID" data-en="Clear reference tracking">Receipt / Slip Reference ID</span></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-glass full-btn open-payment-modal-btn" data-method="Bank Transfer" data-si="ගෙවීම් විස්තර බලන්න" data-en="View Bank Details">ගෙවීම් විස්තර බලන්න</button>
+                </article>
+
+                <article class="pillar-card featured">
+                    <div>
+                        <div class="pillar-icon-box">💳</div>
+                        <h3 data-si="Online Card / Gateway Ready" data-en="Online Card Ready">Online Card / Gateway Ready</h3>
+                        <p data-si="Visa / Mastercard හෝ PayHere / Stripe වැනි gateway එකක් සම්බන්ධ කළ පසු online card payments ලබාගත හැකි ලෙස සකසා ඇත." data-en="Pre-wired for local/international card gateways (such as PayHere) once your merchant keys are added.">Visa / Mastercard හෝ PayHere / Stripe වැනි gateway එකක් සම්බන්ධ කළ පසු online card payments ලබාගත හැකි ලෙස සකසා ඇත.</p>
+                        <ul class="pillar-list">
+                            <li><span>✓</span> <span data-si="Instant Digital Checkout Flow" data-en="Instant digital checkout flow">Instant Digital Checkout Flow</span></li>
+                            <li><span>✓</span> <span data-si="Automated Amount & Fee Sync" data-en="Auto-calculated fare & advance">Automated Amount & Fee Sync</span></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-gold full-btn open-payment-modal-btn" data-method="Online Card" data-si="Card Payment Checkout" data-en="Open Card Checkout">Card Payment Checkout</button>
+                </article>
+
+                <article class="pillar-card">
+                    <div>
+                        <div class="pillar-icon-box">🛡️</div>
+                        <h3 data-si="Refundable Deposit & Payouts" data-en="Deposits & Partner Payouts">Deposits & Partner Payouts</h3>
+                        <p data-si="Self-Drive සඳහා refundable security deposit එකක් සහ ගමන අවසානයේ හිමියාට/රියදුරුට සාධාරණ payout ක්‍රමයක්." data-en="Refundable security deposit for self-drive trips and timely settlement to owners and drivers.">Self-Drive සඳහා refundable security deposit එකක් සහ ගමන අවසානයේ හිමියාට/රියදුරුට සාධාරණ payout ක්‍රමයක්.</p>
+                        <ul class="pillar-list">
+                            <li><span>✓</span> <span data-si="Inspection අනුව Deposit Refund" data-en="Post-trip inspection refund">Inspection අනුව Deposit Refund</span></li>
+                            <li><span>✓</span> <span data-si="Owner & Driver Payouts" data-en="Transparent partner settlements">Owner & Driver Payouts</span></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-glass full-btn open-payment-modal-btn" data-method="Cash / Deposit" data-si="Deposit විස්තර බලන්න" data-en="Deposit & Cash Info">Deposit විස්තර බලන්න</button>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ -->
     <section class="section section-darker" id="faq">
         <div class="container faq-container">
@@ -1577,6 +1904,42 @@
         </div>
     </div>
 
+    <!-- Payment Checkout Modal -->
+    <div class="modal-overlay" id="paymentModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <button type="button" class="modal-x" id="closePayModalBtn">&times;</button>
+            <span class="card-eyebrow">PAYMENT CHECKOUT</span>
+            <h3 style="color:#fff;font-size:1.25rem;" data-si="ගෙවීම් තොරතුරු සහ තහවුරු කිරීම" data-en="Payment Details & Confirmation">ගෙවීම් තොරතුරු සහ තහවුරු කිරීම</h3>
+            <p class="modal-tag" id="payModalMethodTag">Method: Bank Transfer</p>
+
+            <div style="background:rgba(5,7,13,0.75);border:1px solid var(--border-subtle);border-radius:12px;padding:14px;margin-bottom:14px;font-size:0.83rem;color:var(--text-soft);">
+                <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                    <span data-si="ඇස්තමේන්තුගත මුළු ගාස්තුව:" data-en="Estimated Total:">ඇස්තමේන්තුගත මුළු ගාස්තුව:</span>
+                    <strong id="payModalTotal" style="color:var(--gold-bright);">LKR 8,500</strong>
+                </div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                    <span data-si="අත්තිකාරම් මුදල (20% Advance):" data-en="Advance Amount (20%):">අත්තිකාරම් මුදල (20% Advance):</span>
+                    <strong id="payModalAdvance" style="color:#4ade80;">LKR 1,700</strong>
+                </div>
+                <div style="font-size:0.77rem;color:var(--text-muted);border-top:1px solid var(--border-subtle);padding-top:8px;" data-si="බැංකු විස්තර: DriveLink SL • Bank Acc: 0000-0000-0000 (ඔබේ සැබෑ ගිණුම් අංකය මෙහි යොදන්න)" data-en="Bank Info: DriveLink SL • Acc: 0000-0000-0000 (Replace with your live account/gateway)">
+                    බැංකු විස්තර: DriveLink SL • Acc: 0000-0000-0000 (ඔබේ සැබෑ ගිණුම් අංකය මෙහි යොදන්න)
+                </div>
+            </div>
+
+            <form id="paymentConfirmForm" class="dark-form">
+                <div class="field">
+                    <label for="pCustomerName" data-si="ගෙවන්නාගේ නම" data-en="Payer Name">ගෙවන්නාගේ නම</label>
+                    <input type="text" id="pCustomerName" placeholder="සම්පූර්ණ නම" data-ph-si="සම්පූර්ණ නම" data-ph-en="Full Name" required>
+                </div>
+                <div class="field">
+                    <label for="pRefCode" data-si="Slip / Transaction Reference (ඇත්නම්)" data-en="Slip / Reference ID (Optional)">Slip / Transaction Reference (ඇත්නම්)</label>
+                    <input type="text" id="pRefCode" placeholder="උදා: TXN-88421" data-ph-si="උදා: TXN-88421" data-ph-en="e.g. TXN-88421">
+                </div>
+                <button type="submit" class="btn btn-gold full-btn" data-si="ගෙවීම් විස්තර WhatsApp වෙත යවන්න" data-en="Send Payment Confirmation via WhatsApp">ගෙවීම් විස්තර WhatsApp වෙත යවන්න</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         const WHATSAPP_NUMBER = "94770000000";
 
@@ -1597,9 +1960,17 @@
         let selectedHeroService = "Self-Drive";
         let selectedDailyRate = 8500;
 
+        const heroAdvancePrice = document.getElementById("heroAdvancePrice");
+        const hPayMethod = document.getElementById("hPayMethod");
+
         function updateHeroEstimate() {
             const days = parseInt(hDays.value, 10) || 1;
-            heroEstimatePrice.textContent = "LKR " + (selectedDailyRate * days).toLocaleString("en-US");
+            const total = selectedDailyRate * days;
+            const advance = Math.round(total * 0.20);
+            heroEstimatePrice.textContent = "LKR " + total.toLocaleString("en-US");
+            if (heroAdvancePrice) {
+                heroAdvancePrice.textContent = "LKR " + advance.toLocaleString("en-US");
+            }
         }
 
         modeBtns.forEach(btn => {
@@ -1622,7 +1993,9 @@
                 `WhatsApp: ${document.getElementById("hPhone").value.trim()}%0A` +
                 `City: ${document.getElementById("hPickup").value.trim()}%0A` +
                 `Days: ${hDays.value}%0A` +
-                `Estimate: ${heroEstimatePrice.textContent}`
+                `Payment Method: ${hPayMethod ? hPayMethod.value : "Bank Transfer"}%0A` +
+                `Estimate: ${heroEstimatePrice.textContent}%0A` +
+                `Advance (20%): ${heroAdvancePrice ? heroAdvancePrice.textContent : "-"}`
             );
         });
 
@@ -1728,6 +2101,234 @@
             );
             bookingModal.classList.remove("show");
         });
+
+
+        // Payment Modal Logic
+        const paymentModal = document.getElementById("paymentModal");
+        const payModalMethodTag = document.getElementById("payModalMethodTag");
+        const payModalTotal = document.getElementById("payModalTotal");
+        const payModalAdvance = document.getElementById("payModalAdvance");
+        let activePayMethod = "Bank Transfer";
+
+        document.querySelectorAll(".open-payment-modal-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                activePayMethod = btn.dataset.method || "Bank Transfer";
+                payModalMethodTag.textContent = (currentLang === "si" ? "ගෙවීම් ක්‍රමය: " : "Payment Method: ") + activePayMethod;
+                payModalTotal.textContent = heroEstimatePrice.textContent;
+                payModalAdvance.textContent = heroAdvancePrice ? heroAdvancePrice.textContent : "LKR 1,700";
+                paymentModal.classList.add("show");
+            });
+        });
+
+        document.getElementById("closePayModalBtn").addEventListener("click", () => paymentModal.classList.remove("show"));
+        paymentModal.addEventListener("click", (e) => { if (e.target === paymentModal) paymentModal.classList.remove("show"); });
+
+        document.getElementById("paymentConfirmForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            openWhatsApp(
+                `*DriveLink SL - Payment Confirmation*%0A` +
+                `Method: ${activePayMethod}%0A` +
+                `Payer: ${document.getElementById("pCustomerName").value.trim()}%0A` +
+                `Ref ID: ${document.getElementById("pRefCode").value.trim() || "Pending Slip"}%0A` +
+                `Estimated Total: ${payModalTotal.textContent}%0A` +
+                `Advance (20%): ${payModalAdvance.textContent}`
+            );
+            paymentModal.classList.remove("show");
+        });
+
+
+        // Interactive Live Availability Map (Cars & Drivers)
+        const mapUnits = [
+            {
+                id: "u1",
+                nameSi: "Toyota Aqua Hybrid (WP-CAA)",
+                nameEn: "Toyota Aqua Hybrid (WP-CAA)",
+                area: "Matara",
+                areaLabelSi: "මාතර නගරය",
+                areaLabelEn: "Matara Town",
+                type: "self-drive",
+                typeLabelSi: "Self-Drive • Automatic • A/C",
+                typeLabelEn: "Self-Drive • Automatic • A/C",
+                rate: "LKR 8,500/day",
+                x: 46,
+                y: 44,
+                servicePayload: "Map Unit: Toyota Aqua Hybrid (Matara - Self-Drive, LKR 8,500/day)"
+            },
+            {
+                id: "u2",
+                nameSi: "KDH High-Roof Van + රියදුරු",
+                nameEn: "KDH High-Roof Van + Driver",
+                area: "Matara",
+                areaLabelSi: "මාතර බස් නැවතුම අසල",
+                areaLabelEn: "Near Matara Stand",
+                type: "with-driver",
+                typeLabelSi: "වාහනය + රියදුරු • ආසන 14",
+                typeLabelEn: "Car + Driver • 14 Seats",
+                rate: "LKR 16,000/day",
+                x: 56,
+                y: 58,
+                servicePayload: "Map Unit: KDH High-Roof Van + Driver (Matara, LKR 16,000/day)"
+            },
+            {
+                id: "u3",
+                nameSi: "රියදුරු: දිනේෂ් (Light + Heavy)",
+                nameEn: "Driver: Dinesh (Light + Heavy)",
+                area: "Deiyandara",
+                areaLabelSi: "දෙයියන්දර",
+                areaLabelEn: "Deiyandara",
+                type: "driver-only",
+                typeLabelSi: "රියදුරු පමණක් • වසර 9 පළපුරුද්ද",
+                typeLabelEn: "Driver Only • 9 Yrs Exp",
+                rate: "LKR 3,500/day",
+                x: 72,
+                y: 74,
+                servicePayload: "Map Driver: Dinesh (Deiyandara - Light/Heavy, LKR 3,500/day)"
+            },
+            {
+                id: "u4",
+                nameSi: "Honda Vezel Hybrid (CP-CAB)",
+                nameEn: "Honda Vezel Hybrid (CP-CAB)",
+                area: "Galle",
+                areaLabelSi: "ගාල්ල කොටුව අසල",
+                areaLabelEn: "Near Galle Fort",
+                type: "self-drive",
+                typeLabelSi: "Self-Drive • SUV • Dual A/C",
+                typeLabelEn: "Self-Drive • SUV • Dual A/C",
+                rate: "LKR 11,500/day",
+                x: 24,
+                y: 34,
+                servicePayload: "Map Unit: Honda Vezel Hybrid (Galle - Self-Drive, LKR 11,500/day)"
+            },
+            {
+                id: "u5",
+                nameSi: "රියදුරු: කසුන් (VIP & Airport)",
+                nameEn: "Driver: Kasun (VIP & Airport)",
+                area: "Deiyandara",
+                areaLabelSi: "දෙයියන්දර / මාතර මාර්ගය",
+                areaLabelEn: "Deiyandara–Matara Rd",
+                type: "driver-only",
+                typeLabelSi: "රියදුරු පමණක් • NIC & Police Verified",
+                typeLabelEn: "Driver Only • Verified Chauffeur",
+                rate: "LKR 3,500/day",
+                x: 64,
+                y: 66,
+                servicePayload: "Map Driver: Kasun (Deiyandara - Verified Chauffeur, LKR 3,500/day)"
+            }
+        ];
+
+        const mapPinsLayer = document.getElementById("mapPinsLayer");
+        const mapUnitList = document.getElementById("mapUnitList");
+        const mapAreaSelect = document.getElementById("mapAreaSelect");
+        const mapFilterBtns = document.querySelectorAll(".map-filter-btn");
+        const mapSelectedBadge = document.getElementById("mapSelectedBadge");
+        const mapFocusTitle = document.getElementById("mapFocusTitle");
+        const mapFocusDesc = document.getElementById("mapFocusDesc");
+        const mapBookSelectedBtn = document.getElementById("mapBookSelectedBtn");
+
+        let activeMapType = "all";
+        let activeMapArea = "all";
+        let selectedMapUnitId = "u1";
+
+        function getFilteredMapUnits() {
+            return mapUnits.filter(u => {
+                const matchType = activeMapType === "all" || u.type === activeMapType;
+                const matchArea = activeMapArea === "all" || u.area === activeMapArea;
+                return matchType && matchArea;
+            });
+        }
+
+        function renderMapView() {
+            if (!mapPinsLayer || !mapUnitList) return;
+            const filtered = getFilteredMapUnits();
+            if (filtered.length && !filtered.some(u => u.id === selectedMapUnitId)) {
+                selectedMapUnitId = filtered[0].id;
+            }
+
+            const selectedUnit = filtered.find(u => u.id === selectedMapUnitId) || filtered[0] || null;
+
+            mapPinsLayer.innerHTML = filtered.map(u => {
+                const isSel = selectedUnit && u.id === selectedUnit.id;
+                const shortTitle = currentLang === "si" ? u.nameSi : u.nameEn;
+                return `<button type="button" class="map-pin ${isSel ? "selected" : ""}" data-uid="${u.id}" style="left:${u.x}%;top:${u.y}%;">
+                    <span class="map-pin-dot"></span>
+                    <span>${shortTitle.split("(")[0].trim()}</span>
+                </button>`;
+            }).join("");
+
+            if (!filtered.length) {
+                mapUnitList.innerHTML = `<div style="padding:18px;text-align:center;color:var(--text-muted);font-size:0.84rem;">${currentLang === "si" ? "මෙම Filter එකට ගැළපෙන වාහන හෝ රියදුරන් දැනට නැත." : "No units match this filter right now."}</div>`;
+                mapFocusTitle.textContent = currentLang === "si" ? "ප්‍රතිඵල හමු නොවීය" : "No Matching Units";
+                mapFocusDesc.textContent = currentLang === "si" ? "වෙනත් ප්‍රදේශයක් හෝ සේවාවක් තෝරන්න" : "Try another area or service filter";
+                return;
+            }
+
+            mapUnitList.innerHTML = filtered.map(u => {
+                const isSel = selectedUnit && u.id === selectedUnit.id;
+                const title = currentLang === "si" ? u.nameSi : u.nameEn;
+                const areaStr = currentLang === "si" ? u.areaLabelSi : u.areaLabelEn;
+                const typeStr = currentLang === "si" ? u.typeLabelSi : u.typeLabelEn;
+                return `<div class="unit-item ${isSel ? "active" : ""}" data-uid="${u.id}">
+                    <div>
+                        <h4>${title}</h4>
+                        <p>📍 ${areaStr} • ${typeStr}</p>
+                    </div>
+                    <div class="unit-meta">
+                        <span class="unit-status">${currentLang === "si" ? "AVAILABLE" : "AVAILABLE"}</span>
+                        <span class="unit-rate">${u.rate}</span>
+                    </div>
+                </div>`;
+            }).join("");
+
+            if (selectedUnit) {
+                const areaText = currentLang === "si" ? selectedUnit.areaLabelSi : selectedUnit.areaLabelEn;
+                const typeText = currentLang === "si" ? selectedUnit.typeLabelSi : selectedUnit.typeLabelEn;
+                mapSelectedBadge.textContent = (currentLang === "si" ? "තෝරාගත් ස්ථානය: " : "SELECTED LOCATION: ") + areaText;
+                mapFocusTitle.textContent = currentLang === "si" ? selectedUnit.nameSi : selectedUnit.nameEn;
+                mapFocusDesc.textContent = `${typeText} • ${selectedUnit.rate}`;
+            }
+
+            mapPinsLayer.querySelectorAll(".map-pin").forEach(pin => {
+                pin.addEventListener("click", () => {
+                    selectedMapUnitId = pin.dataset.uid;
+                    renderMapView();
+                });
+            });
+
+            mapUnitList.querySelectorAll(".unit-item").forEach(item => {
+                item.addEventListener("click", () => {
+                    selectedMapUnitId = item.dataset.uid;
+                    renderMapView();
+                });
+            });
+        }
+
+        mapFilterBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                mapFilterBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                activeMapType = btn.dataset.mfilter;
+                renderMapView();
+            });
+        });
+
+        if (mapAreaSelect) {
+            mapAreaSelect.addEventListener("change", () => {
+                activeMapArea = mapAreaSelect.value;
+                renderMapView();
+            });
+        }
+
+        if (mapBookSelectedBtn) {
+            mapBookSelectedBtn.addEventListener("click", () => {
+                const filtered = getFilteredMapUnits();
+                const chosen = filtered.find(u => u.id === selectedMapUnitId) || filtered[0];
+                activeModalService = chosen ? chosen.servicePayload : "Vehicle + Driver";
+                modalSelectedService.textContent = (currentLang === "si" ? "තෝරාගත් සේවාව: " : "Selected: ") + activeModalService;
+                bookingModal.classList.add("show");
+            });
+        }
+
+        renderMapView();
 
         // Full Page Sinhala <-> English Switcher
         let currentLang = "si";
