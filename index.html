@@ -12,11 +12,9 @@
             --bg-void: #05070d;
             --bg-obsidian: #0a0f1d;
             --bg-surface: #111827;
-            --bg-surface-2: #162033;
             --border-subtle: rgba(255, 255, 255, 0.08);
             --border-gold: rgba(217, 160, 54, 0.35);
             --gold-bright: #f5b942;
-            --gold-rich: #d99b26;
             --bronze: #b87333;
             --text-main: #f8fafc;
             --text-soft: #cbd5e1;
@@ -27,11 +25,7 @@
             --glow-gold: 0 20px 50px rgba(217, 155, 38, 0.16);
         }
 
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         html {
             scroll-behavior: smooth;
@@ -54,7 +48,6 @@
             padding: 0 22px;
         }
 
-        /* Ambient Luxury Grid Overlay */
         .bg-grid-pattern {
             background-image:
                 radial-gradient(circle at 18% 12%, rgba(245, 185, 66, 0.12), transparent 36%),
@@ -64,10 +57,9 @@
             background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
         }
 
-        /* Parent Page Sub-Navigation Bar (New Anura Stores / careers-apply.html) */
         .parent-sub-bar {
-            background: rgba(8, 12, 22, 0.95);
-            border-bottom: 1px solid rgba(245, 185, 66, 0.22);
+            background: rgba(8, 12, 22, 0.96);
+            border-bottom: 1px solid rgba(245, 185, 66, 0.25);
             font-size: 0.78rem;
             color: var(--text-muted);
         }
@@ -95,8 +87,9 @@
             font-weight: 700;
         }
 
-        .parent-crumb-trail a:hover {
+        .parent-crumb-trail a:hover, .parent-back-link:hover {
             text-decoration: underline;
+            color: var(--gold-bright);
         }
 
         .parent-back-link {
@@ -106,25 +99,19 @@
             font-size: 0.76rem;
         }
 
-        .parent-back-link:hover {
-            color: var(--gold-bright);
-        }
-
-        /* Navbar */
         .navbar {
             position: fixed;
             top: 38px;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(5, 7, 13, 0.86);
+            background: rgba(5, 7, 13, 0.88);
             backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
             border-bottom: 1px solid var(--border-subtle);
         }
 
         .nav-inner {
-            height: 78px;
+            height: 76px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -139,70 +126,39 @@
         }
 
         .brand-logo-wrap {
-            width: 46px;
-            height: 46px;
+            width: 44px;
+            height: 44px;
             border-radius: 12px;
-            padding: 2px;
             background: linear-gradient(135deg, var(--gold-bright), var(--bronze));
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .brand-logo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-            background: #0b0f19;
-        }
-
-        .brand-fallback-icon {
             font-family: 'Cinzel', serif;
             font-weight: 800;
-            font-size: 1rem;
-            color: var(--gold-bright);
-        }
-
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.15;
+            color: #080b12;
         }
 
         .brand-name {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 800;
-            color: #ffffff;
-            letter-spacing: -0.02em;
+            color: #fff;
         }
 
         .brand-name span {
-            background: linear-gradient(90deg, var(--gold-bright), #fbbf24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .brand-sub {
-            font-size: 0.62rem;
-            font-weight: 700;
-            letter-spacing: 0.16em;
-            color: var(--text-muted);
+            color: var(--gold-bright);
         }
 
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 26px;
+            gap: 22px;
         }
 
         .nav-menu a {
             color: var(--text-soft);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
-            transition: color 0.2s ease;
         }
 
         .nav-menu a:hover {
@@ -215,7 +171,6 @@
             gap: 10px;
         }
 
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -223,56 +178,37 @@
             gap: 8px;
             border: none;
             border-radius: 11px;
-            padding: 13px 22px;
-            font-size: 0.92rem;
+            padding: 12px 20px;
+            font-size: 0.9rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
             font-family: inherit;
             text-decoration: none;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-        }
+        .btn:hover { transform: translateY(-2px); }
 
         .btn-gold {
             background: linear-gradient(135deg, #f5b942 0%, #d98a1c 100%);
             color: #080b12;
-            box-shadow: 0 10px 28px rgba(245, 185, 66, 0.28);
-        }
-
-        .btn-gold:hover {
-            box-shadow: 0 14px 34px rgba(245, 185, 66, 0.42);
-            filter: brightness(1.05);
+            box-shadow: 0 10px 24px rgba(245, 185, 66, 0.25);
         }
 
         .btn-glass {
             background: rgba(255, 255, 255, 0.06);
-            color: #ffffff;
+            color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.14);
         }
 
-        .btn-glass:hover {
-            background: rgba(245, 185, 66, 0.14);
-            border-color: var(--gold-bright);
-            color: var(--gold-bright);
-        }
-
-        .btn-sm {
-            padding: 9px 15px;
-            font-size: 0.82rem;
-        }
-
-        .full-btn {
-            width: 100%;
-        }
+        .btn-sm { padding: 9px 14px; font-size: 0.82rem; }
+        .full-btn { width: 100%; }
 
         .hamburger {
             display: none;
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.16);
-            color: #ffffff;
+            color: #fff;
             width: 40px;
             height: 40px;
             border-radius: 10px;
@@ -280,167 +216,99 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
         .hero {
-            position: relative;
-            padding: 158px 0 84px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            padding: 156px 0 80px;
             border-bottom: 1px solid var(--border-subtle);
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1.15fr 0.95fr;
-            gap: 44px;
+            gap: 40px;
             align-items: center;
         }
 
         .luxury-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 7px 16px;
+            gap: 8px;
+            padding: 6px 14px;
             border-radius: 999px;
             background: rgba(245, 185, 66, 0.1);
             border: 1px solid var(--border-gold);
             color: var(--gold-bright);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .badge-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--gold-bright);
-            box-shadow: 0 0 12px var(--gold-bright);
-        }
-
-        .hero-copy h1 {
-            font-size: clamp(2.1rem, 4.3vw, 3.35rem);
-            font-weight: 800;
-            line-height: 1.18;
-            letter-spacing: -0.025em;
             margin-bottom: 18px;
-            color: #ffffff;
         }
 
-        .hero-copy h1 span {
-            background: linear-gradient(90deg, #fde68a 0%, #f5b942 50%, #d98a1c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
         }
 
-        .hero-desc {
+        .hero h1 span {
+            color: var(--gold-bright);
+        }
+
+        .hero p {
             color: var(--text-soft);
-            font-size: 1.03rem;
-            max-width: 580px;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
-        /* Visual Showcase Strip inside Hero */
-        .hero-showcase-banner {
-            position: relative;
-            border-radius: var(--radius-lg);
-            padding: 18px 22px;
-            margin-bottom: 26px;
-            background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(10, 15, 29, 0.95));
-            border: 1px solid var(--border-gold);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            box-shadow: var(--glow-gold);
-        }
-
-        .hero-car-art {
-            width: 210px;
-            flex-shrink: 0;
-        }
-
-        .hero-stats-row {
+        .hero-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 14px;
         }
 
-        .stat-pill {
-            background: rgba(255, 255, 255, 0.035);
+        .stat-box {
+            background: rgba(255,255,255,0.03);
             border: 1px solid var(--border-subtle);
             border-radius: 14px;
-            padding: 14px 16px;
+            padding: 14px;
         }
 
-        .stat-pill strong {
+        .stat-box strong {
             display: block;
-            font-size: 1.35rem;
-            font-weight: 800;
             color: var(--gold-bright);
+            font-size: 1.25rem;
         }
 
-        .stat-pill span {
+        .stat-box span {
             font-size: 0.78rem;
             color: var(--text-muted);
         }
 
-        /* Dark Glass Booking Card */
         .booking-card {
-            background: linear-gradient(160deg, rgba(17, 24, 39, 0.96) 0%, rgba(9, 13, 24, 0.98) 100%);
+            background: linear-gradient(160deg, rgba(17, 24, 39, 0.96), rgba(9, 13, 24, 0.98));
             border: 1px solid var(--border-gold);
             border-radius: var(--radius-xl);
-            padding: 28px;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), var(--glow-gold);
-        }
-
-        .card-eyebrow {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.14em;
-            color: var(--gold-bright);
-            background: rgba(245, 185, 66, 0.12);
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-        }
-
-        .booking-card h2 {
-            font-size: 1.42rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 4px;
-        }
-
-        .booking-card > p {
-            font-size: 0.86rem;
-            color: var(--text-muted);
-            margin-bottom: 18px;
+            padding: 26px;
+            box-shadow: var(--glow-gold);
         }
 
         .mode-tabs {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 6px;
-            background: rgba(5, 7, 13, 0.8);
-            border: 1px solid var(--border-subtle);
+            background: rgba(5,7,13,0.8);
             padding: 6px;
             border-radius: 12px;
-            margin-bottom: 18px;
+            margin: 14px 0 16px;
         }
 
         .mode-btn {
             border: none;
             background: transparent;
             color: var(--text-muted);
-            padding: 10px 6px;
+            padding: 9px 6px;
             border-radius: 9px;
-            font-size: 0.77rem;
+            font-size: 0.76rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s ease;
             font-family: inherit;
         }
 
@@ -449,2547 +317,167 @@
             color: #080b12;
         }
 
-        .dark-form {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .field-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .field {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .field label {
-            font-size: 0.79rem;
-            font-weight: 600;
-            color: var(--text-soft);
-        }
-
-        .field input,
-        .field select {
+        .dark-form { display: flex; flex-direction: column; gap: 13px; }
+        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .field { display: flex; flex-direction: column; gap: 6px; }
+        .field label { font-size: 0.78rem; color: var(--text-soft); font-weight: 600; }
+        .field input, .field select {
             width: 100%;
             padding: 11px 13px;
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            background: rgba(5, 7, 13, 0.85);
-            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(5,7,13,0.85);
+            color: #fff;
             font-size: 0.9rem;
             font-family: inherit;
-            transition: border-color 0.2s ease;
-        }
-
-        .field input::placeholder {
-            color: #64748b;
-        }
-
-        .field input:focus,
-        .field select:focus {
-            outline: none;
-            border-color: var(--gold-bright);
         }
 
         .price-banner {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 12px 15px;
+            align-items: center;
+            padding: 12px 14px;
             border-radius: 11px;
-            background: rgba(245, 185, 66, 0.08);
+            background: rgba(245,185,66,0.08);
             border: 1px dashed var(--border-gold);
-            font-size: 0.85rem;
-            color: var(--text-soft);
         }
 
-        .price-banner strong {
-            font-size: 1.15rem;
-            color: var(--gold-bright);
-        }
+        .price-banner strong { color: var(--gold-bright); font-size: 1.1rem; }
 
-        /* Sections */
-        .section {
-            padding: 92px 0;
-            border-bottom: 1px solid var(--border-subtle);
-        }
+        .section { padding: 82px 0; border-bottom: 1px solid var(--border-subtle); }
+        .section-head { text-align: center; max-width: 680px; margin: 0 auto 44px; }
+        .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 6px 0 10px; }
+        .section-head p { color: var(--text-muted); }
 
-        .section-darker {
-            background: var(--bg-obsidian);
-        }
-
-        .section-head {
-            text-align: center;
-            max-width: 690px;
-            margin: 0 auto 52px;
-        }
-
-        .section-head .eyebrow {
-            display: inline-block;
-            font-size: 0.74rem;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            color: var(--gold-bright);
-            margin-bottom: 8px;
-        }
-
-        .section-head h2 {
-            font-size: clamp(1.7rem, 3.1vw, 2.35rem);
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .section-head p {
-            color: var(--text-muted);
-            font-size: 0.96rem;
-        }
-
-        /* 3 Core Pillars */
-        .pillars-grid {
+        .pillars-grid, .fleet-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 26px;
+            gap: 24px;
         }
 
-        .payments-grid-4 {
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .pillar-card {
-            background: linear-gradient(180deg, rgba(17, 24, 39, 0.9) 0%, rgba(10, 15, 29, 0.95) 100%);
+        .card {
+            background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-xl);
-            padding: 32px 26px;
+            padding: 26px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.25s ease, border-color 0.25s ease;
+            gap: 18px;
         }
 
-        .pillar-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-gold);
-        }
+        .card.featured { border-color: var(--gold-bright); box-shadow: var(--glow-gold); }
+        .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+        .card p { font-size: 0.88rem; color: var(--text-muted); }
 
-        .pillar-card.featured {
-            border: 1.5px solid var(--gold-bright);
-            box-shadow: var(--glow-gold);
-        }
-
-        .pillar-icon-box {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: rgba(245, 185, 66, 0.12);
-            border: 1px solid var(--border-gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 18px;
-        }
-
-        .pillar-card h3 {
-            font-size: 1.22rem;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .pillar-card > div > p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .pillar-list {
-            list-style: none;
-            margin: 20px 0 26px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .pillar-list li {
-            font-size: 0.88rem;
-            color: var(--text-soft);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .pillar-list li span {
-            color: var(--gold-bright);
-            font-weight: 800;
-        }
-
-        /* Fleet Cards with Custom Vector Illustrations */
-        .fleet-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 38px;
-        }
-
-        .fleet-header .section-head {
-            text-align: left;
-            margin: 0;
-        }
-
-        .filter-bar {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
+        .filter-bar { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
         .filter-btn {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255,255,255,0.04);
             border: 1px solid var(--border-subtle);
             color: var(--text-soft);
-            padding: 9px 16px;
+            padding: 8px 16px;
             border-radius: 999px;
             font-size: 0.82rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s ease;
             font-family: inherit;
         }
-
-        .filter-btn.active,
-        .filter-btn:hover {
+        .filter-btn.active, .filter-btn:hover {
             background: var(--gold-bright);
             color: #080b12;
             border-color: var(--gold-bright);
         }
 
-        .fleet-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 26px;
-        }
-
-        .vehicle-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.25s ease, border-color 0.25s ease;
-        }
-
-        .vehicle-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-gold);
-        }
-
-        .vehicle-visual {
-            position: relative;
-            height: 200px;
-            background: radial-gradient(circle at 50% 45%, rgba(245, 185, 66, 0.18), rgba(5, 7, 13, 0.98) 75%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .vehicle-visual svg {
-            width: 84%;
-            max-width: 260px;
-            height: auto;
-            filter: drop-shadow(0 14px 18px rgba(0,0,0,0.65));
-        }
-
-        .v-badge {
-            position: absolute;
-            top: 14px;
-            left: 14px;
-            background: rgba(5, 7, 13, 0.85);
-            border: 1px solid var(--border-gold);
-            color: var(--gold-bright);
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 4px 11px;
-            border-radius: 999px;
-        }
-
-        .vehicle-body {
-            padding: 22px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex: 1;
-        }
-
-        .vehicle-body h3 {
-            font-size: 1.15rem;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-
-        .vehicle-specs {
-            font-size: 0.84rem;
-            color: var(--text-muted);
-            margin-bottom: 18px;
-        }
-
-        .vehicle-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 14px;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .vehicle-footer small {
-            display: block;
-            font-size: 0.72rem;
-            color: var(--text-muted);
-        }
-
-        .vehicle-footer strong {
-            font-size: 1.18rem;
-            color: var(--gold-bright);
-        }
-
-        /* Commission Simulator */
-        .calc-wrapper {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 34px;
-            align-items: center;
-        }
-
-        .calc-left h2 {
-            font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-            color: #ffffff;
-            margin-bottom: 12px;
-        }
-
-        .calc-left p {
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
-
-        .calc-inputs {
+        .calc-box {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .calc-card {
-            background: linear-gradient(155deg, #111827, #080c16);
+            gap: 28px;
+            background: var(--bg-surface);
             border: 1px solid var(--border-gold);
             border-radius: var(--radius-xl);
-            padding: 30px;
-            box-shadow: var(--glow-gold);
-        }
-
-        .calc-card h3 {
-            color: var(--gold-bright);
-            font-size: 1.15rem;
-            margin-bottom: 18px;
+            padding: 28px;
         }
 
         .calc-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 14px 0;
+            padding: 12px 0;
             border-bottom: 1px solid var(--border-subtle);
-            font-size: 0.92rem;
-            color: var(--text-soft);
         }
 
-        .calc-row strong {
-            font-size: 1.08rem;
-        }
-
-        .green-val {
-            color: #4ade80;
-        }
-
-        .gold-val {
-            color: var(--gold-bright);
-        }
-
-        .calc-disclaimer {
-            margin-top: 16px;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-        }
-
-        /* Partner Registration */
-        .partner-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-        }
-
-        .partner-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-xl);
-            padding: 32px 28px;
-        }
-
-        .partner-card h3 {
-            font-size: 1.26rem;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-
-        .partner-card > p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            margin-bottom: 22px;
-        }
-
-        /* FAQ */
-        .faq-container {
-            max-width: 840px;
-        }
-
-        .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .faq-item {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-        }
-
-        .faq-btn {
-            width: 100%;
-            background: transparent;
-            border: none;
-            padding: 18px 22px;
-            text-align: left;
-            color: #ffffff;
-            font-size: 0.96rem;
-            font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 14px;
-            cursor: pointer;
-            font-family: inherit;
-        }
-
-        .faq-body {
-            display: none;
-            padding: 0 22px 18px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .faq-item.open .faq-body {
-            display: block;
-        }
-
-        .faq-item.open .faq-plus {
-            transform: rotate(45deg);
-        }
-
-        .faq-plus {
-            color: var(--gold-bright);
-            font-size: 1.35rem;
-            transition: transform 0.2s ease;
-        }
-
-        /* Footer */
-        .footer {
-            background: #030509;
-            padding: 64px 0 26px;
-        }
-
+        .footer { background: #030509; padding: 52px 0 24px; }
         .footer-grid {
             display: grid;
             grid-template-columns: 1.4fr 1fr 1fr;
-            gap: 34px;
-            padding-bottom: 36px;
+            gap: 28px;
+            padding-bottom: 28px;
             border-bottom: 1px solid var(--border-subtle);
         }
+        .footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; color: var(--text-muted); font-size: 0.88rem; }
+        .footer a { color: var(--text-muted); text-decoration: none; }
+        .footer a:hover { color: var(--gold-bright); }
+        .footer-copy { text-align: center; padding-top: 18px; color: #64748b; font-size: 0.8rem; }
 
-        .footer-about p {
-            margin-top: 14px;
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            max-width: 360px;
-        }
-
-        .footer h4 {
-            color: #ffffff;
-            font-size: 0.98rem;
-            margin-bottom: 14px;
-        }
-
-        .footer ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 9px;
-            font-size: 0.88rem;
-            color: var(--text-muted);
-        }
-
-        .footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: var(--gold-bright);
-        }
-
-        .footer-copy {
-            padding-top: 22px;
-            text-align: center;
-            font-size: 0.82rem;
-            color: #64748b;
-        }
-
-        /* Modal */
         .modal-overlay {
             display: none;
             position: fixed;
             inset: 0;
             z-index: 1500;
-            background: rgba(2, 4, 10, 0.82);
+            background: rgba(2,4,10,0.82);
             backdrop-filter: blur(8px);
             align-items: center;
             justify-content: center;
             padding: 20px;
         }
-
-        .modal-overlay.show {
-            display: flex;
-        }
-
+        .modal-overlay.show { display: flex; }
         .modal-dialog {
             position: relative;
             width: 100%;
-            max-width: 470px;
+            max-width: 460px;
             background: var(--bg-surface);
             border: 1px solid var(--border-gold);
             border-radius: var(--radius-xl);
-            padding: 28px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+            padding: 26px;
         }
-
         .modal-x {
             position: absolute;
-            top: 14px;
-            right: 18px;
+            top: 12px;
+            right: 16px;
             background: transparent;
             border: none;
             color: var(--text-muted);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             cursor: pointer;
         }
 
-        .modal-tag {
-            margin: 10px 0 16px;
-            padding: 9px 12px;
-            border-radius: 9px;
-            background: rgba(245, 185, 66, 0.1);
-            border: 1px solid var(--border-gold);
-            color: var(--gold-bright);
-            font-size: 0.84rem;
-            font-weight: 700;
-        }
-
-
-        /* Live Availability Map Section */
-        .map-grid {
-            display: grid;
-            grid-template-columns: 1.35fr 0.85fr;
-            gap: 26px;
-            align-items: stretch;
-        }
-
-        .map-stage {
-            position: relative;
-            min-height: 430px;
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--border-gold);
-            background:
-                radial-gradient(circle at 48% 52%, rgba(245, 185, 66, 0.14), transparent 55%),
-                linear-gradient(160deg, #0b1222 0%, #060913 100%);
-            overflow: hidden;
-            box-shadow: var(--glow-gold);
-        }
-
-        .map-road {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(245, 185, 66, 0.12);
-        }
-
-        .map-road-h1 { top: 28%; left: -5%; width: 110%; height: 10px; transform: rotate(-3deg); }
-        .map-road-h2 { top: 64%; left: -5%; width: 110%; height: 12px; transform: rotate(2deg); }
-        .map-road-v1 { left: 26%; top: -5%; width: 10px; height: 110%; transform: rotate(4deg); }
-        .map-road-v2 { left: 66%; top: -5%; width: 11px; height: 110%; transform: rotate(-2deg); }
-
-        .map-zone-tag {
-            position: absolute;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            color: rgba(203, 213, 225, 0.45);
-            text-transform: uppercase;
-            pointer-events: none;
-        }
-
-        .map-top-bar {
-            position: relative;
-            z-index: 4;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-            padding: 14px 16px;
-            background: rgba(5, 7, 13, 0.78);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .map-pills {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        .map-filter-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-soft);
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            cursor: pointer;
-            font-family: inherit;
-            transition: all 0.2s ease;
-        }
-
-        .map-filter-btn.active,
-        .map-filter-btn:hover {
-            background: var(--gold-bright);
-            color: #080b12;
-            border-color: var(--gold-bright);
-        }
-
-        .map-pin {
-            position: absolute;
-            z-index: 5;
-            transform: translate(-50%, -50%);
-            border: 1.5px solid var(--gold-bright);
-            background: rgba(10, 15, 29, 0.94);
-            color: #ffffff;
-            padding: 7px 12px;
-            border-radius: 999px;
-            font-size: 0.76rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65);
-            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-            font-family: inherit;
-        }
-
-        .map-pin:hover,
-        .map-pin.selected {
-            transform: translate(-50%, -58%) scale(1.06);
-            background: linear-gradient(135deg, #f5b942, #d98a1c);
-            color: #080b12;
-        }
-
-        .map-pin-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #4ade80;
-            flex-shrink: 0;
-        }
-
-        .map-pin.selected .map-pin-dot {
-            background: #080b12;
-        }
-
-        .map-side-panel {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-xl);
-            padding: 22px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 16px;
-        }
-
-        .unit-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-height: 295px;
-            overflow-y: auto;
-            padding-right: 4px;
-        }
-
-        .unit-item {
-            background: rgba(5, 7, 13, 0.75);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            padding: 12px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            cursor: pointer;
-            transition: border-color 0.2s ease, transform 0.2s ease;
-        }
-
-        .unit-item:hover,
-        .unit-item.active {
-            border-color: var(--gold-bright);
-            transform: translateX(2px);
-        }
-
-        .unit-item h4 {
-            font-size: 0.9rem;
-            color: #ffffff;
-            margin-bottom: 2px;
-        }
-
-        .unit-item p {
-            font-size: 0.76rem;
-            color: var(--text-muted);
-        }
-
-        .unit-meta {
-            text-align: right;
-            flex-shrink: 0;
-        }
-
-        .unit-status {
-            display: inline-block;
-            font-size: 0.68rem;
-            font-weight: 800;
-            color: #4ade80;
-            background: rgba(74, 222, 128, 0.12);
-            padding: 2px 8px;
-            border-radius: 999px;
-            margin-bottom: 3px;
-        }
-
-        .unit-rate {
-            display: block;
-            font-size: 0.84rem;
-            font-weight: 800;
-            color: var(--gold-bright);
-        }
-
-        @media (max-width: 990px) {
-            .map-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        .pay-modal-dialog {
-            max-width: 540px;
-            max-height: 92vh;
-            overflow-y: auto;
-            background: linear-gradient(165deg, #111827 0%, #070b14 100%);
-            border: 1.5px solid var(--border-gold);
-            box-shadow: 0 32px 90px rgba(0, 0, 0, 0.85), var(--glow-gold);
-        }
-
-        .pay-method-pills {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-bottom: 14px;
-        }
-
-        .pay-pill-btn {
-            background: rgba(5, 7, 13, 0.85);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-soft);
-            border-radius: 11px;
-            padding: 9px 6px;
-            font-size: 0.74rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-            font-family: inherit;
-            transition: all 0.2s ease;
-        }
-
-        .pay-pill-btn:hover {
-            border-color: var(--border-gold);
-            color: var(--gold-bright);
-        }
-
-        .pay-pill-btn.active {
-            background: linear-gradient(135deg, rgba(245, 185, 66, 0.22), rgba(184, 115, 51, 0.16));
-            border-color: var(--gold-bright);
-            color: #ffffff;
-            box-shadow: 0 6px 18px rgba(245, 185, 66, 0.18);
-        }
-
-        .pay-visual-panel {
-            background: linear-gradient(135deg, rgba(245, 185, 66, 0.09), rgba(15, 23, 42, 0.92));
-            border: 1px solid rgba(245, 185, 66, 0.28);
-            border-radius: 14px;
-            padding: 12px 14px;
-            margin-bottom: 12px;
-            font-size: 0.78rem;
-            color: var(--text-soft);
-        }
-
-        .koko-steps-strip {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .koko-step-box {
-            background: rgba(5, 7, 13, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 8px 9px;
-            text-align: center;
-        }
-
-        .koko-step-box small {
-            display: block;
-            font-size: 0.67rem;
-            color: var(--text-muted);
-        }
-
-        .koko-step-box strong {
-            display: block;
-            font-size: 0.82rem;
-            color: #38bdf8;
-            margin-top: 2px;
-        }
-
-        .mini-card-preview {
-            background: linear-gradient(125deg, #1e293b 0%, #0f172a 55%, #2b1d08 100%);
-            border: 1px solid rgba(245, 185, 66, 0.45);
-            border-radius: 12px;
-            padding: 12px 14px;
-            margin-top: 6px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .payout-ledger-box {
-            background: rgba(5, 7, 13, 0.85);
-            border: 1px solid var(--border-gold);
-            border-radius: 12px;
-            padding: 13px 14px;
-            margin-bottom: 14px;
-            font-size: 0.8rem;
-            color: var(--text-soft);
-        }
-
-        .payout-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .payout-row:last-child {
-            border-bottom: none;
-        }
-
-        .ledger-history-list {
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            max-height: 135px;
-            overflow-y: auto;
-        }
-
-        .ledger-entry {
-            background: rgba(17, 24, 39, 0.9);
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            padding: 8px 10px;
-            font-size: 0.74rem;
-            color: var(--text-muted);
-            display: flex;
-            justify-content: space-between;
-            gap: 8px;
-        }
-
-        .ledger-entry strong {
-            color: #4ade80;
-            display: block;
-            font-size: 0.78rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 990px) {
-            .hero-grid,
-            .pillars-grid,
-            .payments-grid-4,
-            .fleet-grid,
-            .calc-wrapper,
-            .partner-grid,
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .calc-inputs {
-                grid-template-columns: 1fr;
-            }
-
+        @media (max-width: 960px) {
+            .hero-grid, .pillars-grid, .fleet-grid, .calc-box, .footer-grid { grid-template-columns: 1fr; }
             .nav-menu {
                 display: none;
                 position: absolute;
-                top: 78px;
+                top: 76px;
                 left: 0;
                 width: 100%;
                 background: #070a13;
                 flex-direction: column;
-                padding: 22px;
-                gap: 16px;
+                padding: 20px;
+                gap: 14px;
                 border-bottom: 1px solid var(--border-subtle);
             }
-
-            .nav-menu.open {
-                display: flex;
-            }
-
-            .hamburger {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-            }
+            .nav-menu.open { display: flex; }
+            .hamburger { display: inline-flex; align-items: center; justify-content: center; }
         }
 
         @media (max-width: 600px) {
-            .hero-showcase-banner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .hero-car-art {
-                width: 100%;
-            }
-
-            .pay-method-pills,
-            .koko-steps-strip,
-            .field-row,
-            .mode-tabs,
-            .hero-stats-row {
-                grid-template-columns: 1fr;
-            }
-
-            #navBookBtn {
-                display: none;
-            }
+            .field-row, .mode-tabs, .hero-stats { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body class="bg-grid-pattern">
 
-    <!-- Sub-page Hierarchy Bar under New Anura Stores / careers-apply.html -->
+    <!-- Parent Page Sub-Navigation Bar under New Anura Stores / careers-apply.html -->
     <div class="parent-sub-bar" id="parentHierarchyBar">
         <div class="container parent-sub-inner">
             <div class="parent-crumb-trail">
                 <span>🏛️</span>
                 <a href="https://miyuruwitharana.github.io/New-Anura-Stores/" target="_blank" rel="noopener noreferrer">New Anura Stores</a>
-                <span>/</span>
-                <a href="https://miyuruwitharana.github.io/New-Anura-Stores/careers-apply.html" target="_blank" rel="noopener noreferrer" data-si="Careers & Apply (careers-apply.html)" data-en="Careers & Apply (careers-apply.html)">Careers & Apply (careers-apply.html)</a>
-                <span>/</span>
-                <strong style="color:#fff;" data-si="DriveLink SL Mobility Portal" data-en="DriveLink SL Mobility Portal">DriveLink SL Mobility Portal</strong>
-            </div>
-            <a href="https://miyuruwitharana.github.io/New-Anura-Stores/careers-apply.html" target="_blank" rel="noopener noreferrer" class="parent-back-link" data-si="← Careers & Apply පිටුවට යන්න" data-en="← Back to Careers & Apply">← Careers & Apply පිටුවට යන්න</a>
-        </div>
-    </div>
-
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="container nav-inner">
-            <a href="#top" class="brand">
-                <div class="brand-logo-wrap">
-                    <img src="logo.jpg" alt="DriveLink SL" class="brand-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-                    <span class="brand-fallback-icon" style="display:none;">DL</span>
-                </div>
-                <div class="brand-text">
-                    <span class="brand-name">DriveLink<span>SL</span></span>
-                    <span class="brand-sub">LUXURY MOBILITY NETWORK</span>
-                </div>
-            </a>
-
-            <nav class="nav-menu" id="navMenu">
-                <a href="#services" data-si="සේවාවන්" data-en="Services">සේවාවන්</a>
-                <a href="#fleet" data-si="වාහන සහ රියදුරන්" data-en="Fleet & Drivers">වාහන සහ රියදුරන්</a>
-                <a href="#live-map" data-si="සජීවී සිතියම" data-en="Live Map">සජීවී සිතියම</a>
-                <a href="#earnings" data-si="ආදායම් ගණකය" data-en="Revenue Simulator">ආදායම් ගණකය</a>
-                <a href="#partners" data-si="ලියාපදිංචිය" data-en="Join Network">ලියාපදිංචිය</a>
-                <a href="#payments" data-si="ගෙවීම්" data-en="Payments">ගෙවීම්</a>
-                <a href="#faq" data-si="ප්‍රශ්න" data-en="FAQ">ප්‍රශ්න</a>
-            </nav>
-
-            <div class="nav-actions">
-                <button type="button" class="btn btn-glass btn-sm" id="langToggleBtn">EN / සිංහල</button>
-                <button type="button" class="btn btn-gold btn-sm open-booking-btn" id="navBookBtn" data-service="Vehicle + Driver">දැන් වෙන්කරන්න</button>
-                <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero" id="top">
-        <div class="container hero-grid">
-            <div class="hero-copy">
-                <div class="luxury-badge">
-                    <span class="badge-dot"></span>
-                    <span data-si="ශ්‍රී ලංකාවේ පළමු 3-Sided Mobility Platform එක" data-en="Sri Lanka's First 3-Sided Mobility Platform">ශ්‍රී ලංකාවේ පළමු 3-Sided Mobility Platform එක</span>
-                </div>
-
-                <h1 id="heroHeading">
-                    වාහනයක්, රියදුරෙක් හෝ දෙකම — <span>වඩාත් ස්මාර්ට්ව</span> එකම තැනකින්
-                </h1>
-
-                <p class="hero-desc" data-si="ගමනකට වාහනයක් කුලියට ගන්න, නිවසේ ඇති වාහනය ලියාපදිංචි කර ආදායම් උපයන්න, නැතිනම් වාහනයක් නැතිවත් රියදුරු බලපත්‍රයෙන් ස්ථිර ආදායම් මාර්ගයක් සකසා ගන්න." data-en="Rent a vehicle for your trip, list your idle car to earn passive income, or earn a steady income with just a valid driving license—even without owning a vehicle.">
-                    ගමනකට වාහනයක් කුලියට ගන්න, නිවසේ ඇති වාහනය ලියාපදිංචි කර ආදායම් උපයන්න, නැතිනම් වාහනයක් නැතිවත් රියදුරු බලපත්‍රයෙන් ස්ථිර ආදායම් මාර්ගයක් සකසා ගන්න.
-                </p>
-
-                <!-- Built-in Metallic Gold Luxury Silhouette Card -->
-                <div class="hero-showcase-banner">
-                    <div>
-                        <div style="font-size:0.74rem;font-weight:800;letter-spacing:0.12em;color:var(--gold-bright);margin-bottom:4px;">VERIFIED FLEET & CHAUFFEURS</div>
-                        <div style="font-size:0.95rem;font-weight:700;color:#fff;" data-si="Self-Drive • Vehicle + Driver • Hire a Driver" data-en="Self-Drive • Vehicle + Driver • Hire a Driver">Self-Drive • Vehicle + Driver • Hire a Driver</div>
-                        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:2px;" data-si="දිවයින පුරා ආරක්ෂිත සහ විශ්වාසනීය ප්‍රවාහන සේවාව" data-en="Safe, verified, and transparent mobility across Sri Lanka">දිවයින පුරා ආරක්ෂිත සහ විශ්වාසනීය ප්‍රවාහන සේවාව</div>
-                    </div>
-                    <div class="hero-car-art" aria-hidden="true">
-                        <svg viewBox="0 0 320 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="goldCarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stop-color="#fde68a"/>
-                                    <stop offset="50%" stop-color="#f5b942"/>
-                                    <stop offset="100%" stop-color="#b87333"/>
-                                </linearGradient>
-                            </defs>
-                            <path d="M22 76 C24 62, 42 54, 72 50 L114 26 C132 18, 185 18, 212 28 L254 48 C282 52, 298 60, 300 74 L300 82 L268 82 C266 66, 234 66, 232 82 L94 82 C92 66, 60 66, 58 82 L22 82 Z" fill="url(#goldCarGrad)" fill-opacity="0.18" stroke="url(#goldCarGrad)" stroke-width="2.5"/>
-                            <path d="M118 31 L182 31 L212 48 L96 48 Z" fill="#05070d" stroke="url(#goldCarGrad)" stroke-width="1.5"/>
-                            <circle cx="76" cy="82" r="16" fill="#090d16" stroke="url(#goldCarGrad)" stroke-width="3"/>
-                            <circle cx="76" cy="82" r="6" fill="#f5b942"/>
-                            <circle cx="250" cy="82" r="16" fill="#090d16" stroke="url(#goldCarGrad)" stroke-width="3"/>
-                            <circle cx="250" cy="82" r="6" fill="#f5b942"/>
-                            <line x1="10" y1="99" x2="310" y2="99" stroke="url(#goldCarGrad)" stroke-opacity="0.35" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                </div>
-
-                <div class="hero-stats-row">
-                    <div class="stat-pill">
-                        <strong>3-in-1</strong>
-                        <span data-si="සේවා ආකාර 3ක්" data-en="Mobility Models">සේවා ආකාර 3ක්</span>
-                    </div>
-                    <div class="stat-pill">
-                        <strong>100%</strong>
-                        <span data-si="NIC & License පරීක්ෂාව" data-en="ID & License Verified">NIC & License පරීක්ෂාව</span>
-                    </div>
-                    <div class="stat-pill">
-                        <strong>24/7</strong>
-                        <span data-si="ක්ෂණික WhatsApp සම්බන්ධතාව" data-en="Instant WhatsApp Dispatch">ක්ෂණික WhatsApp සම්බන්ධතාව</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Booking Card -->
-            <div class="booking-card">
-                <span class="card-eyebrow">INSTANT RESERVATION</span>
-                <h2 data-si="ක්ෂණික වෙන්කිරීම (Booking)" data-en="Instant Booking Request">ක්ෂණික වෙන්කිරීම (Booking)</h2>
-                <p data-si="ඔබට අවශ්‍ය සේවාව තෝරා විස්තර යවන්න" data-en="Select your service option and send details immediately">ඔබට අවශ්‍ය සේවාව තෝරා විස්තර යවන්න</p>
-
-                <div class="mode-tabs">
-                    <button type="button" class="mode-btn active" data-service="Self-Drive" data-rate="8500" data-si="🚗 වාහනය පමණක්" data-en="🚗 Self-Drive">🚗 වාහනය පමණක්</button>
-                    <button type="button" class="mode-btn" data-service="Vehicle + Driver" data-rate="12500" data-si="🚘 වාහනය + රියදුරු" data-en="🚘 Car + Driver">🚘 වාහනය + රියදුරු</button>
-                    <button type="button" class="mode-btn" data-service="Hire a Driver" data-rate="3500" data-si="👨‍✈️ රියදුරු පමණක්" data-en="👨‍✈️ Driver Only">👨‍✈️ රියදුරු පමණක්</button>
-                </div>
-
-                <form id="heroBookingForm" class="dark-form">
-                    <div class="field-row">
-                        <div class="field">
-                            <label for="hName" data-si="ඔබේ නම" data-en="Your Name">ඔබේ නම</label>
-                            <input type="text" id="hName" placeholder="නිරෝෂන් සිල්වා" data-ph-si="නිරෝෂන් සිල්වා" data-ph-en="Niroshan Silva" required>
-                        </div>
-                        <div class="field">
-                            <label for="hPhone" data-si="WhatsApp අංකය" data-en="WhatsApp Number">WhatsApp අංකය</label>
-                            <input type="tel" id="hPhone" placeholder="07X XXXXXXX" data-ph-si="07X XXXXXXX" data-ph-en="07X XXXXXXX" required>
-                        </div>
-                    </div>
-
-                    <div class="field-row">
-                        <div class="field">
-                            <label for="hPickup" data-si="ආරම්භක නගරය" data-en="Pickup City">ආරම්භක නගරය</label>
-                            <input type="text" id="hPickup" placeholder="මාතර / දෙයියන්දර" data-ph-si="මාතර / දෙයියන්දර" data-ph-en="Matara / Deiyandara" required>
-                        </div>
-                        <div class="field">
-                            <label for="hDays" data-si="දින ගණන" data-en="Duration (Days)">දින ගණන</label>
-                            <select id="hDays">
-                                <option value="1" data-si="දින 1" data-en="1 Day">දින 1</option>
-                                <option value="2" data-si="දින 2" data-en="2 Days">දින 2</option>
-                                <option value="3" data-si="දින 3" data-en="3 Days">දින 3</option>
-                                <option value="5" data-si="දින 5" data-en="5 Days">දින 5</option>
-                                <option value="7" data-si="සතියක් (දින 7)" data-en="1 Week (7 Days)">සතියක් (දින 7)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="hPayMethod" data-si="ගෙවීමේ ක්‍රමය (Payment Method)" data-en="Payment Method">ගෙවීමේ ක්‍රමය (Payment Method)</label>
-                        <select id="hPayMethod">
-                            <option value="Koko Pay (Installments)" data-si="Koko Pay — ටික ටික ගෙවන්න (3 Installments)" data-en="Koko Pay — Pay in 3 Installments">Koko Pay — ටික ටික ගෙවන්න (3 Installments)</option>
-                            <option value="Bank Transfer / Slip" data-si="බැංකු ගිණුමට (Bank Transfer / Slip)" data-en="Bank Transfer / Slip Upload">බැංකු ගිණුමට (Bank Transfer / Slip)</option>
-                            <option value="Online Card / Checkout" data-si="Online Card / Payment Gateway" data-en="Online Card / Payment Gateway">Online Card / Payment Gateway</option>
-                            <option value="Cash on Pickup / Trip" data-si="වාහනය ලබාගන්නා විට මුදලින් (Cash)" data-en="Cash on Pickup / Trip">වාහනය ලබාගන්නා විට මුදලින් (Cash)</option>
-                        </select>
-                    </div>
-
-                    <div class="price-banner" style="flex-direction:column;align-items:stretch;gap:6px;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;">
-                            <span data-si="ඇස්තමේන්තුගත මුළු ගාස්තුව:" data-en="Estimated Total Rate:">ඇස්තමේන්තුගත මුළු ගාස්තුව:</span>
-                            <strong id="heroEstimatePrice">LKR 8,500</strong>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--text-muted);border-top:1px solid rgba(245,185,66,0.18);padding-top:6px;">
-                            <span data-si="වෙන්කිරීමට අත්තිකාරම් (20% Advance):" data-en="Booking Advance (20%):">වෙන්කිරීමට අත්තිකාරම් (20% Advance):</span>
-                            <span id="heroAdvancePrice" style="color:#fde68a;font-weight:700;">LKR 1,700</span>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-gold full-btn" data-si="ගෙවීම් විස්තර සමඟ WhatsApp යවන්න" data-en="Continue & Send via WhatsApp">ගෙවීම් විස්තර සමඟ WhatsApp යවන්න</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3 Core Services -->
-    <section class="section section-darker" id="services">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">THREE-SIDED ECOSYSTEM</span>
-                <h2 data-si="පාර්ශව 3ටම ගැළපෙන සේවා ව්‍යුහය" data-en="Built for All 3 Sides of Mobility">පාර්ශව 3ටම ගැළපෙන සේවා ව්‍යුහය</h2>
-                <p data-si="පාරිභෝගිකයා, වාහන හිමිකරු සහ රියදුරු යන සියලු දෙනාටම පැහැදිලි හා සාධාරණ ක්‍රමවේදයක්." data-en="A transparent, high-trust system connecting passengers, vehicle owners, and licensed drivers.">පාරිභෝගිකයා, වාහන හිමිකරු සහ රියදුරු යන සියලු දෙනාටම පැහැදිලි හා සාධාරණ ක්‍රමවේදයක්.</p>
-            </div>
-
-            <div class="pillars-grid">
-                <article class="pillar-card">
-                    <div>
-                        <div class="pillar-icon-box">🚗</div>
-                        <h3 data-si="Self-Drive (වාහනය පමණක්)" data-en="Self-Drive Rental">Self-Drive (වාහනය පමණක්)</h3>
-                        <p data-si="ඔබටම වාහනය පදවාගෙන යන්න. දෛනික හෝ දිගුකාලීන ගමන් සඳහා GPS සහිත පරීක්ෂා කළ වාහන." data-en="Drive on your own schedule. Fully inspected, GPS-equipped vehicles for daily or weekly trips.">ඔබටම වාහනය පදවාගෙන යන්න. දෛනික හෝ දිගුකාලීන ගමන් සඳහා GPS සහිත පරීක්ෂා කළ වාහන.</p>
-                        <ul class="pillar-list">
-                            <li><span>✓</span> <span data-si="දිනපතා / සතිපතා කුලී පැකේජ" data-en="Flexible daily & weekly packages">දිනපතා / සතිපතා කුලී පැකේජ</span></li>
-                            <li><span>✓</span> <span data-si="පූර්ණ ලියකියවිලි සහ GPS ආරක්ෂාව" data-en="Full insurance & GPS protection">පූර්ණ ලියකියවිලි සහ GPS ආරක්ෂාව</span></li>
-                            <li><span>✓</span> <span data-si="පහසු Deposit & Inspection ක්‍රමය" data-en="Transparent inspection & deposit">පහසු Deposit & Inspection ක්‍රමය</span></li>
-                        </ul>
-                    </div>
-                    <button type="button" class="btn btn-glass full-btn open-booking-btn" data-service="Self-Drive" data-si="Self-Drive වෙන්කරන්න" data-en="Book Self-Drive">Self-Drive වෙන්කරන්න</button>
-                </article>
-
-                <article class="pillar-card featured">
-                    <div>
-                        <div class="pillar-icon-box">🚘</div>
-                        <h3 data-si="Vehicle + Driver (වාහනය සහ රියදුරු)" data-en="Chauffeur-Driven Vehicle">Vehicle + Driver (වාහනය සහ රියදුරු)</h3>
-                        <p data-si="විවාහ මංගල උත්සව, චාරිකා, Airport Transfers සහ ව්‍යාපාරික ගමන් සඳහා වාහනය සමඟ පළපුරුදු රියදුරු." data-en="Executive travel, weddings, airport transfers, and family tours with an experienced chauffeur.">විවාහ මංගල උත්සව, චාරිකා, Airport Transfers සහ ව්‍යාපාරික ගමන් සඳහා වාහනය සමඟ පළපුරුදු රියදුරු.</p>
-                        <ul class="pillar-list">
-                            <li><span>✓</span> <span data-si="පළපුරුදු, විශ්වාසවන්ත රියදුරන්" data-en="Experienced, background-checked drivers">පළපුරුදු, විශ්වාසවන්ත රියදුරන්</span></li>
-                            <li><span>✓</span> <span data-si="දුර ගමන් සහ සංචාර සඳහා සුදුසුයි" data-en="Ideal for outstation & VIP tours">දුර ගමන් සහ සංචාර සඳහා සුදුසුයි</span></li>
-                            <li><span>✓</span> <span data-si="කාලසටහනට අනුව සේවය" data-en="Punctual door-to-door service">කාලසටහනට අනුව සේවය</span></li>
-                        </ul>
-                    </div>
-                    <button type="button" class="btn btn-gold full-btn open-booking-btn" data-service="Vehicle + Driver" data-si="Package වෙන්කරන්න" data-en="Book Vehicle + Driver">Package වෙන්කරන්න</button>
-                </article>
-
-                <article class="pillar-card">
-                    <div>
-                        <div class="pillar-icon-box">👨‍✈️</div>
-                        <h3 data-si="Hire a Driver (රියදුරු පමණක්)" data-en="Hire a Personal Driver">Hire a Driver (රියදුරු පමණක්)</h3>
-                        <p data-si="ඔබේම වාහනය පැදවීමට රියදුරෙකු ගන්න. උත්සව, රාත්‍රී ගමන් හෝ දීර්ඝ ගමන් සඳහා ආරක්ෂිත විසඳුම." data-en="Have your own car? Hire a verified professional driver by the hour or day for safe, stress-free travel.">ඔබේම වාහනය පැදවීමට රියදුරෙකු ගන්න. උත්සව, රාත්‍රී ගමන් හෝ දීර්ඝ ගමන් සඳහා ආරක්ෂිත විසඳුම.</p>
-                        <ul class="pillar-list">
-                            <li><span>✓</span> <span data-si="NIC, License & Police Verified" data-en="NIC, License & Police Verified">NIC, License & Police Verified</span></li>
-                            <li><span>✓</span> <span data-si="Light & Heavy Vehicle රියදුරන්" data-en="Light & Heavy vehicle specialists">Light & Heavy Vehicle රියදුරන්</span></li>
-                            <li><span>✓</span> <span data-si="පැයකට හෝ දිනකට ලබාගත හැක" data-en="Hourly or full-day booking">පැයකට හෝ දිනකට ලබාගත හැක</span></li>
-                        </ul>
-                    </div>
-                    <button type="button" class="btn btn-glass full-btn open-booking-btn" data-service="Hire a Driver" data-si="Driver කෙනෙක් ගන්න" data-en="Hire a Driver">Driver කෙනෙක් ගන්න</button>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fleet Showcase -->
-    <section class="section" id="fleet">
-        <div class="container">
-            <div class="fleet-header">
-                <div class="section-head">
-                    <span class="eyebrow">CURATED OPTIONS</span>
-                    <h2 data-si="වාහන සහ රියදුරු ලැයිස්තුව" data-en="Featured Fleet & Chauffeurs">වාහන සහ රියදුරු ලැයිස්තුව</h2>
-                    <p data-si="කාණ්ඩය අනුව Filter කර ඔබට ගැළපෙන විකල්පය ක්ෂණිකව වෙන්කරගන්න." data-en="Filter by category and reserve your preferred option in seconds.">කාණ්ඩය අනුව Filter කර ඔබට ගැළපෙන විකල්පය ක්ෂණිකව වෙන්කරගන්න.</p>
-                </div>
-
-                <div class="filter-bar">
-                    <button type="button" class="filter-btn active" data-filter="all" data-si="සියල්ල" data-en="All">සියල්ල</button>
-                    <button type="button" class="filter-btn" data-filter="self-drive">Self-Drive</button>
-                    <button type="button" class="filter-btn" data-filter="with-driver">Vehicle + Driver</button>
-                    <button type="button" class="filter-btn" data-filter="driver-only">Driver Only</button>
-                </div>
-            </div>
-
-            <div class="fleet-grid">
-                <!-- Card 1 -->
-                <article class="vehicle-card" data-category="self-drive with-driver">
-                    <div class="vehicle-visual">
-                        <span class="v-badge">Self-Drive / With Driver</span>
-                        <svg viewBox="0 0 300 105" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 72 C28 58, 46 50, 74 47 L116 25 C135 18, 182 18, 208 27 L246 46 C272 50, 286 58, 288 72 L288 79 L256 79 C254 64, 224 64, 222 79 L92 79 C90 64, 60 64, 58 79 L24 79 Z" fill="#f5b942" fill-opacity="0.16" stroke="#f5b942" stroke-width="2.4"/>
-                            <circle cx="75" cy="79" r="15" fill="#05070d" stroke="#f5b942" stroke-width="2.8"/>
-                            <circle cx="239" cy="79" r="15" fill="#05070d" stroke="#f5b942" stroke-width="2.8"/>
-                        </svg>
-                    </div>
-                    <div class="vehicle-body">
-                        <div>
-                            <h3>Executive Hybrid Sedan</h3>
-                            <p class="vehicle-specs" data-si="ආසන 4 • Automatic • Dual A/C • නගර සහ දුර ගමන්" data-en="4 Seats • Automatic • Dual A/C • City & Outstation">ආසන 4 • Automatic • Dual A/C • නගර සහ දුර ගමන්</p>
-                        </div>
-                        <div class="vehicle-footer">
-                            <div>
-                                <small data-si="දිනකට" data-en="Per Day">දිනකට</small>
-                                <strong>LKR 8,500</strong>
-                            </div>
-                            <button type="button" class="btn btn-gold btn-sm open-booking-btn" data-service="Executive Hybrid Sedan (LKR 8,500/day)" data-si="වෙන්කරන්න" data-en="Book Now">වෙන්කරන්න</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 2 -->
-                <article class="vehicle-card" data-category="with-driver">
-                    <div class="vehicle-visual">
-                        <span class="v-badge">Vehicle + Driver</span>
-                        <svg viewBox="0 0 300 105" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M26 76 L26 42 C26 28, 38 22, 56 22 L226 22 C244 22, 256 30, 266 46 L282 54 C288 58, 290 64, 290 76 L256 76 C254 62, 224 62, 222 76 L92 76 C90 62, 60 62, 58 76 Z" fill="#f5b942" fill-opacity="0.16" stroke="#f5b942" stroke-width="2.4"/>
-                            <rect x="52" y="30" width="46" height="18" rx="3" stroke="#f5b942" stroke-width="1.4"/>
-                            <rect x="106" y="30" width="52" height="18" rx="3" stroke="#f5b942" stroke-width="1.4"/>
-                            <rect x="166" y="30" width="52" height="18" rx="3" stroke="#f5b942" stroke-width="1.4"/>
-                            <circle cx="75" cy="77" r="15" fill="#05070d" stroke="#f5b942" stroke-width="2.8"/>
-                            <circle cx="239" cy="77" r="15" fill="#05070d" stroke="#f5b942" stroke-width="2.8"/>
-                        </svg>
-                    </div>
-                    <div class="vehicle-body">
-                        <div>
-                            <h3>Luxury KDH High-Roof Van</h3>
-                            <p class="vehicle-specs" data-si="ආසන 14 • Dual A/C • චාරිකා සහ Airport Drop" data-en="14 Seats • Dual A/C • Group Tours & Airport VIP">ආසන 14 • Dual A/C • චාරිකා සහ Airport Drop</p>
-                        </div>
-                        <div class="vehicle-footer">
-                            <div>
-                                <small data-si="දිනකට" data-en="Per Day">දිනකට</small>
-                                <strong>LKR 16,000</strong>
-                            </div>
-                            <button type="button" class="btn btn-gold btn-sm open-booking-btn" data-service="Luxury KDH High-Roof Van (LKR 16,000/day)" data-si="වෙන්කරන්න" data-en="Book Now">වෙන්කරන්න</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 3 -->
-                <article class="vehicle-card" data-category="driver-only">
-                    <div class="vehicle-visual">
-                        <span class="v-badge">Verified Chauffeur Only</span>
-                        <svg viewBox="0 0 220 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="110" cy="55" r="36" stroke="#f5b942" stroke-width="2.6" fill="#f5b942" fill-opacity="0.1"/>
-                            <circle cx="110" cy="55" r="10" stroke="#f5b942" stroke-width="2.2"/>
-                            <line x1="74" y1="55" x2="100" y2="55" stroke="#f5b942" stroke-width="2.6"/>
-                            <line x1="120" y1="55" x2="146" y2="55" stroke="#f5b942" stroke-width="2.6"/>
-                            <line x1="110" y1="65" x2="110" y2="91" stroke="#f5b942" stroke-width="2.6"/>
-                        </svg>
-                    </div>
-                    <div class="vehicle-body">
-                        <div>
-                            <h3>Certified Personal Chauffeur</h3>
-                            <p class="vehicle-specs" data-si="8+ Years Exp • Light & Heavy • Police & NIC Verified" data-en="8+ Years Exp • Light & Heavy • Police & NIC Verified">8+ Years Exp • Light & Heavy • Police & NIC Verified</p>
-                        </div>
-                        <div class="vehicle-footer">
-                            <div>
-                                <small data-si="දිනකට" data-en="Per Day">දිනකට</small>
-                                <strong>LKR 3,500</strong>
-                            </div>
-                            <button type="button" class="btn btn-gold btn-sm open-booking-btn" data-service="Certified Personal Chauffeur (LKR 3,500/day)" data-si="වෙන්කරන්න" data-en="Book Now">වෙන්කරන්න</button>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Live Availability Map Section -->
-    <section class="section section-darker" id="live-map">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow" data-si="සජීවී සිතියම" data-en="LIVE AVAILABILITY MAP">සජීවී සිතියම</span>
-                <h2 data-si="අවට ඇති වාහන සහ රියදුරන් සිතියමෙන් බලන්න" data-en="Explore Available Cars & Drivers on the Map">අවට ඇති වාහන සහ රියදුරන් සිතියමෙන් බලන්න</h2>
-                <p data-si="ප්‍රදේශය හෝ සේවා වර්ගය තෝරා දැනට available වාහන සහ රියදුරන් ක්ෂණිකව තෝරා වෙන්කරගන්න." data-en="Filter by area or service type, click any map pin, and book an available vehicle or driver immediately.">ප්‍රදේශය හෝ සේවා වර්ගය තෝරා දැනට available වාහන සහ රියදුරන් ක්ෂණිකව තෝරා වෙන්කරගන්න.</p>
-            </div>
-
-            <div class="map-grid">
-                <div class="map-stage" id="mapStage">
-                    <div class="map-top-bar">
-                        <div class="field" style="flex-direction:row;align-items:center;gap:8px;min-width:210px;">
-                            <select id="mapAreaSelect" style="padding:7px 11px;font-size:0.8rem;">
-                                <option value="all" data-si="සියලු ප්‍රදේශ (Matara / Deiyandara / Galle)" data-en="All Areas (Matara / Deiyandara / Galle)">සියලු ප්‍රදේශ (Matara / Deiyandara / Galle)</option>
-                                <option value="Matara" data-si="මාතර (Matara)" data-en="Matara">මාතර (Matara)</option>
-                                <option value="Deiyandara" data-si="දෙයියන්දර (Deiyandara)" data-en="Deiyandara">දෙයියන්දර (Deiyandara)</option>
-                                <option value="Galle" data-si="ගාල්ල (Galle)" data-en="Galle">ගාල්ල (Galle)</option>
-                            </select>
-                        </div>
-
-                        <div class="map-pills">
-                            <button type="button" class="map-filter-btn active" data-mfilter="all" data-si="සියල්ල" data-en="All">සියල්ල</button>
-                            <button type="button" class="map-filter-btn" data-mfilter="self-drive" data-si="Self-Drive" data-en="Self-Drive">Self-Drive</button>
-                            <button type="button" class="map-filter-btn" data-mfilter="with-driver" data-si="වාහනය + රියදුරු" data-en="Car + Driver">වාහනය + රියදුරු</button>
-                            <button type="button" class="map-filter-btn" data-mfilter="driver-only" data-si="රියදුරු" data-en="Drivers">රියදුරු</button>
-                        </div>
-                    </div>
-
-                    <!-- Stylized Road Grid & Area Labels -->
-                    <div class="map-road map-road-h1"></div>
-                    <div class="map-road map-road-h2"></div>
-                    <div class="map-road map-road-v1"></div>
-                    <div class="map-road map-road-v2"></div>
-
-                    <span class="map-zone-tag" style="top:18%;left:9%;">Galle Corridor</span>
-                    <span class="map-zone-tag" style="top:46%;left:45%;">Matara Hub</span>
-                    <span class="map-zone-tag" style="top:78%;left:62%;">Deiyandara Zone</span>
-
-                    <!-- Interactive Pins injected by JS -->
-                    <div id="mapPinsLayer"></div>
-                </div>
-
-                <div class="map-side-panel">
-                    <div>
-                        <span class="card-eyebrow" id="mapSelectedBadge" data-si="තෝරාගත් ස්ථානය: සියලු ප්‍රදේශ" data-en="SELECTED ZONE: ALL AREAS">තෝරාගත් ස්ථානය: සියලු ප්‍රදේශ</span>
-                        <h3 id="mapFocusTitle" style="color:#fff;font-size:1.18rem;margin-bottom:4px;" data-si="දැනට Available වාහන සහ රියදුරන්" data-en="Available Cars & Drivers Nearby">දැනට Available වාහන සහ රියදුරන්</h3>
-                        <p id="mapFocusDesc" style="font-size:0.82rem;color:var(--text-muted);margin-bottom:14px;" data-si="Pin එකක් හෝ පහළ ලැයිස්තුවෙන් එකක් තෝරන්න" data-en="Select a pin on the map or choose from the live list below">Pin එකක් හෝ පහළ ලැයිස්තුවෙන් එකක් තෝරන්න</p>
-
-                        <div class="unit-list" id="mapUnitList"></div>
-                    </div>
-
-                    <button type="button" class="btn btn-gold full-btn" id="mapBookSelectedBtn" data-si="තෝරාගත් එක වෙන්කරන්න" data-en="Book Selected Unit">තෝරාගත් එක වෙන්කරන්න</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Commission Simulator -->
-    <section class="section section-darker" id="earnings">
-        <div class="container calc-wrapper">
-            <div class="calc-left">
-                <span class="eyebrow" style="color:var(--gold-bright);font-size:0.74rem;font-weight:800;letter-spacing:0.15em;display:block;margin-bottom:8px;">REVENUE & COMMISSION SIMULATOR</span>
-                <h2 data-si="සේවාව අනුව ආදායම් බෙදී යන ආකාරය බලන්න" data-en="See How Trip Revenue Is Shared">සේවාව අනුව ආදායම් බෙදී යන ආකාරය බලන්න</h2>
-                <p data-si="වාහනයක් කුලියට දුන්නත්, වාහනය සමඟ රියදුරෙකු සැපයුවත්, නැතිනම් රියදුරු සේවාව පමණක් ලබා දුන්නත් එක් එක් ගනුදෙනුවට අදාළව සාධාරණ කොමිස් ප්‍රතිශතයක් (Platform Fee) DriveLink SL වෙත හිමි වේ." data-en="Whether renting out a vehicle, offering vehicle + driver packages, or driving independently, each completed trip splits cleanly between the provider and DriveLink SL.">
-                    වාහනයක් කුලියට දුන්නත්, වාහනය සමඟ රියදුරෙකු සැපයුවත්, නැතිනම් රියදුරු සේවාව පමණක් ලබා දුන්නත් එක් එක් ගනුදෙනුවට අදාළව සාධාරණ කොමිස් ප්‍රතිශතයක් (Platform Fee) DriveLink SL වෙත හිමි වේ.
-                </p>
-
-                <div class="calc-inputs">
-                    <div class="field">
-                        <label for="calcServiceType" data-si="සේවා වර්ගය තෝරන්න" data-en="Select Service Model">සේවා වර්ගය තෝරන්න</label>
-                        <select id="calcServiceType">
-                            <option value="self-drive" data-si="Self-Drive (Platform Fee 15%)" data-en="Self-Drive (Platform Fee 15%)">Self-Drive (Platform Fee 15%)</option>
-                            <option value="with-driver" data-si="Vehicle + Driver (Platform Fee 12%)" data-en="Vehicle + Driver (Platform Fee 12%)">Vehicle + Driver (Platform Fee 12%)</option>
-                            <option value="driver-only" data-si="Driver Only (Platform Fee 18%)" data-en="Driver Only (Platform Fee 18%)">Driver Only (Platform Fee 18%)</option>
-                        </select>
-                    </div>
-
-                    <div class="field">
-                        <label for="calcAmount" data-si="ගමනේ මුළු ගාස්තුව (LKR)" data-en="Total Trip Amount (LKR)">ගමනේ මුළු ගාස්තුව (LKR)</label>
-                        <input type="number" id="calcAmount" value="10000" min="1000" step="500">
-                    </div>
-                </div>
-            </div>
-
-            <div class="calc-card">
-                <h3 data-si="ඇස්තමේන්තුගත බෙදී යාම (Breakdown)" data-en="Estimated Earnings Breakdown">ඇස්තමේන්තුගත බෙදී යාම (Breakdown)</h3>
-                <div class="calc-row">
-                    <span data-si="මුළු ගනුදෙනු අගය" data-en="Gross Booking Value">මුළු ගනුදෙනු අගය</span>
-                    <strong id="resTotal">LKR 10,000</strong>
-                </div>
-                <div class="calc-row">
-                    <span id="resProviderLabel">වාහන හිමියාට / රියදුරුට (85%)</span>
-                    <strong id="resProvider" class="green-val">LKR 8,500</strong>
-                </div>
-                <div class="calc-row">
-                    <span id="resFeeLabel">DriveLink SL කොමිස් (15%)</span>
-                    <strong id="resFee" class="gold-val">LKR 1,500</strong>
-                </div>
-                <p class="calc-disclaimer" data-si="* සැලසුම් කිරීමේ පහසුව සඳහා වූ ආදර්ශ ගණකයකි. ඉන්ධන සහ දීමනා කොන්දේසි අනුව වෙනස් විය හැක." data-en="* Illustrative simulator for planning purposes. Final payouts depend on fuel and package terms.">
-                    * සැලසුම් කිරීමේ පහසුව සඳහා වූ ආදර්ශ ගණකයකි. ඉන්ධන සහ දීමනා කොන්දේසි අනුව වෙනස් විය හැක.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partner Registration -->
-    <section class="section" id="partners">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">PARTNER ONBOARDING</span>
-                <h2 data-si="වාහන හිමියන් සහ රියදුරන් ලියාපදිංචිය" data-en="Vehicle Owner & Driver Registration">වාහන හිමියන් සහ රියදුරන් ලියාපදිංචිය</h2>
-                <p data-si="ඔබට වාහනයක් තිබේ නම් හෝ රියදුරු බලපත්‍රය පමණක් තිබේ නම් අදම විස්තර යොමු කරන්න." data-en="Register your vehicle or join as a licensed driver to start receiving verified booking requests.">ඔබට වාහනයක් තිබේ නම් හෝ රියදුරු බලපත්‍රය පමණක් තිබේ නම් අදම විස්තර යොමු කරන්න.</p>
-            </div>
-
-            <div class="partner-grid">
-                <!-- Owner -->
-                <div class="partner-card">
-                    <span class="card-eyebrow">VEHICLE OWNERS</span>
-                    <h3 data-si="🚘 ඔබේ වාහනය ලියාපදිංචි කරන්න" data-en="🚘 Register Your Vehicle">🚘 ඔබේ වාහනය ලියාපදිංචි කරන්න</h3>
-                    <p data-si="වාහනය කුලියට දෙන්න. ඔබට Driving License තිබේ නම් ඔබටම රියදුරු ලෙසත් සේවය කළ හැක." data-en="List your vehicle for self-drive or chauffeur bookings—you can also drive your own vehicle.">වාහනය කුලියට දෙන්න. ඔබට Driving License තිබේ නම් ඔබටම රියදුරු ලෙසත් සේවය කළ හැක.</p>
-
-                    <form id="ownerRegisterForm" class="dark-form">
-                        <div class="field">
-                            <label for="ownName" data-si="හිමිකරුගේ නම" data-en="Owner Full Name">හිමිකරුගේ නම</label>
-                            <input type="text" id="ownName" placeholder="සම්පූර්ණ නම" data-ph-si="සම්පූර්ණ නම" data-ph-en="Full Name" required>
-                        </div>
-                        <div class="field-row">
-                            <div class="field">
-                                <label for="ownPhone" data-si="WhatsApp අංකය" data-en="WhatsApp Number">WhatsApp අංකය</label>
-                                <input type="tel" id="ownPhone" placeholder="07X XXXXXXX" data-ph-si="07X XXXXXXX" data-ph-en="07X XXXXXXX" required>
-                            </div>
-                            <div class="field">
-                                <label for="ownArea" data-si="ප්‍රදේශය" data-en="City / District">ප්‍රදේශය</label>
-                                <input type="text" id="ownArea" placeholder="මාතර / කොළඹ" data-ph-si="මාතර / කොළඹ" data-ph-en="Matara / Colombo" required>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label for="ownVehicle" data-si="වාහන වර්ගය සහ මාදිලිය" data-en="Vehicle Make & Model">වාහන වර්ගය සහ මාදිලිය</label>
-                            <input type="text" id="ownVehicle" placeholder="Toyota Aqua / Vezel / KDH" data-ph-si="Toyota Aqua / Vezel / KDH" data-ph-en="Toyota Aqua / Vezel / KDH" required>
-                        </div>
-                        <div class="field">
-                            <label for="ownOption" data-si="සේවා ආකාරය" data-en="Listing Preference">සේවා ආකාරය</label>
-                            <select id="ownOption" required>
-                                <option value="Self-Drive Only" data-si="වාහනය පමණක් (Self-Drive Only)" data-en="Self-Drive Only">වාහනය පමණක් (Self-Drive Only)</option>
-                                <option value="Vehicle + Owner as Driver" data-si="වාහනය + හිමිකරු රියදුරු ලෙස" data-en="Vehicle + Owner as Driver">වාහනය + හිමිකරු රියදුරු ලෙස</option>
-                                <option value="Vehicle + Assigned Driver" data-si="වාහනය + වෙනත් රියදුරෙකු සමඟ" data-en="Vehicle + Assigned Driver">වාහනය + වෙනත් රියදුරෙකු සමඟ</option>
-                            </select>
-                        </div>
-                                                <div class="field">
-                            <label for="ownBank" data-si="හිමිකරුගේ බැංකු ගිණුම් විස්තර (Payout සඳහා)" data-en="Owner Bank Details (For Payouts)">හිමිකරුගේ බැංකු ගිණුම් විස්තර (Payout සඳහා)</label>
-                            <input type="text" id="ownBank" placeholder="Bank / Account No" data-ph-si="Bank / Account No" data-ph-en="Bank / Account No">
-                        </div>
-                        <button type="submit" class="btn btn-gold full-btn" data-si="වාහනය ලියාපදිංචි කරන්න" data-en="Submit Vehicle Registration">වාහනය ලියාපදිංචි කරන්න</button>
-                    </form>
-                </div>
-
-                <!-- Driver -->
-                <div class="partner-card">
-                    <span class="card-eyebrow">LICENSED DRIVERS</span>
-                    <h3 data-si="👨‍✈️ රියදුරෙකු ලෙස ලියාපදිංචි වන්න" data-en="👨‍✈️ Join as a Licensed Driver">👨‍✈️ රියදුරෙකු ලෙස ලියාපදිංචි වන්න</h3>
-                    <p data-si="වාහනයක් නොමැති වුවත්, වලංගු රියදුරු බලපත්‍රයක් ඇති අයට අප හා සම්බන්ධ වී ආදායම් ඉපයිය හැක." data-en="No vehicle required. Use your valid Sri Lankan driving license to accept chauffeur and vehicle-owner trips.">වාහනයක් නොමැති වුවත්, වලංගු රියදුරු බලපත්‍රයක් ඇති අයට අප හා සම්බන්ධ වී ආදායම් ඉපයිය හැක.</p>
-
-                    <form id="driverRegisterForm" class="dark-form">
-                        <div class="field">
-                            <label for="drvName" data-si="රියදුරුගේ සම්පූර්ණ නම" data-en="Driver Full Name">රියදුරුගේ සම්පූර්ණ නම</label>
-                            <input type="text" id="drvName" placeholder="සම්පූර්ණ නම" data-ph-si="සම්පූර්ණ නම" data-ph-en="Full Name" required>
-                        </div>
-                        <div class="field-row">
-                            <div class="field">
-                                <label for="drvPhone" data-si="WhatsApp අංකය" data-en="WhatsApp Number">WhatsApp අංකය</label>
-                                <input type="tel" id="drvPhone" placeholder="07X XXXXXXX" data-ph-si="07X XXXXXXX" data-ph-en="07X XXXXXXX" required>
-                            </div>
-                            <div class="field">
-                                <label for="drvArea" data-si="පදිංචි ප්‍රදේශය" data-en="Home City">පදිංචි ප්‍රදේශය</label>
-                                <input type="text" id="drvArea" placeholder="දෙයියන්දර / ගාල්ල" data-ph-si="දෙයියන්දර / ගාල්ල" data-ph-en="Deiyandara / Galle" required>
-                            </div>
-                        </div>
-                        <div class="field-row">
-                            <div class="field">
-                                <label for="drvLicense" data-si="බලපත්‍ර කාණ්ඩය" data-en="License Class">බලපත්‍ර කාණ්ඩය</label>
-                                <select id="drvLicense" required>
-                                    <option value="Light Vehicle" data-si="සැහැල්ලු වාහන (Light Vehicle)" data-en="Light Vehicle">සැහැල්ලු වාහන (Light Vehicle)</option>
-                                    <option value="Heavy Vehicle" data-si="බර වාහන (Heavy Vehicle)" data-en="Heavy Vehicle">බර වාහන (Heavy Vehicle)</option>
-                                    <option value="Light + Heavy" data-si="සියල්ල (Light + Heavy)" data-en="Light + Heavy">සියල්ල (Light + Heavy)</option>
-                                </select>
-                            </div>
-                            <div class="field">
-                                <label for="drvExp" data-si="පළපුරුද්ද (වසර)" data-en="Experience (Years)">පළපුරුද්ද (වසර)</label>
-                                <input type="number" id="drvExp" min="1" max="50" placeholder="5" data-ph-si="5" data-ph-en="5" required>
-                            </div>
-                        </div>
-                                                <div class="field">
-                            <label for="drvBank" data-si="රියදුරුගේ බැංකු ගිණුම් විස්තර (Payout සඳහා)" data-en="Driver Bank Details (For Payouts)">රියදුරුගේ බැංකු ගිණුම් විස්තර (Payout සඳහා)</label>
-                            <input type="text" id="drvBank" placeholder="Bank / Account No" data-ph-si="Bank / Account No" data-ph-en="Bank / Account No">
-                        </div>
-                        <button type="submit" class="btn btn-glass full-btn" style="border-color:var(--gold-bright);color:var(--gold-bright);" data-si="රියදුරෙකු ලෙස එක්වන්න" data-en="Submit Driver Application">රියදුරෙකු ලෙස එක්වන්න</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Payment & Security Deposit Section -->
-    <section class="section" id="payments">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">PAYMENTS & ESCROW PROTECTION</span>
-                <h2 data-si="ගෙවීම් ක්‍රම සහ ආරක්ෂක තැන්පතු" data-en="Payment Methods & Security Deposits">ගෙවීම් ක්‍රම සහ ආරක්ෂක තැන්පතු</h2>
-                <p data-si="පාරිභෝගිකයින්ට, වාහන හිමියන්ට සහ රියදුරන්ට පැහැදිලි, ආරක්ෂිත ගෙවීම් ක්‍රමවේදයක්." data-en="Clear, flexible payment options and transparent deposit rules for every trip.">පාරිභෝගිකයින්ට, වාහන හිමියන්ට සහ රියදුරන්ට පැහැදිලි, ආරක්ෂිත ගෙවීම් ක්‍රමවේදයක්.</p>
-            </div>
-
-            <div class="pillars-grid payments-grid-4">
-                <article class="pillar-card featured">
-                    <div>
-                        <div class="pillar-icon-box">🥥</div>
-                        <h3 data-si="Koko Pay (ටික ටික ගෙවන්න)" data-en="Koko Pay (Pay in Installments)">Koko Pay (ටික ටික ගෙවන්න)</h3>
-                        <p data-si="මුළු ගාස්තුව එකවර නොගෙවා වාරික වශයෙන් (Installments) ටික ටික ගෙවීමේ පහසුකම." data-en="Split your trip payment into easy installments instead of paying everything upfront.">මුළු ගාස්තුව එකවර නොගෙවා වාරික වශයෙන් (Installments) ටික ටික ගෙවීමේ පහසුකම.</p>
-                        <ul class="pillar-list">
-                            <li><span>✓</span> <span data-si="පහසු වාරික සැලසුම් (Installments)" data-en="Flexible installment schedule">පහසු වාරික සැලසුම් (Installments)</span></li>
-                            <li><span>✓</span> <span data-si="ක්ෂණික වාරික ගණනය" data-en="Instant installment breakdown">ක්ෂණික වාරික ගණනය</span></li>
-                        </ul>
-                    </div>
-                    <button type="button" class="btn btn-gold full-btn open-payment-modal-btn" data-method="Koko Pay (Installments)" data-si="වාරික ගණනය බලන්න" data-en="Calculate Installments">වාරික ගණනය බලන්න</button>
-                </article>
-
-                <article class="pillar-card">
-                    <div>
-                        <div class="pillar-icon-box">🏦</div>
-                        <h3 data-si="Bank Transfer & Slip Verification" data-en="Bank Transfer & Slip">Bank Transfer & Slip</h3>
-                        <p data-si="Commercial Bank / Sampath / BOC ගිණුම් වලට මුදල් බැර කර WhatsApp හරහා slip එක එවීමෙන් booking එක ක්ෂණිකව තහවුරු කරගත හැක." data-en="Transfer via local bank transfer and share your payment slip on WhatsApp for instant confirmation.">Commercial Bank / Sampath / BOC ගිණුම් වලට මුදල් බැර කර WhatsApp හරහා slip එක එවීමෙන් booking එක ක්ෂණිකව තහවුරු කරගත හැක.</p>
-                        <ul class="pillar-list">
-                            <li><span>✓</span> <span data-si="20% Advance Booking Hold" data-en="20% advance holds your slot">20% Advance Booking Hold</span></li>
-                            <li><span>✓</span> <span data-si="Receipt / Slip Reference ID" data-en="Clear reference tracking">Receipt / Slip Reference ID</span></li>
-                        </ul>
-                    </div>
-                    <button type="button" class="btn btn-glass full-btn open-payment-modal-btn" data-method="Bank Transfer" data-si="ගෙවීම් විස්තර බලන්න" data-en="View Bank Details">ගෙවීම් විස්තර බලන්න</button>
-                </article>
-
-                <article class="pillar-card featured">
-                    <div>
-                        <div class="pillar-icon-box">💳</div>
-                        <h3 data-si="Online Card / Gateway Ready" data-en="Online Card Ready">Online Card / Gateway Ready</h3>
-                        <p data-si="Visa / Mastercard හෝ PayHere / Stripe වැනි gateway එකක් සම්බන්ධ කළ පසු online card payments ලබාගත හැකි ලෙස සකසා ඇත." data-en="Pre-wired for local/international card gateways (such as PayHere) once your merchant keys are added.">Visa / Mastercard හෝ PayHere / Stripe වැනි gateway එකක් සම්බන්ධ කළ පසු online card payments ලබාගත හැකි ලෙස සකසා ඇත.</p>
-                        <ul class="pillar-list">
-                            <li><span>✓</span> <span data-si="Instant Digital Checkout Flow" data-en="Instant digital checkout flow">Instant Digital Checkout Flow</span></li>
-                            <li><span>✓</span> <span data-si="Automated Amount & Fee Sync" data-en="Auto-calculated fare & advance">Automated Amount & Fee Sync</span></li>
-                        </ul>
-                    </div>
-                    <button type="button" class="btn btn-gold full-btn open-payment-modal-btn" data-method="Online Card" data-si="Card Payment Checkout" data-en="Open Card Checkout">Card Payment Checkout</button>
-                </article>
-
-                <article class="pillar-card">
-                    <div>
-                        <div class="pillar-icon-box">🛡️</div>
-                        <h3 data-si="Refundable Deposit & Payouts" data-en="Deposits & Partner Payouts">Deposits & Partner Payouts</h3>
-                        <p data-si="Self-Drive සඳහා refundable security deposit එකක් සහ ගමන අවසානයේ හිමියාට/රියදුරුට සාධාරණ payout ක්‍රමයක්." data-en="Refundable security deposit for self-drive trips and timely settlement to owners and drivers.">Self-Drive සඳහා refundable security deposit එකක් සහ ගමන අවසානයේ හිමියාට/රියදුරුට සාධාරණ payout ක්‍රමයක්.</p>
-                        <ul class="pillar-list">
-                            <li><span>✓</span> <span data-si="Inspection අනුව Deposit Refund" data-en="Post-trip inspection refund">Inspection අනුව Deposit Refund</span></li>
-                            <li><span>✓</span> <span data-si="Owner & Driver Payouts" data-en="Transparent partner settlements">Owner & Driver Payouts</span></li>
-                        </ul>
-                    </div>
-                    <button type="button" class="btn btn-glass full-btn open-payment-modal-btn" data-method="Cash / Deposit" data-si="Deposit විස්තර බලන්න" data-en="Deposit & Cash Info">Deposit විස්තර බලන්න</button>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section section-darker" id="faq">
-        <div class="container faq-container">
-            <div class="section-head">
-                <span class="eyebrow">FREQUENTLY ASKED QUESTIONS</span>
-                <h2 data-si="නිතර ඇසෙන ප්‍රශ්න" data-en="Frequently Asked Questions">නිතර ඇසෙන ප්‍රශ්න</h2>
-            </div>
-
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button type="button" class="faq-btn">
-                        <span data-si="මට වාහනයක් නැහැ, රියදුරු බලපත්‍රය පමණයි තියෙන්නේ — මට සම්බන්ධ වෙන්න පුළුවන්ද?" data-en="I don't own a car, only a valid driving license. Can I join?">මට වාහනයක් නැහැ, රියදුරු බලපත්‍රය පමණයි තියෙන්නේ — මට සම්බන්ධ වෙන්න පුළුවන්ද?</span>
-                        <span class="faq-plus">+</span>
-                    </button>
-                    <div class="faq-body">
-                        <p data-si="ඔව්. වලංගු රියදුරු බලපත්‍රයක්, NIC පිටපතක් සහ අවශ්‍ය පරීක්ෂාවන් සම්පූර්ණ කරන රියදුරන්ට DriveLink SL ජාලයේ වාහන පැදවීමේ සහ Hire a Driver සේවා හරහා ආදායම් ඉපයීමට අවස්ථාව ඇත." data-en="Yes! Verified drivers with a valid license and NIC can earn through Hire-a-Driver bookings as well as driving listed owner vehicles.">ඔව්. වලංගු රියදුරු බලපත්‍රයක්, NIC පිටපතක් සහ අවශ්‍ය පරීක්ෂාවන් සම්පූර්ණ කරන රියදුරන්ට DriveLink SL ජාලයේ වාහන පැදවීමේ සහ Hire a Driver සේවා හරහා ආදායම් ඉපයීමට අවස්ථාව ඇත.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button type="button" class="faq-btn">
-                        <span data-si="වාහන හිමිකරුවෙකුට තමන්ගේ වාහනය තමන්ම පදවාගෙන යන්න පුළුවන්ද?" data-en="Can a vehicle owner drive their own listed vehicle for bookings?">වාහන හිමිකරුවෙකුට තමන්ගේ වාහනය තමන්ම පදවාගෙන යන්න පුළුවන්ද?</span>
-                        <span class="faq-plus">+</span>
-                    </button>
-                    <div class="faq-body">
-                        <p data-si="පුළුවන්. ඔබට රියදුරු බලපත්‍රයක් ඇත්නම්, ඔබේ වාහනය සමඟ ඔබම රියදුරු ලෙසත් කටයුතු කරමින් Vehicle + Driver booking සඳහා සම්බන්ධ විය හැක." data-en="Absolutely. Licensed vehicle owners can select 'Vehicle + Owner as Driver' during registration to fulfill chauffeur-driven bookings personally.">පුළුවන්. ඔබට රියදුරු බලපත්‍රයක් ඇත්නම්, ඔබේ වාහනය සමඟ ඔබම රියදුරු ලෙසත් කටයුතු කරමින් Vehicle + Driver booking සඳහා සම්බන්ධ විය හැක.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button type="button" class="faq-btn">
-                        <span data-si="Self-Drive වාහන වල ආරක්ෂාව තහවුරු කරන්නේ කෙසේද?" data-en="How is vehicle safety ensured for Self-Drive rentals?">Self-Drive වාහන වල ආරක්ෂාව තහවුරු කරන්නේ කෙසේද?</span>
-                        <span class="faq-plus">+</span>
-                    </button>
-                    <div class="faq-body">
-                        <p data-si="GPS tracking, හැඳුනුම්පත්/බලපත්‍ර තහවුරු කිරීම, ගමන් ආරම්භයට සහ අවසානයට වාහන තත්ත්වය පරීක්ෂා කිරීම (Inspection) සහ අදාළ ආරක්ෂක තැන්පතු ක්‍රමවේද හරහා ආරක්ෂාව තහවුරු කෙරේ." data-en="Safety is maintained via live GPS tracking, strict NIC & license verification, pre/post-trip inspection checklists, and refundable security deposits.">GPS tracking, හැඳුනුම්පත්/බලපත්‍ර තහවුරු කිරීම, ගමන් ආරම්භයට සහ අවසානයට වාහන තත්ත්වය පරීක්ෂා කිරීම (Inspection) සහ අදාළ ආරක්ෂක තැන්පතු ක්‍රමවේද හරහා ආරක්ෂාව තහවුරු කෙරේ.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-about">
-                <a href="#top" class="brand">
-                    <div class="brand-logo-wrap">
-                        <img src="logo.jpg" alt="DriveLink SL" class="brand-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-                        <span class="brand-fallback-icon" style="display:none;">DL</span>
-                    </div>
-                    <div class="brand-text">
-                        <span class="brand-name">DriveLink<span>SL</span></span>
-                        <span class="brand-sub">LUXURY MOBILITY NETWORK</span>
-                    </div>
-                </a>
-                <p data-si="ශ්‍රී ලංකාවේ වාහන කුලියට ගැනීම, වාහන ලියාපදිංචි කිරීම සහ රියදුරු සේවා එකම තැනකින් සම්බන්ධ කරන නවීන වේදිකාව." data-en="Sri Lanka's modern marketplace connecting self-drive rentals, vehicle owners, and verified chauffeurs.">ශ්‍රී ලංකාවේ වාහන කුලියට ගැනීම, වාහන ලියාපදිංචි කිරීම සහ රියදුරු සේවා එකම තැනකින් සම්බන්ධ කරන නවීන වේදිකාව.</p>
-            </div>
-
-            <div>
-                <h4 data-si="සේවාවන්" data-en="Services">සේවාවන්</h4>
-                <ul>
-                    <li><a href="#services">Self-Drive</a></li>
-                    <li><a href="#services">Vehicle + Driver</a></li>
-                    <li><a href="#services">Hire a Driver</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 data-si="සම්බන්ධ වන්න" data-en="Contact">සම්බන්ධ වන්න</h4>
-                <ul>
-                    <li><a href="https://miyuruwitharana.github.io/New-Anura-Stores/careers-apply.html" target="_blank" rel="noopener noreferrer">🏛️ New Anura Stores — Careers & Apply</a></li>
-                    <li>📍 Matara / Deiyandara, Sri Lanka</li>
-                    <li>📞 +94 77 000 0000</li>
-                    <li>✉️ info@drivelinksl.lk</li>
-                </ul>
-            </div>
-        </div>
-        <div class="container footer-copy">
-            <p>&copy; 2026 DriveLink SL. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Modal -->
-    <div class="modal-overlay" id="bookingModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <button type="button" class="modal-x" id="closeModalBtn">&times;</button>
-            <span class="card-eyebrow">BOOKING REQUEST</span>
-            <h3 style="color:#fff;font-size:1.25rem;" data-si="සේවාව වෙන්කරවා ගන්න" data-en="Complete Your Booking">සේවාව වෙන්කරවා ගන්න</h3>
-            <p class="modal-tag" id="modalSelectedService">Service: Vehicle + Driver</p>
-
-            <form id="modalForm" class="dark-form">
-                <div class="field">
-                    <label for="mName" data-si="ඔබේ නම" data-en="Your Name">ඔබේ නම</label>
-                    <input type="text" id="mName" placeholder="සම්පූර්ණ නම" data-ph-si="සම්පූර්ණ නම" data-ph-en="Full Name" required>
-                </div>
-                <div class="field">
-                    <label for="mPhone" data-si="WhatsApp අංකය" data-en="WhatsApp Number">WhatsApp අංකය</label>
-                    <input type="tel" id="mPhone" placeholder="07X XXXXXXX" data-ph-si="07X XXXXXXX" data-ph-en="07X XXXXXXX" required>
-                </div>
-                <div class="field-row">
-                    <div class="field">
-                        <label for="mDate" data-si="දිනය" data-en="Pickup Date">දිනය</label>
-                        <input type="date" id="mDate" required>
-                    </div>
-                    <div class="field">
-                        <label for="mCity" data-si="නගරය" data-en="City">නගරය</label>
-                        <input type="text" id="mCity" placeholder="මාතර" data-ph-si="මාතර" data-ph-en="Matara" required>
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="mNote" data-si="අමතර විස්තර" data-en="Trip Notes">අමතර විස්තර</label>
-                    <input type="text" id="mNote" placeholder="ගමනේ විස්තර හෝ විශේෂ ඉල්ලීම්" data-ph-si="ගමනේ විස්තර හෝ විශේෂ ඉල්ලීම්" data-ph-en="Destination or special requests">
-                </div>
-                <button type="submit" class="btn btn-gold full-btn" data-si="WhatsApp හරහා තහවුරු කරන්න" data-en="Confirm via WhatsApp">WhatsApp හරහා තහවුරු කරන්න</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Payment Checkout Modal -->
-    <div class="modal-overlay" id="paymentModal" aria-hidden="true">
-        <div class="modal-dialog pay-modal-dialog">
-            <button type="button" class="modal-x" id="closePayModalBtn">&times;</button>
-            <span class="card-eyebrow">PAYMENT CHECKOUT</span>
-            <h3 style="color:#fff;font-size:1.28rem;" data-si="ගෙවීම් තොරතුරු සහ තහවුරු කිරීම" data-en="Payment Details & Confirmation">ගෙවීම් තොරතුරු සහ තහවුරු කිරීම</h3>
-            <p class="modal-tag" id="payModalMethodTag">Method: Koko Pay (Installments)</p>
-
-            <div class="pay-method-pills" id="payMethodPills">
-                <button type="button" class="pay-pill-btn active" data-method="Koko Pay (Installments)">
-                    <span>🥥</span>
-                    <span data-si="Koko Pay" data-en="Koko Pay">Koko Pay</span>
-                </button>
-                <button type="button" class="pay-pill-btn" data-method="Bank Transfer">
-                    <span>🏦</span>
-                    <span data-si="Bank Slip" data-en="Bank Slip">Bank Slip</span>
-                </button>
-                <button type="button" class="pay-pill-btn" data-method="Online Card">
-                    <span>💳</span>
-                    <span data-si="Card Pay" data-en="Card Pay">Card Pay</span>
-                </button>
-                <button type="button" class="pay-pill-btn" data-method="Cash / Deposit">
-                    <span>💵</span>
-                    <span data-si="Cash / Dep." data-en="Cash / Dep.">Cash / Dep.</span>
-                </button>
-            </div>
-
-            <div class="pay-visual-panel" id="payMethodVisualBox">
-                <div id="payMethodVisualTitle" style="font-weight:700;color:#fff;margin-bottom:4px;">🥥 Koko Pay — වාරික වශයෙන් ටික ටික ගෙවන්න</div>
-                <div id="payMethodVisualDesc" style="font-size:0.75rem;color:var(--text-muted);">මුළු ගාස්තුව වාරික වලට බෙදා පහසුවෙන් ගෙවිය හැකි සැලසුම.</div>
-                <div class="koko-steps-strip" id="kokoScheduleStrip">
-                    <div class="koko-step-box">
-                        <small id="kokoS1Label" data-si="1st වාරිකය (අද)" data-en="1st Installment (Today)">1st වාරිකය (අද)</small>
-                        <strong id="kokoS1Val">LKR 2,834</strong>
-                    </div>
-                    <div class="koko-step-box">
-                        <small id="kokoS2Label" data-si="2nd වාරිකය (දින 30)" data-en="2nd Installment (30d)">2nd වාරිකය (දින 30)</small>
-                        <strong id="kokoS2Val">LKR 2,833</strong>
-                    </div>
-                    <div class="koko-step-box">
-                        <small id="kokoS3Label" data-si="3rd වාරිකය (දින 60)" data-en="3rd Installment (60d)">3rd වාරිකය (දින 60)</small>
-                        <strong id="kokoS3Val">LKR 2,833</strong>
-                    </div>
-                </div>
-                <div class="mini-card-preview" id="cardPreviewBox" style="display:none;">
-                    <div>
-                        <div style="font-size:0.65rem;letter-spacing:0.14em;color:var(--gold-bright);">DRIVELINK SECURE CARD</div>
-                        <div id="cardPreviewNum" style="font-size:0.9rem;font-weight:700;color:#fff;letter-spacing:0.12em;margin-top:3px;">•••• •••• •••• 4242</div>
-                    </div>
-                    <div style="text-align:right;">
-                        <div style="font-size:0.65rem;color:var(--text-muted);">EXP / CVV</div>
-                        <div id="cardPreviewExp" style="font-size:0.8rem;font-weight:700;color:var(--gold-bright);">12/28 • •••</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="payout-ledger-box">
-                <div class="payout-row">
-                    <span data-si="ගෙවන මුදල (Gross Payment):" data-en="Gross Payment:">ගෙවන මුදල (Gross Payment):</span>
-                    <strong id="payModalTotal" style="color:var(--gold-bright);">LKR 8,500</strong>
-                </div>
-                <div class="payout-row">
-                    <span data-si="අත්තිකාරම් (20% Advance):" data-en="Advance (20%):">අත්තිකාරම් (20% Advance):</span>
-                    <strong id="payModalAdvance" style="color:#4ade80;">LKR 1,700</strong>
-                </div>
-                <div class="payout-row" id="kokoInstallmentRow">
-                    <span id="kokoInstallmentLabel" data-si="Koko වාරිකය (3x):" data-en="Koko Installment (3x):">Koko වාරිකය (3x):</span>
-                    <strong id="kokoInstallmentVal" style="color:#38bdf8;">LKR 2,833 / වාරිකය</strong>
-                </div>
-                <div class="payout-row">
-                    <span id="paySplitCommLabel" data-si="Commission (15%):" data-en="Commission (15%):">Commission (15%):</span>
-                    <strong id="paySplitCommVal" style="color:var(--gold-bright);">LKR 1,275</strong>
-                </div>
-                <div class="payout-row">
-                    <span id="paySplitEventLabel" data-si="සිදුවීම් / නඩත්තු Reserve (5%):" data-en="Incident / Reserve (5%):">සිදුවීම් / නඩත්තු Reserve (5%):</span>
-                    <strong id="paySplitEventVal" style="color:#fbbf24;">LKR 425</strong>
-                </div>
-                <div class="payout-row">
-                    <span id="paySplitNetLabel" data-si="ඉතිරි මුදල (වාහනයට):" data-en="Net Allocation (Vehicle):">ඉතිරි මුදල (වාහනයට):</span>
-                    <strong id="paySplitNetVal" style="color:#4ade80;">LKR 6,800</strong>
-                </div>
-                <div id="paySplitDetailNote" style="font-size:0.74rem;color:var(--text-muted);padding-top:6px;"></div>
-            </div>
-
-            <form id="paymentConfirmForm" class="dark-form">
-                <div class="field-row">
-                    <div class="field">
-                        <label for="pPayMethodSelect" data-si="ගෙවීම් ක්‍රමය" data-en="Payment Method">ගෙවීම් ක්‍රමය</label>
-                        <select id="pPayMethodSelect">
-                            <option value="Koko Pay (Installments)" data-si="Koko Pay (ටික ටික ගෙවන්න)" data-en="Koko Pay (Installments)">Koko Pay (ටික ටික ගෙවන්න)</option>
-                            <option value="Bank Transfer" data-si="Bank Transfer" data-en="Bank Transfer">Bank Transfer</option>
-                            <option value="Online Card" data-si="Online Card" data-en="Online Card">Online Card</option>
-                            <option value="Cash / Deposit" data-si="Cash / Deposit" data-en="Cash / Deposit">Cash / Deposit</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label for="pInstallmentCount" data-si="වාරික ගණන (Koko)" data-en="Installments (Koko)">වාරික ගණන (Koko)</label>
-                        <select id="pInstallmentCount">
-                            <option value="3" data-si="වාරික 3 (3x)" data-en="3 Installments (3x)">වාරික 3 (3x)</option>
-                            <option value="4" data-si="වාරික 4 (4x)" data-en="4 Installments (4x)">වාරික 4 (4x)</option>
-                            <option value="6" data-si="වාරික 6 (6x)" data-en="6 Installments (6x)">වාරික 6 (6x)</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="field-row">
-                    <div class="field">
-                        <label for="pSplitMode" data-si="ඉතිරි මුදල බෙදන ආකාරය" data-en="Remainder Allocation">ඉතිරි මුදල බෙදන ආකාරය</label>
-                        <select id="pSplitMode">
-                            <option value="vehicle" data-si="වාහනයට (Owner + Maintenance)" data-en="Vehicle (Owner + Maintenance)">වාහනයට (Owner + Maintenance)</option>
-                            <option value="driver" data-si="රියදුරුට (Driver)" data-en="Driver Only">රියදුරුට (Driver Only)</option>
-                            <option value="both" data-si="දෙකටම (Owner 60% / Driver 40%)" data-en="Both (Owner 60% / Driver 40%)">දෙකටම (Owner 60% / Driver 40%)</option>
-                            <option value="fuel_maint" data-si="ඉන්ධන සහ නඩත්තුවට (Fuel & Maint.)" data-en="Fuel & Maintenance">ඉන්ධන සහ නඩත්තුවට (Fuel & Maint.)</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label for="pReservePct" data-si="සිදුවීම් කැපුම (%)" data-en="Incident Reserve (%)">සිදුවීම් කැපුම (%)</label>
-                        <input type="number" id="pReservePct" value="5" min="0" max="40" step="1">
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="pCustomerName" data-si="ගෙවන්නාගේ නම" data-en="Payer Name">ගෙවන්නාගේ නම</label>
-                    <input type="text" id="pCustomerName" placeholder="සම්පූර්ණ නම" data-ph-si="සම්පූර්ණ නම" data-ph-en="Full Name" required>
-                </div>
-                <div id="cardExtraFields" style="display:none;">
-                    <div class="field-row">
-                        <div class="field">
-                            <label for="pCardLast4" data-si="Card අවසන් ඉලක්කම් 4" data-en="Card Last 4 Digits">Card අවසන් ඉලක්කම් 4</label>
-                            <input type="text" id="pCardLast4" maxlength="4" placeholder="4242" data-ph-si="4242" data-ph-en="4242">
-                        </div>
-                        <div class="field">
-                            <label for="pCardExpiry" data-si="කල් ඉකුත් වන මාසය/වසර" data-en="Expiry (MM/YY)">කල් ඉකුත් වන මාසය/වසර</label>
-                            <input type="text" id="pCardExpiry" maxlength="5" placeholder="12/28" data-ph-si="12/28" data-ph-en="12/28">
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="pRefCode" data-si="Slip / Transaction Reference (ඇත්නම්)" data-en="Slip / Reference ID (Optional)">Slip / Transaction Reference (ඇත්නම්)</label>
-                    <input type="text" id="pRefCode" placeholder="උදා: TXN-88421" data-ph-si="උදා: TXN-88421" data-ph-en="e.g. TXN-88421">
-                </div>
-                <button type="submit" class="btn btn-gold full-btn" data-si="ගෙවීම සටහන් කර WhatsApp යවන්න" data-en="Record Payment & Send WhatsApp">ගෙවීම සටහන් කර WhatsApp යවන්න</button>
-            </form>
-
-            <div class="ledger-history-list" id="paymentLedgerList"></div>
-        </div>
-    </div>
-
-    <script>
-        const WHATSAPP_NUMBER = "94770000000";
-
-        function openWhatsApp(text) {
-            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
-        }
-
-        // Mobile Nav
-        const hamburgerBtn = document.getElementById("hamburgerBtn");
-        const navMenu = document.getElementById("navMenu");
-        hamburgerBtn.addEventListener("click", () => navMenu.classList.toggle("open"));
-        navMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navMenu.classList.remove("open")));
-
-        // Hero Tabs + Estimate
-        const modeBtns = document.querySelectorAll(".mode-btn");
-        const hDays = document.getElementById("hDays");
-        const heroEstimatePrice = document.getElementById("heroEstimatePrice");
-        let selectedHeroService = "Self-Drive";
-        let selectedDailyRate = 8500;
-
-        const heroAdvancePrice = document.getElementById("heroAdvancePrice");
-        const hPayMethod = document.getElementById("hPayMethod");
-
-        function updateHeroEstimate() {
-            const days = parseInt(hDays.value, 10) || 1;
-            const total = selectedDailyRate * days;
-            const advance = Math.round(total * 0.20);
-            heroEstimatePrice.textContent = "LKR " + total.toLocaleString("en-US");
-            if (heroAdvancePrice) {
-                heroAdvancePrice.textContent = "LKR " + advance.toLocaleString("en-US");
-            }
-        }
-
-        modeBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-                modeBtns.forEach(b => b.classList.remove("active"));
-                btn.classList.add("active");
-                selectedHeroService = btn.dataset.service;
-                selectedDailyRate = parseInt(btn.dataset.rate, 10) || 8500;
-                updateHeroEstimate();
-            });
-        });
-        hDays.addEventListener("change", updateHeroEstimate);
-
-        document.getElementById("heroBookingForm").addEventListener("submit", (e) => {
-            e.preventDefault();
-            openWhatsApp(
-                `*DriveLink SL - Quick Booking*%0A` +
-                `Service: ${selectedHeroService}%0A` +
-                `Name: ${document.getElementById("hName").value.trim()}%0A` +
-                `WhatsApp: ${document.getElementById("hPhone").value.trim()}%0A` +
-                `City: ${document.getElementById("hPickup").value.trim()}%0A` +
-                `Days: ${hDays.value}%0A` +
-                `Payment Method: ${hPayMethod ? hPayMethod.value : "Bank Transfer"}%0A` +
-                `Estimate: ${heroEstimatePrice.textContent}%0A` +
-                `Advance (20%): ${heroAdvancePrice ? heroAdvancePrice.textContent : "-"}`
-            );
-        });
-
-        // Fleet Filter
-        const filterBtns = document.querySelectorAll(".filter-btn");
-        const vehicleCards = document.querySelectorAll(".vehicle-card");
-        filterBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-                filterBtns.forEach(b => b.classList.remove("active"));
-                btn.classList.add("active");
-                const f = btn.dataset.filter;
-                vehicleCards.forEach(card => {
-                    card.style.display = (f === "all" || (card.dataset.category || "").includes(f)) ? "flex" : "none";
-                });
-            });
-        });
-
-        // Revenue Calculator
-        const calcServiceType = document.getElementById("calcServiceType");
-        const calcAmount = document.getElementById("calcAmount");
-        const resTotal = document.getElementById("resTotal");
-        const resProviderLabel = document.getElementById("resProviderLabel");
-        const resProvider = document.getElementById("resProvider");
-        const resFeeLabel = document.getElementById("resFeeLabel");
-        const resFee = document.getElementById("resFee");
-
-        const rates = {
-            "self-drive": { fee: 0.15, pLabel: "Owner Payout (85%)", fLabel: "DriveLink SL Fee (15%)" },
-            "with-driver": { fee: 0.12, pLabel: "Owner + Driver Payout (88%)", fLabel: "DriveLink SL Fee (12%)" },
-            "driver-only": { fee: 0.18, pLabel: "Driver Payout (82%)", fLabel: "DriveLink SL Fee (18%)" }
-        };
-
-        function updateCalc() {
-            const val = Math.max(0, parseFloat(calcAmount.value) || 0);
-            const cfg = rates[calcServiceType.value] || rates["self-drive"];
-            const feeAmt = Math.round(val * cfg.fee);
-            resTotal.textContent = "LKR " + val.toLocaleString("en-US");
-            resProviderLabel.textContent = cfg.pLabel;
-            resProvider.textContent = "LKR " + (val - feeAmt).toLocaleString("en-US");
-            resFeeLabel.textContent = cfg.fLabel;
-            resFee.textContent = "LKR " + feeAmt.toLocaleString("en-US");
-        }
-        calcServiceType.addEventListener("change", updateCalc);
-        calcAmount.addEventListener("input", updateCalc);
-        updateCalc();
-
-        // Partner Forms
-        document.getElementById("ownerRegisterForm").addEventListener("submit", (e) => {
-            e.preventDefault();
-            openWhatsApp(
-                `*DriveLink SL - Vehicle Owner Registration*%0A` +
-                `Name: ${document.getElementById("ownName").value.trim()}%0A` +
-                `WhatsApp: ${document.getElementById("ownPhone").value.trim()}%0A` +
-                `Area: ${document.getElementById("ownArea").value.trim()}%0A` +
-                `Vehicle: ${document.getElementById("ownVehicle").value.trim()}%0A` +
-                `Option: ${document.getElementById("ownOption").value}`
-            );
-        });
-
-        document.getElementById("driverRegisterForm").addEventListener("submit", (e) => {
-            e.preventDefault();
-            openWhatsApp(
-                `*DriveLink SL - Driver Registration*%0A` +
-                `Name: ${document.getElementById("drvName").value.trim()}%0A` +
-                `WhatsApp: ${document.getElementById("drvPhone").value.trim()}%0A` +
-                `Area: ${document.getElementById("drvArea").value.trim()}%0A` +
-                `License: ${document.getElementById("drvLicense").value}%0A` +
-                `Experience: ${document.getElementById("drvExp").value} Years`
-            );
-        });
-
-        // FAQ
-        document.querySelectorAll(".faq-btn").forEach(btn => {
-            btn.addEventListener("click", () => btn.parentElement.classList.toggle("open"));
-        });
-
-        // Modal
-        const bookingModal = document.getElementById("bookingModal");
-        const modalSelectedService = document.getElementById("modalSelectedService");
-        let activeModalService = "Vehicle + Driver";
-
-        document.querySelectorAll(".open-booking-btn").forEach(btn => {
-            btn.addEventListener("click", () => {
-                activeModalService = btn.dataset.service || "Vehicle + Driver";
-                modalSelectedService.textContent = "Selected: " + activeModalService;
-                bookingModal.classList.add("show");
-            });
-        });
-
-        document.getElementById("closeModalBtn").addEventListener("click", () => bookingModal.classList.remove("show"));
-        bookingModal.addEventListener("click", (e) => { if (e.target === bookingModal) bookingModal.classList.remove("show"); });
-
-        document.getElementById("modalForm").addEventListener("submit", (e) => {
-            e.preventDefault();
-            openWhatsApp(
-                `*DriveLink SL - Detailed Booking*%0A` +
-                `Service: ${activeModalService}%0A` +
-                `Name: ${document.getElementById("mName").value.trim()}%0A` +
-                `WhatsApp: ${document.getElementById("mPhone").value.trim()}%0A` +
-                `Date: ${document.getElementById("mDate").value}%0A` +
-                `City: ${document.getElementById("mCity").value.trim()}%0A` +
-                `Notes: ${document.getElementById("mNote").value.trim() || "-"}`
-            );
-            bookingModal.classList.remove("show");
-        });
-
-
-        // Payment Split & Private Ledger Logic (No owner bank details rendered publicly)
-        const paymentModal = document.getElementById("paymentModal");
-        const payModalMethodTag = document.getElementById("payModalMethodTag");
-        const payModalTotal = document.getElementById("payModalTotal");
-        const payModalAdvance = document.getElementById("payModalAdvance");
-        const pSplitMode = document.getElementById("pSplitMode");
-        const pReservePct = document.getElementById("pReservePct");
-        const paySplitCommLabel = document.getElementById("paySplitCommLabel");
-        const paySplitCommVal = document.getElementById("paySplitCommVal");
-        const paySplitEventLabel = document.getElementById("paySplitEventLabel");
-        const paySplitEventVal = document.getElementById("paySplitEventVal");
-        const paySplitNetLabel = document.getElementById("paySplitNetLabel");
-        const paySplitNetVal = document.getElementById("paySplitNetVal");
-        const paySplitDetailNote = document.getElementById("paySplitDetailNote");
-        const paymentLedgerList = document.getElementById("paymentLedgerList");
-        let activePayMethod = "Bank Transfer";
-        let currentGrossAmount = 8500;
-
-        function getCommRateForService(svc) {
-            const s = (svc || "").toLowerCase();
-            if (s.includes("driver")) return 0.18;
-            if (s.includes("vehicle") || s.includes("kdh") || s.includes("van")) return 0.12;
-            return 0.15;
-        }
-
-        const pPayMethodSelect = document.getElementById("pPayMethodSelect");
-        const pInstallmentCount = document.getElementById("pInstallmentCount");
-        const kokoInstallmentLabel = document.getElementById("kokoInstallmentLabel");
-        const kokoInstallmentVal = document.getElementById("kokoInstallmentVal");
-
-        function computeSplitBreakdown() {
-            const commRate = getCommRateForService(selectedHeroService);
-            const reserveRate = Math.max(0, Math.min(40, parseFloat(pReservePct ? pReservePct.value : 5) || 0)) / 100;
-            const gross = currentGrossAmount;
-            const advance = Math.round(gross * 0.20);
-            const instCount = parseInt(pInstallmentCount ? pInstallmentCount.value : "3", 10) || 3;
-            const perInstallment = Math.ceil(gross / instCount);
-            const commAmt = Math.round(gross * commRate);
-            const reserveAmt = Math.round(gross * reserveRate);
-            const remaining = Math.max(0, gross - commAmt - reserveAmt);
-            const mode = pSplitMode ? pSplitMode.value : "vehicle";
-
-            payModalTotal.textContent = "LKR " + gross.toLocaleString("en-US");
-            payModalAdvance.textContent = "LKR " + advance.toLocaleString("en-US");
-
-            if (kokoInstallmentLabel) {
-                kokoInstallmentLabel.textContent = currentLang === "si"
-                    ? `වාරිකය (${instCount}x — ටික ටික):`
-                    : `Installment (${instCount}x):`;
-            }
-            if (kokoInstallmentVal) {
-                kokoInstallmentVal.textContent = "LKR " + perInstallment.toLocaleString("en-US") + (currentLang === "si" ? " / වාරිකය" : " / inst.");
-            }
-
-            const commPctText = Math.round(commRate * 100);
-            const resPctText = Math.round(reserveRate * 100);
-
-            if (paySplitCommLabel) {
-                paySplitCommLabel.textContent = currentLang === "si" ? `Commission (${commPctText}%):` : `Commission (${commPctText}%):`;
-            }
-            if (paySplitCommVal) {
-                paySplitCommVal.textContent = "LKR " + commAmt.toLocaleString("en-US");
-            }
-            if (paySplitEventLabel) {
-                paySplitEventLabel.textContent = currentLang === "si" ? `සිදුවීම් Reserve (${resPctText}%):` : `Incident Reserve (${resPctText}%):`;
-            }
-            if (paySplitEventVal) {
-                paySplitEventVal.textContent = "LKR " + reserveAmt.toLocaleString("en-US");
-            }
-            if (paySplitNetLabel) {
-                const modeLabelSi = {
-                    vehicle: "වාහනයට (Owner)",
-                    driver: "රියදුරුට (Driver)",
-                    both: "දෙකටම (Owner + Driver)",
-                    fuel_maint: "ඉන්ධන / නඩත්තුවට"
-                }[mode] || "ඉතිරි මුදල";
-                const modeLabelEn = {
-                    vehicle: "Vehicle Owner",
-                    driver: "Driver",
-                    both: "Both (Owner + Driver)",
-                    fuel_maint: "Fuel & Maintenance"
-                }[mode] || "Remainder";
-                paySplitNetLabel.textContent = (currentLang === "si" ? "ඉතිරි මුදල (" : "Remainder (") + (currentLang === "si" ? modeLabelSi : modeLabelEn) + "):";
-            }
-            if (paySplitNetVal) {
-                paySplitNetVal.textContent = "LKR " + remaining.toLocaleString("en-US");
-            }
-            if (paySplitDetailNote) {
-                if (mode === "both") {
-                    const ownerShare = Math.round(remaining * 0.60);
-                    const driverShare = remaining - ownerShare;
-                    paySplitDetailNote.textContent = currentLang === "si"
-                        ? `බෙදීම: වාහනයට LKR ${ownerShare.toLocaleString("en-US")} + රියදුරුට LKR ${driverShare.toLocaleString("en-US")} (වාහන නඩත්තුව හිමියාට)`
-                        : `Split: Owner LKR ${ownerShare.toLocaleString("en-US")} + Driver LKR ${driverShare.toLocaleString("en-US")}`;
-                } else if (mode === "fuel_maint") {
-                    paySplitDetailNote.textContent = currentLang === "si"
-                        ? `ඉන්ධන සහ නඩත්තු කොටස සඳහා LKR ${remaining.toLocaleString("en-US")} වෙන් කර ඇත.`
-                        : `LKR ${remaining.toLocaleString("en-US")} allocated to fuel & maintenance.`;
-                } else {
-                    paySplitDetailNote.textContent = currentLang === "si"
-                        ? `අදාළ පාර්ශවය ලියාපදිංචි කළ බැංකු ගිණුමට payout සකස් කෙරේ.`
-                        : `Allocated to the registered party's payout account.`;
-                }
-            }
-            return { gross, advance, commAmt, reserveAmt, remaining, mode };
-        }
-
-        function renderPaymentLedger() {
-            if (!paymentLedgerList) return;
-            let entries = [];
-            try {
-                entries = JSON.parse(localStorage.getItem("drivelink_ledger_v1") || "[]");
-            } catch (_) {
-                entries = [];
-            }
-            if (!entries.length) {
-                paymentLedgerList.innerHTML = "";
-                return;
-            }
-            paymentLedgerList.innerHTML = entries.slice(0, 4).map(item =>
-                `<div class="ledger-entry">
-                    <div>
-                        <strong>${item.payer} • ${item.method}</strong>
-                        <span>${item.modeLabel} | Ref: ${item.ref}</span>
-                    </div>
-                    <div style="text-align:right;">
-                        <span style="color:var(--gold-bright);font-weight:700;">LKR ${Number(item.gross).toLocaleString("en-US")}</span>
-                        <span style="display:block;font-size:0.7rem;">Net: LKR ${Number(item.remaining).toLocaleString("en-US")}</span>
-                    </div>
-                </div>`
-            ).join("");
-        }
-
-        document.querySelectorAll(".open-payment-modal-btn").forEach(btn => {
-            btn.addEventListener("click", () => {
-                activePayMethod = btn.dataset.method || "Koko Pay (Installments)";
-                if (pPayMethodSelect) pPayMethodSelect.value = activePayMethod;
-                const days = parseInt(hDays.value, 10) || 1;
-                currentGrossAmount = selectedDailyRate * days;
-                refreshPaymentMethodUI();
-                computeSplitBreakdown();
-                renderPaymentLedger();
-                paymentModal.classList.add("show");
-            });
-        });
-
-        const payPillBtns = document.querySelectorAll(".pay-pill-btn");
-        const kokoScheduleStrip = document.getElementById("kokoScheduleStrip");
-        const cardPreviewBox = document.getElementById("cardPreviewBox");
-        const cardExtraFields = document.getElementById("cardExtraFields");
-        const payMethodVisualTitle = document.getElementById("payMethodVisualTitle");
-        const payMethodVisualDesc = document.getElementById("payMethodVisualDesc");
-        const pCardLast4 = document.getElementById("pCardLast4");
-        const pCardExpiry = document.getElementById("pCardExpiry");
-        const cardPreviewNum = document.getElementById("cardPreviewNum");
-        const cardPreviewExp = document.getElementById("cardPreviewExp");
-
-        function refreshPaymentMethodUI() {
-            payPillBtns.forEach(b => b.classList.toggle("active", b.dataset.method === activePayMethod));
-            if (pPayMethodSelect) pPayMethodSelect.value = activePayMethod;
-            payModalMethodTag.textContent = (currentLang === "si" ? "ගෙවීම් ක්‍රමය: " : "Payment Method: ") + activePayMethod;
-
-            const isKoko = activePayMethod.toLowerCase().includes("koko");
-            const isCard = activePayMethod.toLowerCase().includes("card");
-            const isBank = activePayMethod.toLowerCase().includes("bank");
-
-            if (kokoScheduleStrip) kokoScheduleStrip.style.display = isKoko ? "grid" : "none";
-            if (cardPreviewBox) cardPreviewBox.style.display = isCard ? "flex" : "none";
-            if (cardExtraFields) cardExtraFields.style.display = isCard ? "block" : "none";
-
-            if (payMethodVisualTitle && payMethodVisualDesc) {
-                if (isKoko) {
-                    payMethodVisualTitle.textContent = currentLang === "si"
-                        ? "🥥 Koko Pay — වාරික වශයෙන් ටික ටික ගෙවන්න"
-                        : "🥥 Koko Pay — Split Into Easy Installments";
-                    payMethodVisualDesc.textContent = currentLang === "si"
-                        ? "මුළු ගාස්තුව වාරික වලට බෙදා සැලසුම් කළ වාරික ගණන අනුව ගෙවන්න."
-                        : "Divide your total fare into scheduled installments.";
-                } else if (isCard) {
-                    payMethodVisualTitle.textContent = currentLang === "si"
-                        ? "💳 Online Card Checkout"
-                        : "💳 Online Card Checkout";
-                    payMethodVisualDesc.textContent = currentLang === "si"
-                        ? "Card විස්තර හෝ Gateway Reference සටහන් කර WhatsApp හරහා තහවුරු කරන්න."
-                        : "Enter card reference/last digits and confirm via WhatsApp.";
-                } else if (isBank) {
-                    payMethodVisualTitle.textContent = currentLang === "si"
-                        ? "🏦 Bank Transfer & Slip Verification"
-                        : "🏦 Bank Transfer & Slip Verification";
-                    payMethodVisualDesc.textContent = currentLang === "si"
-                        ? "20% Advance බැර කර Slip Reference ID ඇතුළත් කර WhatsApp වෙත යොමු කරන්න."
-                        : "Pay the 20% advance, enter your slip reference ID, and confirm on WhatsApp.";
-                } else {
-                    payMethodVisualTitle.textContent = currentLang === "si"
-                        ? "💵 Cash on Pickup / Security Deposit"
-                        : "💵 Cash on Pickup / Security Deposit";
-                    payMethodVisualDesc.textContent = currentLang === "si"
-                        ? "වාහනය ලබාගන්නා අවස්ථාවේ Inspection සමඟ මුදල්/Deposit තහවුරු කිරීම."
-                        : "Confirm cash payment & refundable deposit during vehicle handover.";
-                }
-            }
-
-            const instCount = parseInt(pInstallmentCount ? pInstallmentCount.value : "3", 10) || 3;
-            const perInst = Math.ceil(currentGrossAmount / instCount);
-            const s1 = document.getElementById("kokoS1Val");
-            const s2 = document.getElementById("kokoS2Val");
-            const s3 = document.getElementById("kokoS3Val");
-            const l1 = document.getElementById("kokoS1Label");
-            const l2 = document.getElementById("kokoS2Label");
-            const l3 = document.getElementById("kokoS3Label");
-            if (l1) l1.textContent = currentLang === "si" ? "1st වාරිකය (අද)" : "1st Installment (Today)";
-            if (l2) l2.textContent = currentLang === "si" ? "2nd වාරිකය (ඊළඟ)" : "2nd Installment (Next)";
-            if (l3) l3.textContent = currentLang === "si" ? `අවසන් වාරිකය (${instCount}x)` : `Final Installment (${instCount}x)`;
-            if (s1) s1.textContent = "LKR " + perInst.toLocaleString("en-US");
-            if (s2) s2.textContent = "LKR " + perInst.toLocaleString("en-US");
-            if (s3) s3.textContent = "LKR " + perInst.toLocaleString("en-US");
-        }
-
-        payPillBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-                activePayMethod = btn.dataset.method || "Koko Pay (Installments)";
-                refreshPaymentMethodUI();
-                computeSplitBreakdown();
-            });
-        });
-
-        if (pCardLast4) {
-            pCardLast4.addEventListener("input", () => {
-                const digits = (pCardLast4.value || "4242").replace(/\D/g, "").padEnd(4, "•").slice(0, 4);
-                if (cardPreviewNum) cardPreviewNum.textContent = `•••• •••• •••• ${digits}`;
-            });
-        }
-        if (pCardExpiry) {
-            pCardExpiry.addEventListener("input", () => {
-                if (cardPreviewExp) cardPreviewExp.textContent = `${pCardExpiry.value || "12/28"} • •••`;
-            });
-        }
-
-        if (pPayMethodSelect) {
-            pPayMethodSelect.addEventListener("change", () => {
-                activePayMethod = pPayMethodSelect.value;
-                refreshPaymentMethodUI();
-                computeSplitBreakdown();
-            });
-        }
-        if (pInstallmentCount) {
-            pInstallmentCount.addEventListener("change", () => {
-                refreshPaymentMethodUI();
-                computeSplitBreakdown();
-            });
-        }
-
-        if (pSplitMode) pSplitMode.addEventListener("change", computeSplitBreakdown);
-        if (pReservePct) pReservePct.addEventListener("input", computeSplitBreakdown);
-
-        function savePrivatePartnerRecord(role, payload) {
-            try {
-                const key = "drivelink_partners_private_v1";
-                const list = JSON.parse(localStorage.getItem(key) || "[]");
-                list.unshift({ role, ...payload, ts: Date.now() });
-                localStorage.setItem(key, JSON.stringify(list));
-            } catch (_) {}
-        }
-
-        const ownerFormEl = document.getElementById("ownerRegisterForm");
-        if (ownerFormEl) {
-            ownerFormEl.addEventListener("submit", () => {
-                savePrivatePartnerRecord("owner", {
-                    name: document.getElementById("ownName").value.trim(),
-                    area: document.getElementById("ownArea").value.trim(),
-                    vehicle: document.getElementById("ownVehicle").value.trim(),
-                    bank: document.getElementById("ownBank") ? document.getElementById("ownBank").value.trim() : ""
-                });
-            }, true);
-        }
-
-        const driverFormEl = document.getElementById("driverRegisterForm");
-        if (driverFormEl) {
-            driverFormEl.addEventListener("submit", () => {
-                savePrivatePartnerRecord("driver", {
-                    name: document.getElementById("drvName").value.trim(),
-                    area: document.getElementById("drvArea").value.trim(),
-                    license: document.getElementById("drvLicense").value,
-                    bank: document.getElementById("drvBank") ? document.getElementById("drvBank").value.trim() : ""
-                });
-            }, true);
-        }
-
-        document.getElementById("closePayModalBtn").addEventListener("click", () => paymentModal.classList.remove("show"));
-        paymentModal.addEventListener("click", (e) => { if (e.target === paymentModal) paymentModal.classList.remove("show"); });
-
-        document.getElementById("paymentConfirmForm").addEventListener("submit", (e) => {
-            e.preventDefault();
-            const payer = document.getElementById("pCustomerName").value.trim();
-            const ref = document.getElementById("pRefCode").value.trim() || "Pending Slip";
-            const split = computeSplitBreakdown();
-
-            try {
-                const key = "drivelink_ledger_v1";
-                const list = JSON.parse(localStorage.getItem(key) || "[]");
-                list.unshift({
-                    payer,
-                    method: activePayMethod,
-                    ref,
-                    gross: split.gross,
-                    remaining: split.remaining,
-                    modeLabel: split.mode
-                });
-                localStorage.setItem(key, JSON.stringify(list));
-                renderPaymentLedger();
-            } catch (_) {}
-
-            openWhatsApp(
-                `*DriveLink SL - Payment & Split Summary*%0A` +
-                `Method: ${activePayMethod}%0A` +
-                `Payer: ${payer}%0A` +
-                `Ref ID: ${ref}%0A` +
-                `Gross: LKR ${split.gross.toLocaleString("en-US")}%0A` +
-                `Advance (20%): LKR ${split.advance.toLocaleString("en-US")}%0A` +
-                `Commission: LKR ${split.commAmt.toLocaleString("en-US")}%0A` +
-                `Incident Reserve: LKR ${split.reserveAmt.toLocaleString("en-US")}%0A` +
-                `Remainder (${split.mode}): LKR ${split.remaining.toLocaleString("en-US")}`
-            );
-            paymentModal.classList.remove("show");
-        });
-
-        // Interactive Live Availability Map (Cars & Drivers)
-        const mapUnits = [
-            {
-                id: "u1",
-                nameSi: "Toyota Aqua Hybrid (WP-CAA)",
-                nameEn: "Toyota Aqua Hybrid (WP-CAA)",
-                area: "Matara",
-                areaLabelSi: "මාතර නගරය",
-                areaLabelEn: "Matara Town",
-                type: "self-drive",
-                typeLabelSi: "Self-Drive • Automatic • A/C",
-                typeLabelEn: "Self-Drive • Automatic • A/C",
-                rate: "LKR 8,500/day",
-                x: 46,
-                y: 44,
-                servicePayload: "Map Unit: Toyota Aqua Hybrid (Matara - Self-Drive, LKR 8,500/day)"
-            },
-            {
-                id: "u2",
-                nameSi: "KDH High-Roof Van + රියදුරු",
-                nameEn: "KDH High-Roof Van + Driver",
-                area: "Matara",
-                areaLabelSi: "මාතර බස් නැවතුම අසල",
-                areaLabelEn: "Near Matara Stand",
-                type: "with-driver",
-                typeLabelSi: "වාහනය + රියදුරු • ආසන 14",
-                typeLabelEn: "Car + Driver • 14 Seats",
-                rate: "LKR 16,000/day",
-                x: 56,
-                y: 58,
-                servicePayload: "Map Unit: KDH High-Roof Van + Driver (Matara, LKR 16,000/day)"
-            },
-            {
-                id: "u3",
-                nameSi: "රියදුරු: දිනේෂ් (Light + Heavy)",
-                nameEn: "Driver: Dinesh (Light + Heavy)",
-                area: "Deiyandara",
-                areaLabelSi: "දෙයියන්දර",
-                areaLabelEn: "Deiyandara",
-                type: "driver-only",
-                typeLabelSi: "රියදුරු පමණක් • වසර 9 පළපුරුද්ද",
-                typeLabelEn: "Driver Only • 9 Yrs Exp",
-                rate: "LKR 3,500/day",
-                x: 72,
-                y: 74,
-                servicePayload: "Map Driver: Dinesh (Deiyandara - Light/Heavy, LKR 3,500/day)"
-            },
-            {
-                id: "u4",
-                nameSi: "Honda Vezel Hybrid (CP-CAB)",
-                nameEn: "Honda Vezel Hybrid (CP-CAB)",
-                area: "Galle",
-                areaLabelSi: "ගාල්ල කොටුව අසල",
-                areaLabelEn: "Near Galle Fort",
-                type: "self-drive",
-                typeLabelSi: "Self-Drive • SUV • Dual A/C",
-                typeLabelEn: "Self-Drive • SUV • Dual A/C",
-                rate: "LKR 11,500/day",
-                x: 24,
-                y: 34,
-                servicePayload: "Map Unit: Honda Vezel Hybrid (Galle - Self-Drive, LKR 11,500/day)"
-            },
-            {
-                id: "u5",
-                nameSi: "රියදුරු: කසුන් (VIP & Airport)",
-                nameEn: "Driver: Kasun (VIP & Airport)",
-                area: "Deiyandara",
-                areaLabelSi: "දෙයියන්දර / මාතර මාර්ගය",
-                areaLabelEn: "Deiyandara–Matara Rd",
-                type: "driver-only",
-                typeLabelSi: "රියදුරු පමණක් • NIC & Police Verified",
-                typeLabelEn: "Driver Only • Verified Chauffeur",
-                rate: "LKR 3,500/day",
-                x: 64,
-                y: 66,
-                servicePayload: "Map Driver: Kasun (Deiyandara - Verified Chauffeur, LKR 3,500/day)"
-            }
-        ];
-
-        const mapPinsLayer = document.getElementById("mapPinsLayer");
-        const mapUnitList = document.getElementById("mapUnitList");
-        const mapAreaSelect = document.getElementById("mapAreaSelect");
-        const mapFilterBtns = document.querySelectorAll(".map-filter-btn");
-        const mapSelectedBadge = document.getElementById("mapSelectedBadge");
-        const mapFocusTitle = document.getElementById("mapFocusTitle");
-        const mapFocusDesc = document.getElementById("mapFocusDesc");
-        const mapBookSelectedBtn = document.getElementById("mapBookSelectedBtn");
-
-        let activeMapType = "all";
-        let activeMapArea = "all";
-        let selectedMapUnitId = "u1";
-
-        function getFilteredMapUnits() {
-            return mapUnits.filter(u => {
-                const matchType = activeMapType === "all" || u.type === activeMapType;
-                const matchArea = activeMapArea === "all" || u.area === activeMapArea;
-                return matchType && matchArea;
-            });
-        }
-
-        function renderMapView() {
-            if (!mapPinsLayer || !mapUnitList) return;
-            const filtered = getFilteredMapUnits();
-            if (filtered.length && !filtered.some(u => u.id === selectedMapUnitId)) {
-                selectedMapUnitId = filtered[0].id;
-            }
-
-            const selectedUnit = filtered.find(u => u.id === selectedMapUnitId) || filtered[0] || null;
-
-            mapPinsLayer.innerHTML = filtered.map(u => {
-                const isSel = selectedUnit && u.id === selectedUnit.id;
-                const shortTitle = currentLang === "si" ? u.nameSi : u.nameEn;
-                return `<button type="button" class="map-pin ${isSel ? "selected" : ""}" data-uid="${u.id}" style="left:${u.x}%;top:${u.y}%;">
-                    <span class="map-pin-dot"></span>
-                    <span>${shortTitle.split("(")[0].trim()}</span>
-                </button>`;
-            }).join("");
-
-            if (!filtered.length) {
-                mapUnitList.innerHTML = `<div style="padding:18px;text-align:center;color:var(--text-muted);font-size:0.84rem;">${currentLang === "si" ? "මෙම Filter එකට ගැළපෙන වාහන හෝ රියදුරන් දැනට නැත." : "No units match this filter right now."}</div>`;
-                mapFocusTitle.textContent = currentLang === "si" ? "ප්‍රතිඵල හමු නොවීය" : "No Matching Units";
-                mapFocusDesc.textContent = currentLang === "si" ? "වෙනත් ප්‍රදේශයක් හෝ සේවාවක් තෝරන්න" : "Try another area or service filter";
-                return;
-            }
-
-            mapUnitList.innerHTML = filtered.map(u => {
-                const isSel = selectedUnit && u.id === selectedUnit.id;
-                const title = currentLang === "si" ? u.nameSi : u.nameEn;
-                const areaStr = currentLang === "si" ? u.areaLabelSi : u.areaLabelEn;
-                const typeStr = currentLang === "si" ? u.typeLabelSi : u.typeLabelEn;
-                return `<div class="unit-item ${isSel ? "active" : ""}" data-uid="${u.id}">
-                    <div>
-                        <h4>${title}</h4>
-                        <p>📍 ${areaStr} • ${typeStr}</p>
-                    </div>
-                    <div class="unit-meta">
-                        <span class="unit-status">${currentLang === "si" ? "AVAILABLE" : "AVAILABLE"}</span>
-                        <span class="unit-rate">${u.rate}</span>
-                    </div>
-                </div>`;
-            }).join("");
-
-            if (selectedUnit) {
-                const areaText = currentLang === "si" ? selectedUnit.areaLabelSi : selectedUnit.areaLabelEn;
-                const typeText = currentLang === "si" ? selectedUnit.typeLabelSi : selectedUnit.typeLabelEn;
-                mapSelectedBadge.textContent = (currentLang === "si" ? "තෝරාගත් ස්ථානය: " : "SELECTED LOCATION: ") + areaText;
-                mapFocusTitle.textContent = currentLang === "si" ? selectedUnit.nameSi : selectedUnit.nameEn;
-                mapFocusDesc.textContent = `${typeText} • ${selectedUnit.rate}`;
-            }
-
-            mapPinsLayer.querySelectorAll(".map-pin").forEach(pin => {
-                pin.addEventListener("click", () => {
-                    selectedMapUnitId = pin.dataset.uid;
-                    renderMapView();
-                });
-            });
-
-            mapUnitList.querySelectorAll(".unit-item").forEach(item => {
-                item.addEventListener("click", () => {
-                    selectedMapUnitId = item.dataset.uid;
-                    renderMapView();
-                });
-            });
-        }
-
-        mapFilterBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-                mapFilterBtns.forEach(b => b.classList.remove("active"));
-                btn.classList.add("active");
-                activeMapType = btn.dataset.mfilter;
-                renderMapView();
-            });
-        });
-
-        if (mapAreaSelect) {
-            mapAreaSelect.addEventListener("change", () => {
-                activeMapArea = mapAreaSelect.value;
-                renderMapView();
-            });
-        }
-
-        if (mapBookSelectedBtn) {
-            mapBookSelectedBtn.addEventListener("click", () => {
-                const filtered = getFilteredMapUnits();
-                const chosen = filtered.find(u => u.id === selectedMapUnitId) || filtered[0];
-                activeModalService = chosen ? chosen.servicePayload : "Vehicle + Driver";
-                modalSelectedService.textContent = (currentLang === "si" ? "තෝරාගත් සේවාව: " : "Selected: ") + activeModalService;
-                bookingModal.classList.add("show");
-            });
-        }
-
-        renderMapView();
-
-        // Full Page Sinhala <-> English Switcher
-        let currentLang = "si";
-        const langToggleBtn = document.getElementById("langToggleBtn");
-        const heroHeading = document.getElementById("heroHeading");
-
-        langToggleBtn.addEventListener("click", () => {
-            currentLang = currentLang === "si" ? "en" : "si";
-            langToggleBtn.textContent = currentLang === "si" ? "EN / සිංහල" : "සිංහල / EN";
-
-            heroHeading.innerHTML = currentLang === "si"
-                ? 'වාහනයක්, රියදුරෙක් හෝ දෙකම — <span>වඩාත් ස්මාර්ට්ව</span> එකම තැනකින්'
-                : 'A Vehicle, a Driver, or Both — <span>Smarter</span> in One Place';
-
-            document.documentElement.lang = currentLang;
-            document.querySelectorAll("[data-si][data-en]").forEach(el => {
-                el.textContent = el.getAttribute(currentLang === "si" ? "data-si" : "data-en");
-            });
-            document.querySelectorAll("[data-ph-si][data-ph-en]").forEach(inp => {
-                inp.placeholder = inp.getAttribute(currentLang === "si" ? "data-ph-si" : "data-ph-en");
-            });
-            modalSelectedService.textContent = (currentLang === "si" ? "තෝරාගත් සේවාව: " : "Selected: ") + activeModalService;
-        });
-    </script>
-</body>
-</html>
