@@ -64,10 +64,56 @@
             background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
         }
 
+        /* Parent Page Sub-Navigation Bar (New Anura Stores / careers-apply.html) */
+        .parent-sub-bar {
+            background: rgba(8, 12, 22, 0.95);
+            border-bottom: 1px solid rgba(245, 185, 66, 0.22);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .parent-sub-inner {
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 6px 0;
+        }
+
+        .parent-crumb-trail {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        .parent-crumb-trail a {
+            color: var(--gold-bright);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .parent-crumb-trail a:hover {
+            text-decoration: underline;
+        }
+
+        .parent-back-link {
+            color: var(--text-soft);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.76rem;
+        }
+
+        .parent-back-link:hover {
+            color: var(--gold-bright);
+        }
+
         /* Navbar */
         .navbar {
             position: fixed;
-            top: 0;
+            top: 38px;
             left: 0;
             width: 100%;
             z-index: 1000;
@@ -237,7 +283,7 @@
         /* Hero Section */
         .hero {
             position: relative;
-            padding: 124px 0 84px;
+            padding: 158px 0 84px;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -1375,6 +1421,21 @@
 </head>
 <body class="bg-grid-pattern">
 
+    <!-- Sub-page Hierarchy Bar under New Anura Stores / careers-apply.html -->
+    <div class="parent-sub-bar" id="parentHierarchyBar">
+        <div class="container parent-sub-inner">
+            <div class="parent-crumb-trail">
+                <span>🏛️</span>
+                <a href="https://miyuruwitharana.github.io/New-Anura-Stores/" target="_blank" rel="noopener noreferrer">New Anura Stores</a>
+                <span>/</span>
+                <a href="https://miyuruwitharana.github.io/New-Anura-Stores/careers-apply.html" target="_blank" rel="noopener noreferrer" data-si="Careers & Apply (careers-apply.html)" data-en="Careers & Apply (careers-apply.html)">Careers & Apply (careers-apply.html)</a>
+                <span>/</span>
+                <strong style="color:#fff;" data-si="DriveLink SL Mobility Portal" data-en="DriveLink SL Mobility Portal">DriveLink SL Mobility Portal</strong>
+            </div>
+            <a href="https://miyuruwitharana.github.io/New-Anura-Stores/careers-apply.html" target="_blank" rel="noopener noreferrer" class="parent-back-link" data-si="← Careers & Apply පිටුවට යන්න" data-en="← Back to Careers & Apply">← Careers & Apply පිටුවට යන්න</a>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <header class="navbar">
         <div class="container nav-inner">
@@ -2031,6 +2092,7 @@
             <div>
                 <h4 data-si="සම්බන්ධ වන්න" data-en="Contact">සම්බන්ධ වන්න</h4>
                 <ul>
+                    <li><a href="https://miyuruwitharana.github.io/New-Anura-Stores/careers-apply.html" target="_blank" rel="noopener noreferrer">🏛️ New Anura Stores — Careers & Apply</a></li>
                     <li>📍 Matara / Deiyandara, Sri Lanka</li>
                     <li>📞 +94 77 000 0000</li>
                     <li>✉️ info@drivelinksl.lk</li>
