@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveLink SL | වාහන සහ රියදුරු සේවා ජාලය</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🚘</span>
+                <span class="logo-text">DriveLink<span class="highlight">SL</span></span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#services">සේවාවන්</a>
+                <a href="#fleet">වාහන සහ රියදුරන්</a>
+                <a href="#how-it-works">ක්‍රියාත්මක වන ආකාරය</a>
+                <a href="#partner" class="nav-cta">අප හා එක්වන්න</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <img src="images/hero-suv.jpg" alt="Sri Lanka Luxury Vehicle Rental" class="hero-bg">
+        <div class="container hero-content">
+            <span class="badge">ශ්‍රී ලංකාවේ නවතම Mobility Marketplace එක</span>
+            <h1>ඔබේ ගමනට වාහනයක්, රියදුරෙක් හෝ දෙකම එකම තැනකින්</h1>
+            <p>වාහනයක් කුලියට ගැනීමට, ඔබේ වාහනය ලියාපදිංචි කර අමතර ආදායමක් ඉපයීමට හෝ රියදුරු බලපත්‍රය ඇති අයට වාහනයක් නොමැතිව රැකියා අවස්ථා ලබා ගැනීමට ඇති විශ්වාසවන්තම වේදිකාව.</p>
+            
+            <!-- Quick Action Tabs -->
+            <div class="hero-booking-box">
+                <div class="service-tabs">
+                    <button class="tab-btn active" data-service="Self-Drive (වාහනය පමණක්)">🚗 වාහනය පමණක්</button>
+                    <button class="tab-btn" data-service="Vehicle + Driver (වාහනය සහ රියදුරු)">🚘 වාහනය + රියදුරු</button>
+                    <button class="tab-btn" data-service="Hire a Driver (රියදුරු පමණක්)">👨‍✈️ රියදුරු පමණක්</button>
+                </div>
+                <form class="quick-search-form" id="quickBookingForm">
+                    <div class="input-group">
+                        <label>ඔබේ නම</label>
+                        <input type="text" id="qName" placeholder="උදා: කසුන් පෙරේරා" required>
+                    </div>
+                    <div class="input-group">
+                        <label>දුරකථන / WhatsApp අංකය</label>
+                        <input type="tel" id="qPhone" placeholder="07X XXXXXXX" required>
+                    </div>
+                    <div class="input-group">
+                        <label>දිනය සහ නගරය</label>
+                        <input type="text" id="qLocation" placeholder="උදා: හෙට - මාතර / කොළඹ" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">දැන්ම වෙන්කරගන්න</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 Core Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>අපගේ ප්‍රධාන සේවාවන් 3</h2>
+                <p>ඔබේ ඕනෑම ගමන් අවශ්‍යතාවයකට ගැළපෙන පරිදි සකස් කළ නම්‍යශීලී පැකේජ</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon-circle">🚗</div>
+                    <h3>1. Self-Drive (වාහනය පමණක්)</h3>
+                    <p>ඔබටම වාහනය පදවාගෙන යාමට අවශ්‍ය නම්, පූර්ණ රක්ෂණාවරණය සහ GPS ආරක්ෂාව සහිත වාහනයක් පහසුවෙන් වෙන්කරගන්න.</p>
+                    <ul>
+                        <li>✔ දිනපතා හෝ සතිපතා පැකේජ</li>
+                        <li>✔ පරීක්ෂා කළ (Verified) වාහන</li>
+                        <li>✔ සැඟවුණු ගාස්තු නොමැත</li>
+                    </ul>
+                    <button class="btn btn-outline select-service-btn" data-service="Self-Drive (වාහනය පමණක්)">මෙම සේවාව තෝරන්න</button>
+                </div>
+
+                <div class="service-card featured">
+                    <div class="popular-tag">වැඩිම ඉල්ලුම</div>
+                    <div class="icon-circle">🚘</div>
+                    <h3>2. Vehicle + Driver (වාහනය සහ රියදුරු)</h3>
+                    <p>විවාහ මංගල උත්සව, චාරිකා, Airport Drops සහ ව්‍යාපාරික ගමන් සඳහා පළපුරුදු රියදුරෙකු සමඟ සුවපහසු වාහනයක්.</p>
+                    <ul>
+                        <li>✔ විශ්වාසවන්ත, පළපුරුදු රියදුරන්</li>
+                        <li>✔ වෙලාවට වැඩ කිරීමේ වගකීම</li>
+                        <li>✔ ඕනෑම දුර ගමනක් සඳහා සූදානම්</li>
+                    </ul>
+                    <button class="btn btn-primary select-service-btn" data-service="Vehicle + Driver (වාහනය සහ රියදුරු)">මෙම සේවාව තෝරන්න</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-circle">👨‍✈️</div>
+                    <h3>3. Hire a Driver (රියදුරු පමණක්)</h3>
+                    <p>ඔබේම වාහනය පැදවීමට විශ්වාසවන්ත රියදුරෙකු අවශ්‍යද? සාදයකට ගොස් ආපසු ඒමට හෝ දුර ගමන් සඳහා රියදුරෙකු ලබාගන්න.</p>
+                    <ul>
+                        <li>✔ පොලිස් වාර්තා පරීක්ෂා කළ රියදුරන්</li>
+                        <li>✔ සැහැල්ලු සහ බර වාහන බලපත්‍ර</li>
+                        <li>✔ පැයකට හෝ දිනකට ලබාගත හැක</li>
+                    </ul>
+                    <button class="btn btn-outline select-service-btn" data-service="Hire a Driver (රියදුරු පමණක්)">මෙම සේවාව තෝරන්න</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet & Drivers Showcase -->
+    <section id="fleet" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>දැනට ලබාගත හැකි වාහන සහ රියදුරන්</h2>
+                <p>ඔබට අවශ්‍ය වාහනය හෝ රියදුරු තෝරා ක්ෂණිකව වෙන්කරගන්න</p>
+            </div>
+            <div class="fleet-grid">
+                <!-- Card 1 -->
+                <div class="fleet-card">
+                    <img src="images/sedan.jpg" alt="Modern Silver Sedan">
+                    <div class="fleet-info">
+                        <span class="tag">Self-Drive / With Driver</span>
+                        <h3>Hybrid Sedan (A/C)</h3>
+                        <p class="specs">ආසන 4 • Auto Gear • Petrol/Hybrid</p>
+                        <div class="price-row">
+                            <span class="price">රු. 8,500 <small>/ දිනකට</small></span>
+                            <button class="btn btn-sm btn-primary book-item-btn" data-item="Hybrid Sedan (රු. 8,500/දිනකට)">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="fleet-card">
+                    <img src="images/van.jpg" alt="Passenger Travel Van">
+                    <div class="fleet-info">
+                        <span class="tag">Vehicle + Driver</span>
+                        <h3>Luxury High-Roof Van</h3>
+                        <p class="specs">ආසන 14 • Dual A/C • චාරිකා සඳහා</p>
+                        <div class="price-row">
+                            <span class="price">රු. 16,000 <small>/ දිනකට</small></span>
+                            <button class="btn btn-sm btn-primary book-item-btn" data-item="Luxury High-Roof Van (රු. 16,000/දිනකට)">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="fleet-card">
+                    <img src="images/driver.jpg" alt="Professional Verified Driver">
+                    <div class="fleet-info">
+                        <span class="tag driver-tag">Verified Driver Only</span>
+                        <h3>පළපුරුදු රියදුරු (සියලුම වාහන)</h3>
+                        <p class="specs">වසර 8+ පළපුරුද්ද • NIC & Police Verified</p>
+                        <div class="price-row">
+                            <span class="price">රු. 3,500 <small>/ දිනකට</small></span>
+                            <button class="btn btn-sm btn-primary book-item-btn" data-item="Verified Driver Only (රු. 3,500/දිනකට)">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Registration Section (3-Sided Marketplace) -->
+    <section id="partner" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>අප සමඟ එක්වී ආදායම් උපයන්න</h2>
+                <p>ඔබට වාහනයක් තිබුණත්, රියදුරු බලපත්‍රය පමණක් තිබුණත් අදම අපගේ ජාලයට එකතු වන්න</p>
+            </div>
+
+            <div class="partner-grid">
+                <!-- Vehicle Owner Registration -->
+                <div class="partner-card">
+                    <h3>🚘 වාහන හිමියන් සඳහා (Register Vehicle)</h3>
+                    <p>නිවසේ නවතා ඇති ඔබේ වාහනය අපගේ සේවාවට එක් කර මාසිකව ඉහළ ආදායමක් ලබාගන්න. ඔබට රියදුරු බලපත්‍රය ඇත්නම් ඔබටම රියදුරු ලෙසත් කටයුතු කළ හැක.</p>
+                    <form class="partner-form" id="ownerForm">
+                        <input type="text" id="oName" placeholder="හිමිකරුගේ නම" required>
+                        <input type="tel" id="oPhone" placeholder="දුරකථන අංකය (WhatsApp)" required>
+                        <input type="text" id="oVehicle" placeholder="වාහන වර්ගය (උදා: Alto, WagonR, KDH)" required>
+                        <select id="oMode" required>
+                            <option value="">ලබා දෙන ආකාරය තෝරන්න...</option>
+                            <option value="වාහනය පමණක් (Self-Drive)">වාහනය පමණක් (Self-Drive)</option>
+                            <option value="වාහනය + මමම රියදුරු ලෙස">වාහනය + මමම රියදුරු ලෙස</option>
+                            <option value="වාහනය + වෙනත් රියදුරෙකු සමඟ">වාහනය + වෙනත් රියදුරෙකු සමඟ</option>
+                        </select>
+                        <input type="text" id="oCity" placeholder="ප්‍රදේශය (උදා: මාතර / දෙයියන්දර)" required>
+                        <button type="submit" class="btn btn-primary full-width">වාහනය ලියාපදිංචි කරන්න</button>
+                    </form>
+                </div>
+
+                <!-- Driver Registration -->
+                <div class="partner-card">
+                    <h3>👨‍✈️ රියදුරන් සඳහා (Register as Driver)</h3>
+                    <p>ඔබට වාහනයක් නැතත්, වලංගු රියදුරු බලපත්‍රයක් ඇත්නම් අප සමඟ ලියාපදිංචි වී අපගේ ජාලයේ ඇති වාහන පැදවීමෙන් දිනපතා ආදායම් උපයන්න.</p>
+                    <form class="partner-form" id="driverForm">
+                        <input type="text" id="dName" placeholder="රියදුරුගේ සම්පූර්ණ නම" required>
+                        <input type="tel" id="dPhone" placeholder="දුරකථන අංකය (WhatsApp)" required>
+                        <select id="dLicense" required>
+                            <option value="">රියදුරු බලපත්‍ර වර්ගය තෝරන්න...</option>
+                            <option value="සැහැල්ලු වාහන (Light Vehicle)">සැහැල්ලු වාහන (Light Vehicle)</option>
+                            <option value="බර වාහන (Heavy Vehicle)">බර වාහන (Heavy Vehicle)</option>
+                            <option value="සියලුම වාහන (All Vehicles)">සියලුම වාහන (All Vehicles)</option>
+                        </select>
+                        <input type="number" id="dExp" placeholder="පළපුරුද්ද (වසර ගණන)" required>
+                        <input type="text" id="dCity" placeholder="පදිංචි ප්‍රදේශය" required>
+                        <button type="submit" class="btn btn-dark full-width">රියදුරෙකු ලෙස ලියාපදිංචි වන්න</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works / Trust Banner -->
+    <section id="how-it-works" class="section trust-section">
+        <div class="container">
+            <div class="section-header light-text">
+                <h2>ආරක්ෂාව සහ විශ්වාසය 100% තහවුරුයි</h2>
+                <p>පාර්ශව තුනේම ආරක්ෂාව වෙනුවෙන් අප අනුගමනය කරන පියවර</p>
+            </div>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <span>🪪</span>
+                    <h4>NIC & License තහවුරු කිරීම</h4>
+                    <p>සියලුම රියදුරන්ගේ සහ පාරිභෝගිකයන්ගේ අනන්‍යතාවය පරීක්ෂා කෙරේ.</p>
+                </div>
+                <div class="trust-item">
+                    <span>📍</span>
+                    <h4>GPS ආරක්ෂාව</h4>
+                    <p>Self-Drive සඳහා ලබා දෙන සෑම වාහනයකම සජීවී GPS පද්ධති ක්‍රියාත්මකයි.</p>
+                </div>
+                <div class="trust-item">
+                    <span>💰</span>
+                    <h4>විනිවිද පෙනෙන ගාස්තු</h4>
+                    <p>වාහන හිමියාට, රියදුරුට සහ පාරිභෝගිකයාට සාධාරණ මිල ගණන්.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <h3>DriveLink<span class="highlight">SL</span></h3>
+                <p>ශ්‍රී ලංකාවේ වාහන හිමියන්, රියදුරන් සහ පාරිභෝගිකයන් යා කරන නවීනතම ජාලය.</p>
+            </div>
+            <div>
+                <h4>සම්බන්ධ වන්න</h4>
+                <p>📞 දුරකථන: +94 77 000 0000</p>
+                <p>📍 ප්‍රධාන කාර්යාලය: මාතර / කොළඹ, ශ්‍රී ලංකා</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DriveLink SL. සියලුම හිමිකම් ඇවිරිණි.</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3>සේවාව වෙන්කරවා ගැනීම (Booking)</h3>
+            <p id="selectedServiceDisplay" class="selected-badge"></p>
+            <form id="modalBookingForm">
+                <input type="text" id="mName" placeholder="ඔබේ නම" required>
+                <input type="tel" id="mPhone" placeholder="දුරකථන / WhatsApp අංකය" required>
+                <input type="date" id="mDate" required>
+                <input type="text" id="mLocation" placeholder="ගමන ආරම්භ කරන ස්ථානය සහ ගමනාන්තය" required>
+                <button type="submit" class="btn btn-primary full-width">WhatsApp හරහා තහවුරු කරන්න</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // IMPORTANT: Replace this number with your actual WhatsApp number (with 94, without + or 0)
+        const ADMIN_WHATSAPP = "94770000000"; 
+
+        let currentService = "Self-Drive (වාහනය පමණක්)";
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Hero Service Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentService = btn.getAttribute('data-service');
+            });
+        });
+
+        // Send Data to WhatsApp Helper
+        function sendToWhatsApp(message) {
+            const url = `https://wa.me/${ADMIN_WHATSAPP}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Quick Booking Form Submit
+        document.getElementById('quickBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('qName').value;
+            const phone = document.getElementById('qPhone').value;
+            const loc = document.getElementById('qLocation').value;
+            
+            const msg = `*නව වෙන්කිරීමක් (New Booking)*%0A` +
+                        `සේවාව: ${currentService}%0A` +
+                        `නම: ${name}%0A` +
+                        `දුරකථන: ${phone}%0A` +
+                        `දිනය/නගරය: ${loc}`;
+            sendToWhatsApp(msg);
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('bookingModal');
+        const closeModal = document.getElementById('closeModal');
+        const serviceDisplay = document.getElementById('selectedServiceDisplay');
+
+        document.querySelectorAll('.select-service-btn, .book-item-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const chosen = btn.getAttribute('data-service') || btn.getAttribute('data-item');
+                serviceDisplay.textContent = "තෝරාගත් සේවාව: " + chosen;
+                modal.style.display = 'flex';
+            });
+        });
+
+        closeModal.onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+
+        document.getElementById('modalBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const service = serviceDisplay.textContent;
+            const name = document.getElementById('mName').value;
+            const phone = document.getElementById('mPhone').value;
+            const date = document.getElementById('mDate').value;
+            const loc = document.getElementById('mLocation').value;
+
+            const msg = `*නව වෙන්කිරීමක් (Detailed Booking)*%0A` +
+                        `${service}%0A` +
+                        `නම: ${name}%0A` +
+                        `දුරකථන: ${phone}%0A` +
+                        `දිනය: ${date}%0A` +
+                        `ගමන් විස්තර: ${loc}`;
+            sendToWhatsApp(msg);
+            modal.style.display = 'none';
+        });
+
+        // Vehicle Owner Registration
+        document.getElementById('ownerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const msg = `*නව වාහන හිමිකරු ලියාපදිංචියක්*%0A` +
+                        `නම: ${document.getElementById('oName').value}%0A` +
+                        `දුරකථන: ${document.getElementById('oPhone').value}%0A` +
+                        `වාහනය: ${document.getElementById('oVehicle').value}%0A` +
+                        `ආකාරය: ${document.getElementById('oMode').value}%0A` +
+                        `ප්‍රදේශය: ${document.getElementById('oCity').value}`;
+            sendToWhatsApp(msg);
+        });
+
+        // Driver Registration
+        document.getElementById('driverForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const msg = `*නව රියදුරු ලියාපදිංචියක්*%0A` +
+                        `නම: ${document.getElementById('dName').value}%0A` +
+                        `දුරකථන: ${document.getElementById('dPhone').value}%0A` +
+                        `බලපත්‍රය: ${document.getElementById('dLicense').value}%0A` +
+                        `පළපුරුද්ද: වසර ${document.getElementById('dExp').value}%0A` +
+                        `ප්‍රදේශය: ${document.getElementById('dCity').value}`;
+            sendToWhatsApp(msg);
+        });
+    </script>
+</body>
+</html>
