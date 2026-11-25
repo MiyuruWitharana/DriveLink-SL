@@ -511,6 +511,11 @@
             gap: 26px;
         }
 
+        .payments-grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
         .pillar-card {
             background: linear-gradient(180deg, rgba(17, 24, 39, 0.9) 0%, rgba(10, 15, 29, 0.95) 100%);
             border: 1px solid var(--border-subtle);
@@ -1160,10 +1165,61 @@
             }
         }
 
+
+        .payout-ledger-box {
+            background: rgba(5, 7, 13, 0.85);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 13px 14px;
+            margin-bottom: 14px;
+            font-size: 0.8rem;
+            color: var(--text-soft);
+        }
+
+        .payout-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .payout-row:last-child {
+            border-bottom: none;
+        }
+
+        .ledger-history-list {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            max-height: 135px;
+            overflow-y: auto;
+        }
+
+        .ledger-entry {
+            background: rgba(17, 24, 39, 0.9);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .ledger-entry strong {
+            color: #4ade80;
+            display: block;
+            font-size: 0.78rem;
+        }
+
         /* Responsive */
         @media (max-width: 990px) {
             .hero-grid,
             .pillars-grid,
+            .payments-grid-4,
             .fleet-grid,
             .calc-wrapper,
             .partner-grid,
@@ -1359,6 +1415,7 @@
                     <div class="field">
                         <label for="hPayMethod" data-si="ගෙවීමේ ක්‍රමය (Payment Method)" data-en="Payment Method">ගෙවීමේ ක්‍රමය (Payment Method)</label>
                         <select id="hPayMethod">
+                            <option value="Koko Pay (Installments)" data-si="Koko Pay — ටික ටික ගෙවන්න (3 Installments)" data-en="Koko Pay — Pay in 3 Installments">Koko Pay — ටික ටික ගෙවන්න (3 Installments)</option>
                             <option value="Bank Transfer / Slip" data-si="බැංකු ගිණුමට (Bank Transfer / Slip)" data-en="Bank Transfer / Slip Upload">බැංකු ගිණුමට (Bank Transfer / Slip)</option>
                             <option value="Online Card / Checkout" data-si="Online Card / Payment Gateway" data-en="Online Card / Payment Gateway">Online Card / Payment Gateway</option>
                             <option value="Cash on Pickup / Trip" data-si="වාහනය ලබාගන්නා විට මුදලින් (Cash)" data-en="Cash on Pickup / Trip">වාහනය ලබාගන්නා විට මුදලින් (Cash)</option>
@@ -1688,6 +1745,10 @@
                                 <option value="Vehicle + Assigned Driver" data-si="වාහනය + වෙනත් රියදුරෙකු සමඟ" data-en="Vehicle + Assigned Driver">වාහනය + වෙනත් රියදුරෙකු සමඟ</option>
                             </select>
                         </div>
+                                                <div class="field">
+                            <label for="ownBank" data-si="හිමිකරුගේ බැංකු ගිණුම් විස්තර (Payout සඳහා)" data-en="Owner Bank Details (For Payouts)">හිමිකරුගේ බැංකු ගිණුම් විස්තර (Payout සඳහා)</label>
+                            <input type="text" id="ownBank" placeholder="Bank / Account No" data-ph-si="Bank / Account No" data-ph-en="Bank / Account No">
+                        </div>
                         <button type="submit" class="btn btn-gold full-btn" data-si="වාහනය ලියාපදිංචි කරන්න" data-en="Submit Vehicle Registration">වාහනය ලියාපදිංචි කරන්න</button>
                     </form>
                 </div>
@@ -1727,6 +1788,10 @@
                                 <input type="number" id="drvExp" min="1" max="50" placeholder="5" data-ph-si="5" data-ph-en="5" required>
                             </div>
                         </div>
+                                                <div class="field">
+                            <label for="drvBank" data-si="රියදුරුගේ බැංකු ගිණුම් විස්තර (Payout සඳහා)" data-en="Driver Bank Details (For Payouts)">රියදුරුගේ බැංකු ගිණුම් විස්තර (Payout සඳහා)</label>
+                            <input type="text" id="drvBank" placeholder="Bank / Account No" data-ph-si="Bank / Account No" data-ph-en="Bank / Account No">
+                        </div>
                         <button type="submit" class="btn btn-glass full-btn" style="border-color:var(--gold-bright);color:var(--gold-bright);" data-si="රියදුරෙකු ලෙස එක්වන්න" data-en="Submit Driver Application">රියදුරෙකු ලෙස එක්වන්න</button>
                     </form>
                 </div>
@@ -1743,7 +1808,20 @@
                 <p data-si="පාරිභෝගිකයින්ට, වාහන හිමියන්ට සහ රියදුරන්ට පැහැදිලි, ආරක්ෂිත ගෙවීම් ක්‍රමවේදයක්." data-en="Clear, flexible payment options and transparent deposit rules for every trip.">පාරිභෝගිකයින්ට, වාහන හිමියන්ට සහ රියදුරන්ට පැහැදිලි, ආරක්ෂිත ගෙවීම් ක්‍රමවේදයක්.</p>
             </div>
 
-            <div class="pillars-grid">
+            <div class="pillars-grid payments-grid-4">
+                <article class="pillar-card featured">
+                    <div>
+                        <div class="pillar-icon-box">🥥</div>
+                        <h3 data-si="Koko Pay (ටික ටික ගෙවන්න)" data-en="Koko Pay (Pay in Installments)">Koko Pay (ටික ටික ගෙවන්න)</h3>
+                        <p data-si="මුළු ගාස්තුව එකවර නොගෙවා වාරික වශයෙන් (Installments) ටික ටික ගෙවීමේ පහසුකම." data-en="Split your trip payment into easy installments instead of paying everything upfront.">මුළු ගාස්තුව එකවර නොගෙවා වාරික වශයෙන් (Installments) ටික ටික ගෙවීමේ පහසුකම.</p>
+                        <ul class="pillar-list">
+                            <li><span>✓</span> <span data-si="පහසු වාරික සැලසුම් (Installments)" data-en="Flexible installment schedule">පහසු වාරික සැලසුම් (Installments)</span></li>
+                            <li><span>✓</span> <span data-si="ක්ෂණික වාරික ගණනය" data-en="Instant installment breakdown">ක්ෂණික වාරික ගණනය</span></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-gold full-btn open-payment-modal-btn" data-method="Koko Pay (Installments)" data-si="වාරික ගණනය බලන්න" data-en="Calculate Installments">වාරික ගණනය බලන්න</button>
+                </article>
+
                 <article class="pillar-card">
                     <div>
                         <div class="pillar-icon-box">🏦</div>
@@ -1912,21 +1990,69 @@
             <h3 style="color:#fff;font-size:1.25rem;" data-si="ගෙවීම් තොරතුරු සහ තහවුරු කිරීම" data-en="Payment Details & Confirmation">ගෙවීම් තොරතුරු සහ තහවුරු කිරීම</h3>
             <p class="modal-tag" id="payModalMethodTag">Method: Bank Transfer</p>
 
-            <div style="background:rgba(5,7,13,0.75);border:1px solid var(--border-subtle);border-radius:12px;padding:14px;margin-bottom:14px;font-size:0.83rem;color:var(--text-soft);">
-                <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
-                    <span data-si="ඇස්තමේන්තුගත මුළු ගාස්තුව:" data-en="Estimated Total:">ඇස්තමේන්තුගත මුළු ගාස්තුව:</span>
+            <div class="payout-ledger-box">
+                <div class="payout-row">
+                    <span data-si="ගෙවන මුදල (Gross Payment):" data-en="Gross Payment:">ගෙවන මුදල (Gross Payment):</span>
                     <strong id="payModalTotal" style="color:var(--gold-bright);">LKR 8,500</strong>
                 </div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
-                    <span data-si="අත්තිකාරම් මුදල (20% Advance):" data-en="Advance Amount (20%):">අත්තිකාරම් මුදල (20% Advance):</span>
+                <div class="payout-row">
+                    <span data-si="අත්තිකාරම් (20% Advance):" data-en="Advance (20%):">අත්තිකාරම් (20% Advance):</span>
                     <strong id="payModalAdvance" style="color:#4ade80;">LKR 1,700</strong>
                 </div>
-                <div style="font-size:0.77rem;color:var(--text-muted);border-top:1px solid var(--border-subtle);padding-top:8px;" data-si="බැංකු විස්තර: DriveLink SL • Bank Acc: 0000-0000-0000 (ඔබේ සැබෑ ගිණුම් අංකය මෙහි යොදන්න)" data-en="Bank Info: DriveLink SL • Acc: 0000-0000-0000 (Replace with your live account/gateway)">
-                    බැංකු විස්තර: DriveLink SL • Acc: 0000-0000-0000 (ඔබේ සැබෑ ගිණුම් අංකය මෙහි යොදන්න)
+                <div class="payout-row" id="kokoInstallmentRow">
+                    <span id="kokoInstallmentLabel" data-si="Koko වාරිකය (3x):" data-en="Koko Installment (3x):">Koko වාරිකය (3x):</span>
+                    <strong id="kokoInstallmentVal" style="color:#38bdf8;">LKR 2,833 / වාරිකය</strong>
                 </div>
+                <div class="payout-row">
+                    <span id="paySplitCommLabel" data-si="Commission (15%):" data-en="Commission (15%):">Commission (15%):</span>
+                    <strong id="paySplitCommVal" style="color:var(--gold-bright);">LKR 1,275</strong>
+                </div>
+                <div class="payout-row">
+                    <span id="paySplitEventLabel" data-si="සිදුවීම් / නඩත්තු Reserve (5%):" data-en="Incident / Reserve (5%):">සිදුවීම් / නඩත්තු Reserve (5%):</span>
+                    <strong id="paySplitEventVal" style="color:#fbbf24;">LKR 425</strong>
+                </div>
+                <div class="payout-row">
+                    <span id="paySplitNetLabel" data-si="ඉතිරි මුදල (වාහනයට):" data-en="Net Allocation (Vehicle):">ඉතිරි මුදල (වාහනයට):</span>
+                    <strong id="paySplitNetVal" style="color:#4ade80;">LKR 6,800</strong>
+                </div>
+                <div id="paySplitDetailNote" style="font-size:0.74rem;color:var(--text-muted);padding-top:6px;"></div>
             </div>
 
             <form id="paymentConfirmForm" class="dark-form">
+                <div class="field-row">
+                    <div class="field">
+                        <label for="pPayMethodSelect" data-si="ගෙවීම් ක්‍රමය" data-en="Payment Method">ගෙවීම් ක්‍රමය</label>
+                        <select id="pPayMethodSelect">
+                            <option value="Koko Pay (Installments)" data-si="Koko Pay (ටික ටික ගෙවන්න)" data-en="Koko Pay (Installments)">Koko Pay (ටික ටික ගෙවන්න)</option>
+                            <option value="Bank Transfer" data-si="Bank Transfer" data-en="Bank Transfer">Bank Transfer</option>
+                            <option value="Online Card" data-si="Online Card" data-en="Online Card">Online Card</option>
+                            <option value="Cash / Deposit" data-si="Cash / Deposit" data-en="Cash / Deposit">Cash / Deposit</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="pInstallmentCount" data-si="වාරික ගණන (Koko)" data-en="Installments (Koko)">වාරික ගණන (Koko)</label>
+                        <select id="pInstallmentCount">
+                            <option value="3" data-si="වාරික 3 (3x)" data-en="3 Installments (3x)">වාරික 3 (3x)</option>
+                            <option value="4" data-si="වාරික 4 (4x)" data-en="4 Installments (4x)">වාරික 4 (4x)</option>
+                            <option value="6" data-si="වාරික 6 (6x)" data-en="6 Installments (6x)">වාරික 6 (6x)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field">
+                        <label for="pSplitMode" data-si="ඉතිරි මුදල බෙදන ආකාරය" data-en="Remainder Allocation">ඉතිරි මුදල බෙදන ආකාරය</label>
+                        <select id="pSplitMode">
+                            <option value="vehicle" data-si="වාහනයට (Owner + Maintenance)" data-en="Vehicle (Owner + Maintenance)">වාහනයට (Owner + Maintenance)</option>
+                            <option value="driver" data-si="රියදුරුට (Driver)" data-en="Driver Only">රියදුරුට (Driver Only)</option>
+                            <option value="both" data-si="දෙකටම (Owner 60% / Driver 40%)" data-en="Both (Owner 60% / Driver 40%)">දෙකටම (Owner 60% / Driver 40%)</option>
+                            <option value="fuel_maint" data-si="ඉන්ධන සහ නඩත්තුවට (Fuel & Maint.)" data-en="Fuel & Maintenance">ඉන්ධන සහ නඩත්තුවට (Fuel & Maint.)</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="pReservePct" data-si="සිදුවීම් කැපුම (%)" data-en="Incident Reserve (%)">සිදුවීම් කැපුම (%)</label>
+                        <input type="number" id="pReservePct" value="5" min="0" max="40" step="1">
+                    </div>
+                </div>
                 <div class="field">
                     <label for="pCustomerName" data-si="ගෙවන්නාගේ නම" data-en="Payer Name">ගෙවන්නාගේ නම</label>
                     <input type="text" id="pCustomerName" placeholder="සම්පූර්ණ නම" data-ph-si="සම්පූර්ණ නම" data-ph-en="Full Name" required>
@@ -1935,8 +2061,10 @@
                     <label for="pRefCode" data-si="Slip / Transaction Reference (ඇත්නම්)" data-en="Slip / Reference ID (Optional)">Slip / Transaction Reference (ඇත්නම්)</label>
                     <input type="text" id="pRefCode" placeholder="උදා: TXN-88421" data-ph-si="උදා: TXN-88421" data-ph-en="e.g. TXN-88421">
                 </div>
-                <button type="submit" class="btn btn-gold full-btn" data-si="ගෙවීම් විස්තර WhatsApp වෙත යවන්න" data-en="Send Payment Confirmation via WhatsApp">ගෙවීම් විස්තර WhatsApp වෙත යවන්න</button>
+                <button type="submit" class="btn btn-gold full-btn" data-si="ගෙවීම සටහන් කර WhatsApp යවන්න" data-en="Record Payment & Send WhatsApp">ගෙවීම සටහන් කර WhatsApp යවන්න</button>
             </form>
+
+            <div class="ledger-history-list" id="paymentLedgerList"></div>
         </div>
     </div>
 
@@ -2103,39 +2231,236 @@
         });
 
 
-        // Payment Modal Logic
+        // Payment Split & Private Ledger Logic (No owner bank details rendered publicly)
         const paymentModal = document.getElementById("paymentModal");
         const payModalMethodTag = document.getElementById("payModalMethodTag");
         const payModalTotal = document.getElementById("payModalTotal");
         const payModalAdvance = document.getElementById("payModalAdvance");
+        const pSplitMode = document.getElementById("pSplitMode");
+        const pReservePct = document.getElementById("pReservePct");
+        const paySplitCommLabel = document.getElementById("paySplitCommLabel");
+        const paySplitCommVal = document.getElementById("paySplitCommVal");
+        const paySplitEventLabel = document.getElementById("paySplitEventLabel");
+        const paySplitEventVal = document.getElementById("paySplitEventVal");
+        const paySplitNetLabel = document.getElementById("paySplitNetLabel");
+        const paySplitNetVal = document.getElementById("paySplitNetVal");
+        const paySplitDetailNote = document.getElementById("paySplitDetailNote");
+        const paymentLedgerList = document.getElementById("paymentLedgerList");
         let activePayMethod = "Bank Transfer";
+        let currentGrossAmount = 8500;
+
+        function getCommRateForService(svc) {
+            const s = (svc || "").toLowerCase();
+            if (s.includes("driver")) return 0.18;
+            if (s.includes("vehicle") || s.includes("kdh") || s.includes("van")) return 0.12;
+            return 0.15;
+        }
+
+        const pPayMethodSelect = document.getElementById("pPayMethodSelect");
+        const pInstallmentCount = document.getElementById("pInstallmentCount");
+        const kokoInstallmentLabel = document.getElementById("kokoInstallmentLabel");
+        const kokoInstallmentVal = document.getElementById("kokoInstallmentVal");
+
+        function computeSplitBreakdown() {
+            const commRate = getCommRateForService(selectedHeroService);
+            const reserveRate = Math.max(0, Math.min(40, parseFloat(pReservePct ? pReservePct.value : 5) || 0)) / 100;
+            const gross = currentGrossAmount;
+            const advance = Math.round(gross * 0.20);
+            const instCount = parseInt(pInstallmentCount ? pInstallmentCount.value : "3", 10) || 3;
+            const perInstallment = Math.ceil(gross / instCount);
+            const commAmt = Math.round(gross * commRate);
+            const reserveAmt = Math.round(gross * reserveRate);
+            const remaining = Math.max(0, gross - commAmt - reserveAmt);
+            const mode = pSplitMode ? pSplitMode.value : "vehicle";
+
+            payModalTotal.textContent = "LKR " + gross.toLocaleString("en-US");
+            payModalAdvance.textContent = "LKR " + advance.toLocaleString("en-US");
+
+            if (kokoInstallmentLabel) {
+                kokoInstallmentLabel.textContent = currentLang === "si"
+                    ? `වාරිකය (${instCount}x — ටික ටික):`
+                    : `Installment (${instCount}x):`;
+            }
+            if (kokoInstallmentVal) {
+                kokoInstallmentVal.textContent = "LKR " + perInstallment.toLocaleString("en-US") + (currentLang === "si" ? " / වාරිකය" : " / inst.");
+            }
+
+            const commPctText = Math.round(commRate * 100);
+            const resPctText = Math.round(reserveRate * 100);
+
+            if (paySplitCommLabel) {
+                paySplitCommLabel.textContent = currentLang === "si" ? `Commission (${commPctText}%):` : `Commission (${commPctText}%):`;
+            }
+            if (paySplitCommVal) {
+                paySplitCommVal.textContent = "LKR " + commAmt.toLocaleString("en-US");
+            }
+            if (paySplitEventLabel) {
+                paySplitEventLabel.textContent = currentLang === "si" ? `සිදුවීම් Reserve (${resPctText}%):` : `Incident Reserve (${resPctText}%):`;
+            }
+            if (paySplitEventVal) {
+                paySplitEventVal.textContent = "LKR " + reserveAmt.toLocaleString("en-US");
+            }
+            if (paySplitNetLabel) {
+                const modeLabelSi = {
+                    vehicle: "වාහනයට (Owner)",
+                    driver: "රියදුරුට (Driver)",
+                    both: "දෙකටම (Owner + Driver)",
+                    fuel_maint: "ඉන්ධන / නඩත්තුවට"
+                }[mode] || "ඉතිරි මුදල";
+                const modeLabelEn = {
+                    vehicle: "Vehicle Owner",
+                    driver: "Driver",
+                    both: "Both (Owner + Driver)",
+                    fuel_maint: "Fuel & Maintenance"
+                }[mode] || "Remainder";
+                paySplitNetLabel.textContent = (currentLang === "si" ? "ඉතිරි මුදල (" : "Remainder (") + (currentLang === "si" ? modeLabelSi : modeLabelEn) + "):";
+            }
+            if (paySplitNetVal) {
+                paySplitNetVal.textContent = "LKR " + remaining.toLocaleString("en-US");
+            }
+            if (paySplitDetailNote) {
+                if (mode === "both") {
+                    const ownerShare = Math.round(remaining * 0.60);
+                    const driverShare = remaining - ownerShare;
+                    paySplitDetailNote.textContent = currentLang === "si"
+                        ? `බෙදීම: වාහනයට LKR ${ownerShare.toLocaleString("en-US")} + රියදුරුට LKR ${driverShare.toLocaleString("en-US")} (වාහන නඩත්තුව හිමියාට)`
+                        : `Split: Owner LKR ${ownerShare.toLocaleString("en-US")} + Driver LKR ${driverShare.toLocaleString("en-US")}`;
+                } else if (mode === "fuel_maint") {
+                    paySplitDetailNote.textContent = currentLang === "si"
+                        ? `ඉන්ධන සහ නඩත්තු කොටස සඳහා LKR ${remaining.toLocaleString("en-US")} වෙන් කර ඇත.`
+                        : `LKR ${remaining.toLocaleString("en-US")} allocated to fuel & maintenance.`;
+                } else {
+                    paySplitDetailNote.textContent = currentLang === "si"
+                        ? `අදාළ පාර්ශවය ලියාපදිංචි කළ බැංකු ගිණුමට payout සකස් කෙරේ.`
+                        : `Allocated to the registered party's payout account.`;
+                }
+            }
+            return { gross, advance, commAmt, reserveAmt, remaining, mode };
+        }
+
+        function renderPaymentLedger() {
+            if (!paymentLedgerList) return;
+            let entries = [];
+            try {
+                entries = JSON.parse(localStorage.getItem("drivelink_ledger_v1") || "[]");
+            } catch (_) {
+                entries = [];
+            }
+            if (!entries.length) {
+                paymentLedgerList.innerHTML = "";
+                return;
+            }
+            paymentLedgerList.innerHTML = entries.slice(0, 4).map(item =>
+                `<div class="ledger-entry">
+                    <div>
+                        <strong>${item.payer} • ${item.method}</strong>
+                        <span>${item.modeLabel} | Ref: ${item.ref}</span>
+                    </div>
+                    <div style="text-align:right;">
+                        <span style="color:var(--gold-bright);font-weight:700;">LKR ${Number(item.gross).toLocaleString("en-US")}</span>
+                        <span style="display:block;font-size:0.7rem;">Net: LKR ${Number(item.remaining).toLocaleString("en-US")}</span>
+                    </div>
+                </div>`
+            ).join("");
+        }
 
         document.querySelectorAll(".open-payment-modal-btn").forEach(btn => {
             btn.addEventListener("click", () => {
-                activePayMethod = btn.dataset.method || "Bank Transfer";
+                activePayMethod = btn.dataset.method || "Koko Pay (Installments)";
+                if (pPayMethodSelect) pPayMethodSelect.value = activePayMethod;
+                const days = parseInt(hDays.value, 10) || 1;
+                currentGrossAmount = selectedDailyRate * days;
                 payModalMethodTag.textContent = (currentLang === "si" ? "ගෙවීම් ක්‍රමය: " : "Payment Method: ") + activePayMethod;
-                payModalTotal.textContent = heroEstimatePrice.textContent;
-                payModalAdvance.textContent = heroAdvancePrice ? heroAdvancePrice.textContent : "LKR 1,700";
+                computeSplitBreakdown();
+                renderPaymentLedger();
                 paymentModal.classList.add("show");
             });
         });
+
+        if (pPayMethodSelect) {
+            pPayMethodSelect.addEventListener("change", () => {
+                activePayMethod = pPayMethodSelect.value;
+                payModalMethodTag.textContent = (currentLang === "si" ? "ගෙවීම් ක්‍රමය: " : "Payment Method: ") + activePayMethod;
+                computeSplitBreakdown();
+            });
+        }
+        if (pInstallmentCount) {
+            pInstallmentCount.addEventListener("change", computeSplitBreakdown);
+        }
+
+        if (pSplitMode) pSplitMode.addEventListener("change", computeSplitBreakdown);
+        if (pReservePct) pReservePct.addEventListener("input", computeSplitBreakdown);
+
+        function savePrivatePartnerRecord(role, payload) {
+            try {
+                const key = "drivelink_partners_private_v1";
+                const list = JSON.parse(localStorage.getItem(key) || "[]");
+                list.unshift({ role, ...payload, ts: Date.now() });
+                localStorage.setItem(key, JSON.stringify(list));
+            } catch (_) {}
+        }
+
+        const ownerFormEl = document.getElementById("ownerRegisterForm");
+        if (ownerFormEl) {
+            ownerFormEl.addEventListener("submit", () => {
+                savePrivatePartnerRecord("owner", {
+                    name: document.getElementById("ownName").value.trim(),
+                    area: document.getElementById("ownArea").value.trim(),
+                    vehicle: document.getElementById("ownVehicle").value.trim(),
+                    bank: document.getElementById("ownBank") ? document.getElementById("ownBank").value.trim() : ""
+                });
+            }, true);
+        }
+
+        const driverFormEl = document.getElementById("driverRegisterForm");
+        if (driverFormEl) {
+            driverFormEl.addEventListener("submit", () => {
+                savePrivatePartnerRecord("driver", {
+                    name: document.getElementById("drvName").value.trim(),
+                    area: document.getElementById("drvArea").value.trim(),
+                    license: document.getElementById("drvLicense").value,
+                    bank: document.getElementById("drvBank") ? document.getElementById("drvBank").value.trim() : ""
+                });
+            }, true);
+        }
 
         document.getElementById("closePayModalBtn").addEventListener("click", () => paymentModal.classList.remove("show"));
         paymentModal.addEventListener("click", (e) => { if (e.target === paymentModal) paymentModal.classList.remove("show"); });
 
         document.getElementById("paymentConfirmForm").addEventListener("submit", (e) => {
             e.preventDefault();
+            const payer = document.getElementById("pCustomerName").value.trim();
+            const ref = document.getElementById("pRefCode").value.trim() || "Pending Slip";
+            const split = computeSplitBreakdown();
+
+            try {
+                const key = "drivelink_ledger_v1";
+                const list = JSON.parse(localStorage.getItem(key) || "[]");
+                list.unshift({
+                    payer,
+                    method: activePayMethod,
+                    ref,
+                    gross: split.gross,
+                    remaining: split.remaining,
+                    modeLabel: split.mode
+                });
+                localStorage.setItem(key, JSON.stringify(list));
+                renderPaymentLedger();
+            } catch (_) {}
+
             openWhatsApp(
-                `*DriveLink SL - Payment Confirmation*%0A` +
+                `*DriveLink SL - Payment & Split Summary*%0A` +
                 `Method: ${activePayMethod}%0A` +
-                `Payer: ${document.getElementById("pCustomerName").value.trim()}%0A` +
-                `Ref ID: ${document.getElementById("pRefCode").value.trim() || "Pending Slip"}%0A` +
-                `Estimated Total: ${payModalTotal.textContent}%0A` +
-                `Advance (20%): ${payModalAdvance.textContent}`
+                `Payer: ${payer}%0A` +
+                `Ref ID: ${ref}%0A` +
+                `Gross: LKR ${split.gross.toLocaleString("en-US")}%0A` +
+                `Advance (20%): LKR ${split.advance.toLocaleString("en-US")}%0A` +
+                `Commission: LKR ${split.commAmt.toLocaleString("en-US")}%0A` +
+                `Incident Reserve: LKR ${split.reserveAmt.toLocaleString("en-US")}%0A` +
+                `Remainder (${split.mode}): LKR ${split.remaining.toLocaleString("en-US")}`
             );
             paymentModal.classList.remove("show");
         });
-
 
         // Interactive Live Availability Map (Cars & Drivers)
         const mapUnits = [
