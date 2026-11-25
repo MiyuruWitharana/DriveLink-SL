@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DriveLink SL | Smart Vehicle & Driver Marketplace</title>
+    <title>DriveLink SL | Luxury Vehicle & Chauffeur Network</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #060913;
-            --bg-navy: #0d1526;
-            --bg-card: #ffffff;
-            --bg-soft: #f1f5f9;
-            --ink-dark: #0f172a;
-            --ink-body: #334155;
-            --ink-muted: #64748b;
-            --gold: #f59e0b;
-            --gold-hover: #d97706;
-            --gold-soft: rgba(245, 158, 11, 0.15);
-            --border: #e2e8f0;
-            --radius-lg: 18px;
+            --bg-void: #05070d;
+            --bg-obsidian: #0a0f1d;
+            --bg-surface: #111827;
+            --bg-surface-2: #162033;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(217, 160, 54, 0.35);
+            --gold-bright: #f5b942;
+            --gold-rich: #d99b26;
+            --bronze: #b87333;
+            --text-main: #f8fafc;
+            --text-soft: #cbd5e1;
+            --text-muted: #94a3b8;
+            --radius-xl: 22px;
+            --radius-lg: 16px;
             --radius-md: 12px;
-            --shadow-sm: 0 8px 24px rgba(15, 23, 42, 0.06);
-            --shadow-lg: 0 24px 60px rgba(2, 6, 23, 0.35);
+            --glow-gold: 0 20px 50px rgba(217, 155, 38, 0.16);
         }
 
         *, *::before, *::after {
@@ -34,26 +35,33 @@
 
         html {
             scroll-behavior: smooth;
-            font-family: 'Plus Jakarta Sans', 'Noto Sans Sinhala', system-ui, -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Sinhala', system-ui, sans-serif;
+            background: var(--bg-void);
+            color: var(--text-main);
         }
 
         body {
-            background: var(--bg-card);
-            color: var(--ink-body);
+            background: var(--bg-void);
+            color: var(--text-main);
             line-height: 1.65;
             overflow-x: hidden;
         }
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
         .container {
             width: 100%;
-            max-width: 1220px;
+            max-width: 1240px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 22px;
+        }
+
+        /* Ambient Luxury Grid Overlay */
+        .bg-grid-pattern {
+            background-image:
+                radial-gradient(circle at 18% 12%, rgba(245, 185, 66, 0.12), transparent 36%),
+                radial-gradient(circle at 85% 28%, rgba(184, 115, 51, 0.12), transparent 40%),
+                linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
         }
 
         /* Navbar */
@@ -62,14 +70,15 @@
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 900;
-            background: rgba(6, 9, 19, 0.94);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            background: rgba(5, 7, 13, 0.86);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         .nav-inner {
-            height: 76px;
+            height: 78px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -83,16 +92,31 @@
             text-decoration: none;
         }
 
+        .brand-logo-wrap {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--gold-bright), var(--bronze));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
         .brand-logo {
-            width: 46px !important;
-            height: 46px !important;
-            max-width: 46px !important;
-            max-height: 46px !important;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             border-radius: 10px;
-            background: #ffffff;
-            border: 1.5px solid rgba(245, 158, 11, 0.5);
-            flex-shrink: 0;
+            background: #0b0f19;
+        }
+
+        .brand-fallback-icon {
+            font-family: 'Cinzel', serif;
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--gold-bright);
         }
 
         .brand-text {
@@ -102,57 +126,47 @@
         }
 
         .brand-name {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: -0.02em;
         }
 
+        .brand-name span {
+            background: linear-gradient(90deg, var(--gold-bright), #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         .brand-sub {
             font-size: 0.62rem;
             font-weight: 700;
-            letter-spacing: 0.12em;
-            color: #94a3b8;
-        }
-
-        .gold {
-            color: var(--gold);
+            letter-spacing: 0.16em;
+            color: var(--text-muted);
         }
 
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 26px;
         }
 
         .nav-menu a {
-            color: #cbd5e1;
+            color: var(--text-soft);
             text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 500;
+            font-size: 0.9rem;
+            font-weight: 600;
             transition: color 0.2s ease;
         }
 
         .nav-menu a:hover {
-            color: var(--gold);
+            color: var(--gold-bright);
         }
 
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 12px;
-        }
-
-        .hamburger {
-            display: none;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            width: 40px;
-            height: 40px;
-            border-radius: 9px;
-            font-size: 1.25rem;
-            cursor: pointer;
+            gap: 10px;
         }
 
         /* Buttons */
@@ -162,13 +176,14 @@
             justify-content: center;
             gap: 8px;
             border: none;
-            border-radius: 10px;
+            border-radius: 11px;
             padding: 13px 22px;
-            font-size: 0.94rem;
+            font-size: 0.92rem;
             font-weight: 700;
             cursor: pointer;
-            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.25s ease;
             font-family: inherit;
+            text-decoration: none;
         }
 
         .btn:hover {
@@ -176,203 +191,219 @@
         }
 
         .btn-gold {
-            background: var(--gold);
-            color: var(--ink-dark);
-            box-shadow: 0 10px 24px rgba(245, 158, 11, 0.25);
+            background: linear-gradient(135deg, #f5b942 0%, #d98a1c 100%);
+            color: #080b12;
+            box-shadow: 0 10px 28px rgba(245, 185, 66, 0.28);
         }
 
         .btn-gold:hover {
-            background: var(--gold-hover);
-            color: #ffffff;
+            box-shadow: 0 14px 34px rgba(245, 185, 66, 0.42);
+            filter: brightness(1.05);
         }
 
-        .btn-dark {
-            background: var(--ink-dark);
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.06);
             color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.14);
         }
 
-        .btn-dark:hover {
-            background: #1e293b;
+        .btn-glass:hover {
+            background: rgba(245, 185, 66, 0.14);
+            border-color: var(--gold-bright);
+            color: var(--gold-bright);
         }
 
         .btn-sm {
-            padding: 9px 16px;
-            font-size: 0.84rem;
+            padding: 9px 15px;
+            font-size: 0.82rem;
         }
 
         .full-btn {
             width: 100%;
         }
 
-        /* Hero Section - Works WITH or WITHOUT external images */
+        .hamburger {
+            display: none;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
         .hero {
             position: relative;
+            padding: 124px 0 84px;
             min-height: 100vh;
-            padding: 112px 0 64px;
             display: flex;
             align-items: center;
-            color: #ffffff;
-            background: radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.22), transparent 42%),
-                        linear-gradient(125deg, #050811 0%, #0d172a 55%, #162238 100%);
-        }
-
-        .hero-media {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .hero-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.42;
-        }
-
-        .hero-scrim {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(105deg, rgba(6, 9, 19, 0.92) 0%, rgba(6, 9, 19, 0.78) 55%, rgba(6, 9, 19, 0.65) 100%);
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         .hero-grid {
-            position: relative;
-            z-index: 1;
             display: grid;
             grid-template-columns: 1.15fr 0.95fr;
-            gap: 40px;
+            gap: 44px;
             align-items: center;
         }
 
-        .hero-pill {
+        .luxury-badge {
             display: inline-flex;
             align-items: center;
-            gap: 9px;
-            padding: 7px 14px;
+            gap: 10px;
+            padding: 7px 16px;
             border-radius: 999px;
-            background: var(--gold-soft);
-            border: 1px solid rgba(245, 158, 11, 0.45);
-            color: #fde68a;
-            font-size: 0.82rem;
-            font-weight: 600;
-            margin-bottom: 18px;
+            background: rgba(245, 185, 66, 0.1);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-bright);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        .pulse-dot {
+        .badge-dot {
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: var(--gold);
+            background: var(--gold-bright);
+            box-shadow: 0 0 12px var(--gold-bright);
         }
 
         .hero-copy h1 {
-            font-size: clamp(2rem, 4.2vw, 3.2rem);
+            font-size: clamp(2.1rem, 4.3vw, 3.35rem);
             font-weight: 800;
-            line-height: 1.22;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
+            line-height: 1.18;
+            letter-spacing: -0.025em;
+            margin-bottom: 18px;
+            color: #ffffff;
         }
 
         .hero-copy h1 span {
-            color: var(--gold);
+            background: linear-gradient(90deg, #fde68a 0%, #f5b942 50%, #d98a1c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-desc {
-            color: #cbd5e1;
-            font-size: 1.02rem;
-            max-width: 590px;
+            color: var(--text-soft);
+            font-size: 1.03rem;
+            max-width: 580px;
             margin-bottom: 28px;
         }
 
-        .hero-metrics {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .metric-box {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            border-radius: 12px;
-            padding: 14px 18px;
-            min-width: 132px;
-        }
-
-        .metric-box strong {
-            display: block;
-            font-size: 1.3rem;
-            color: var(--gold);
-            font-weight: 800;
-        }
-
-        .metric-box span {
-            font-size: 0.8rem;
-            color: #cbd5e1;
-        }
-
-        /* Booking Card */
-        .booking-card {
-            background: var(--bg-card);
-            color: var(--ink-dark);
+        /* Visual Showcase Strip inside Hero */
+        .hero-showcase-banner {
+            position: relative;
             border-radius: var(--radius-lg);
-            padding: 26px;
-            box-shadow: var(--shadow-lg);
+            padding: 18px 22px;
+            margin-bottom: 26px;
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(10, 15, 29, 0.95));
+            border: 1px solid var(--border-gold);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            box-shadow: var(--glow-gold);
         }
 
-        .booking-tag {
-            display: inline-block;
-            font-size: 0.72rem;
+        .hero-car-art {
+            width: 210px;
+            flex-shrink: 0;
+        }
+
+        .hero-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .stat-pill {
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 14px 16px;
+        }
+
+        .stat-pill strong {
+            display: block;
+            font-size: 1.35rem;
             font-weight: 800;
-            letter-spacing: 0.08em;
-            color: var(--gold-hover);
-            background: #fef3c7;
+            color: var(--gold-bright);
+        }
+
+        .stat-pill span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* Dark Glass Booking Card */
+        .booking-card {
+            background: linear-gradient(160deg, rgba(17, 24, 39, 0.96) 0%, rgba(9, 13, 24, 0.98) 100%);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-xl);
+            padding: 28px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), var(--glow-gold);
+        }
+
+        .card-eyebrow {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            color: var(--gold-bright);
+            background: rgba(245, 185, 66, 0.12);
             padding: 4px 10px;
             border-radius: 6px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        .booking-card-top h2 {
-            font-size: 1.4rem;
+        .booking-card h2 {
+            font-size: 1.42rem;
             font-weight: 800;
+            color: #ffffff;
             margin-bottom: 4px;
         }
 
-        .booking-card-top p {
-            font-size: 0.88rem;
-            color: var(--ink-muted);
-            margin-bottom: 16px;
+        .booking-card > p {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
         }
 
-        .mode-switcher {
+        .mode-tabs {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 6px;
-            background: var(--bg-soft);
+            background: rgba(5, 7, 13, 0.8);
+            border: 1px solid var(--border-subtle);
             padding: 6px;
-            border-radius: 11px;
+            border-radius: 12px;
             margin-bottom: 18px;
         }
 
         .mode-btn {
             border: none;
             background: transparent;
-            padding: 9px 6px;
-            border-radius: 8px;
-            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding: 10px 6px;
+            border-radius: 9px;
+            font-size: 0.77rem;
             font-weight: 700;
-            color: var(--ink-body);
             cursor: pointer;
             transition: all 0.2s ease;
             font-family: inherit;
         }
 
         .mode-btn.active {
-            background: var(--ink-dark);
-            color: #ffffff;
+            background: linear-gradient(135deg, #f5b942, #d98a1c);
+            color: #080b12;
         }
 
-        .stack-form {
+        .dark-form {
             display: flex;
             flex-direction: column;
             gap: 14px;
@@ -391,182 +422,200 @@
         }
 
         .field label {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--ink-dark);
+            font-size: 0.79rem;
+            font-weight: 600;
+            color: var(--text-soft);
         }
 
         .field input,
         .field select {
             width: 100%;
             padding: 11px 13px;
-            border: 1px solid #cbd5e1;
-            border-radius: 9px;
-            font-size: 0.92rem;
-            color: var(--ink-dark);
-            background: #ffffff;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(5, 7, 13, 0.85);
+            color: #ffffff;
+            font-size: 0.9rem;
             font-family: inherit;
+            transition: border-color 0.2s ease;
+        }
+
+        .field input::placeholder {
+            color: #64748b;
         }
 
         .field input:focus,
         .field select:focus {
             outline: none;
-            border-color: var(--gold);
+            border-color: var(--gold-bright);
         }
 
-        .estimate-strip {
+        .price-banner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #fffbeb;
-            border: 1px dashed #f59e0b;
-            padding: 11px 14px;
-            border-radius: 10px;
-            font-size: 0.86rem;
+            padding: 12px 15px;
+            border-radius: 11px;
+            background: rgba(245, 185, 66, 0.08);
+            border: 1px dashed var(--border-gold);
+            font-size: 0.85rem;
+            color: var(--text-soft);
         }
 
-        .estimate-strip strong {
-            font-size: 1.08rem;
-            color: var(--ink-dark);
+        .price-banner strong {
+            font-size: 1.15rem;
+            color: var(--gold-bright);
         }
 
         /* Sections */
         .section {
-            padding: 84px 0;
+            padding: 92px 0;
+            border-bottom: 1px solid var(--border-subtle);
         }
 
-        .section-alt {
-            background: var(--bg-soft);
+        .section-darker {
+            background: var(--bg-obsidian);
         }
 
         .section-head {
             text-align: center;
-            max-width: 680px;
-            margin: 0 auto 48px;
+            max-width: 690px;
+            margin: 0 auto 52px;
         }
 
-        .left-head {
-            text-align: left;
-            margin: 0;
-        }
-
-        .eyebrow {
+        .section-head .eyebrow {
             display: inline-block;
             font-size: 0.74rem;
             font-weight: 800;
-            letter-spacing: 0.1em;
-            color: var(--gold-hover);
+            letter-spacing: 0.16em;
+            color: var(--gold-bright);
             margin-bottom: 8px;
         }
 
         .section-head h2 {
-            font-size: clamp(1.65rem, 3vw, 2.25rem);
-            color: var(--ink-dark);
+            font-size: clamp(1.7rem, 3.1vw, 2.35rem);
             font-weight: 800;
+            color: #ffffff;
             margin-bottom: 10px;
         }
 
         .section-head p {
-            color: var(--ink-muted);
-            font-size: 0.98rem;
+            color: var(--text-muted);
+            font-size: 0.96rem;
         }
 
-        /* 3 Core Services */
-        .cards-3 {
+        /* 3 Core Pillars */
+        .pillars-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 26px;
         }
 
-        .service-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 30px 24px;
-            box-shadow: var(--shadow-sm);
+        .pillar-card {
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.9) 0%, rgba(10, 15, 29, 0.95) 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 32px 26px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: transform 0.25s ease, border-color 0.25s ease;
         }
 
-        .service-box.highlighted {
-            border: 2px solid var(--gold);
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-gold);
         }
 
-        .service-badge {
-            align-self: flex-start;
-            font-size: 0.72rem;
-            font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 6px;
-            background: #e2e8f0;
-            color: var(--ink-dark);
-            margin-bottom: 14px;
+        .pillar-card.featured {
+            border: 1.5px solid var(--gold-bright);
+            box-shadow: var(--glow-gold);
         }
 
-        .gold-badge {
-            background: #fef3c7;
-            color: #92400e;
+        .pillar-icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(245, 185, 66, 0.12);
+            border: 1px solid var(--border-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 18px;
         }
 
-        .service-box h3 {
-            font-size: 1.2rem;
-            color: var(--ink-dark);
+        .pillar-card h3 {
+            font-size: 1.22rem;
+            color: #ffffff;
             margin-bottom: 10px;
         }
 
-        .service-box > p {
-            font-size: 0.92rem;
-            color: var(--ink-muted);
+        .pillar-card > div > p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
-        .feature-list {
+        .pillar-list {
             list-style: none;
-            margin: 20px 0 24px;
+            margin: 20px 0 26px;
             display: flex;
             flex-direction: column;
-            gap: 9px;
+            gap: 10px;
         }
 
-        .feature-list li {
-            font-size: 0.9rem;
-            color: var(--ink-body);
+        .pillar-list li {
+            font-size: 0.88rem;
+            color: var(--text-soft);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Fleet Section */
-        .fleet-top-bar {
+        .pillar-list li span {
+            color: var(--gold-bright);
+            font-weight: 800;
+        }
+
+        /* Fleet Cards with Custom Vector Illustrations */
+        .fleet-header {
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
             gap: 20px;
             flex-wrap: wrap;
-            margin-bottom: 36px;
+            margin-bottom: 38px;
         }
 
-        .filter-pills {
+        .fleet-header .section-head {
+            text-align: left;
+            margin: 0;
+        }
+
+        .filter-bar {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
         }
 
-        .filter-pill {
-            border: 1px solid #cbd5e1;
-            background: #ffffff;
-            color: var(--ink-body);
-            padding: 9px 15px;
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-soft);
+            padding: 9px 16px;
             border-radius: 999px;
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
             font-family: inherit;
         }
 
-        .filter-pill.active,
-        .filter-pill:hover {
-            background: var(--ink-dark);
-            color: #ffffff;
-            border-color: var(--ink-dark);
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--gold-bright);
+            color: #080b12;
+            border-color: var(--gold-bright);
         }
 
         .fleet-grid {
@@ -575,196 +624,187 @@
             gap: 26px;
         }
 
-        .fleet-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
+        .vehicle-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
+            transition: transform 0.25s ease, border-color 0.25s ease;
         }
 
-        .fleet-img-wrap {
+        .vehicle-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-gold);
+        }
+
+        .vehicle-visual {
             position: relative;
-            height: 220px;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+            height: 200px;
+            background: radial-gradient(circle at 50% 45%, rgba(245, 185, 66, 0.18), rgba(5, 7, 13, 0.98) 75%);
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--border-subtle);
         }
 
-        .fleet-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .vehicle-visual svg {
+            width: 84%;
+            max-width: 260px;
+            height: auto;
+            filter: drop-shadow(0 14px 18px rgba(0,0,0,0.65));
         }
 
-        .fleet-chip {
+        .v-badge {
             position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(15, 23, 42, 0.88);
-            color: #ffffff;
-            font-size: 0.74rem;
+            top: 14px;
+            left: 14px;
+            background: rgba(5, 7, 13, 0.85);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-bright);
+            font-size: 0.72rem;
             font-weight: 700;
-            padding: 5px 11px;
+            padding: 4px 11px;
             border-radius: 999px;
         }
 
-        .green-chip {
-            background: rgba(21, 128, 61, 0.92);
-        }
-
-        .fleet-body {
-            padding: 20px;
+        .vehicle-body {
+            padding: 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             flex: 1;
         }
 
-        .fleet-body h3 {
+        .vehicle-body h3 {
             font-size: 1.15rem;
-            color: var(--ink-dark);
+            color: #ffffff;
             margin-bottom: 6px;
         }
 
-        .fleet-meta {
-            font-size: 0.86rem;
-            color: var(--ink-muted);
+        .vehicle-specs {
+            font-size: 0.84rem;
+            color: var(--text-muted);
             margin-bottom: 18px;
         }
 
-        .fleet-foot {
+        .vehicle-footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding-top: 14px;
-            border-top: 1px solid #f1f5f9;
+            border-top: 1px solid var(--border-subtle);
         }
 
-        .fleet-foot small {
+        .vehicle-footer small {
             display: block;
-            font-size: 0.74rem;
-            color: var(--ink-muted);
+            font-size: 0.72rem;
+            color: var(--text-muted);
         }
 
-        .fleet-foot strong {
-            font-size: 1.15rem;
-            color: var(--ink-dark);
+        .vehicle-footer strong {
+            font-size: 1.18rem;
+            color: var(--gold-bright);
         }
 
-        /* Commission Calculator */
-        .calc-grid {
+        /* Commission Simulator */
+        .calc-wrapper {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
-            gap: 32px;
+            gap: 34px;
             align-items: center;
         }
 
-        .calc-info h2 {
-            font-size: clamp(1.55rem, 2.8vw, 2.1rem);
-            color: var(--ink-dark);
+        .calc-left h2 {
+            font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+            color: #ffffff;
             margin-bottom: 12px;
         }
 
-        .calc-info p {
-            color: var(--ink-muted);
-            margin-bottom: 22px;
+        .calc-left p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
         }
 
-        .calc-controls {
+        .calc-inputs {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
         }
 
-        .calc-result-card {
-            background: var(--bg-navy);
-            color: #ffffff;
-            border-radius: var(--radius-lg);
-            padding: 28px;
-            box-shadow: var(--shadow-lg);
+        .calc-card {
+            background: linear-gradient(155deg, #111827, #080c16);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-xl);
+            padding: 30px;
+            box-shadow: var(--glow-gold);
         }
 
-        .calc-result-card h3 {
+        .calc-card h3 {
+            color: var(--gold-bright);
             font-size: 1.15rem;
-            margin-bottom: 20px;
-            color: var(--gold);
+            margin-bottom: 18px;
         }
 
-        .breakdown-row {
+        .calc-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 13px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-subtle);
             font-size: 0.92rem;
-            color: #e2e8f0;
+            color: var(--text-soft);
         }
 
-        .text-success {
-            color: #4ade80 !important;
+        .calc-row strong {
+            font-size: 1.08rem;
         }
 
-        .text-gold {
-            color: var(--gold) !important;
+        .green-val {
+            color: #4ade80;
         }
 
-        .calc-note {
+        .gold-val {
+            color: var(--gold-bright);
+        }
+
+        .calc-disclaimer {
             margin-top: 16px;
             font-size: 0.78rem;
-            color: #94a3b8;
+            color: var(--text-muted);
         }
 
-        /* Partner Forms */
+        /* Partner Registration */
         .partner-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 28px;
         }
 
-        .partner-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 30px 26px;
-            box-shadow: var(--shadow-sm);
+        .partner-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 32px 28px;
         }
 
-        .mini-tag {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            padding: 4px 10px;
-            border-radius: 6px;
-            background: #fef3c7;
-            color: #92400e;
-            margin-bottom: 10px;
+        .partner-card h3 {
+            font-size: 1.26rem;
+            color: #ffffff;
+            margin-bottom: 8px;
         }
 
-        .dark-tag {
-            background: #e2e8f0;
-            color: var(--ink-dark);
-        }
-
-        .partner-head h3 {
-            font-size: 1.25rem;
-            color: var(--ink-dark);
-            margin-bottom: 6px;
-        }
-
-        .partner-head p {
-            font-size: 0.9rem;
-            color: var(--ink-muted);
-            margin-bottom: 20px;
+        .partner-card > p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 22px;
         }
 
         /* FAQ */
-        .faq-wrap {
-            max-width: 820px;
+        .faq-container {
+            max-width: 840px;
         }
 
         .faq-list {
@@ -774,21 +814,21 @@
         }
 
         .faq-item {
-            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            background: var(--bg-card);
             overflow: hidden;
         }
 
-        .faq-question {
+        .faq-btn {
             width: 100%;
             background: transparent;
             border: none;
-            padding: 18px 20px;
+            padding: 18px 22px;
             text-align: left;
+            color: #ffffff;
             font-size: 0.96rem;
             font-weight: 700;
-            color: var(--ink-dark);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -797,46 +837,45 @@
             font-family: inherit;
         }
 
-        .faq-answer {
+        .faq-body {
             display: none;
-            padding: 0 20px 18px;
+            padding: 0 22px 18px;
             font-size: 0.9rem;
-            color: var(--ink-muted);
+            color: var(--text-muted);
         }
 
-        .faq-item.open .faq-answer {
+        .faq-item.open .faq-body {
             display: block;
         }
 
-        .faq-item.open .faq-icon {
+        .faq-item.open .faq-plus {
             transform: rotate(45deg);
         }
 
-        .faq-icon {
-            font-size: 1.3rem;
-            color: var(--gold-hover);
+        .faq-plus {
+            color: var(--gold-bright);
+            font-size: 1.35rem;
             transition: transform 0.2s ease;
         }
 
         /* Footer */
         .footer {
-            background: var(--bg-dark);
-            color: #cbd5e1;
-            padding: 64px 0 24px;
+            background: #030509;
+            padding: 64px 0 26px;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 1.4fr 1fr 1fr;
-            gap: 32px;
+            gap: 34px;
             padding-bottom: 36px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid var(--border-subtle);
         }
 
-        .footer-brand p {
+        .footer-about p {
             margin-top: 14px;
             font-size: 0.88rem;
-            color: #94a3b8;
+            color: var(--text-muted);
             max-width: 360px;
         }
 
@@ -852,100 +891,101 @@
             flex-direction: column;
             gap: 9px;
             font-size: 0.88rem;
+            color: var(--text-muted);
         }
 
         .footer a {
-            color: #94a3b8;
+            color: var(--text-muted);
             text-decoration: none;
         }
 
         .footer a:hover {
-            color: var(--gold);
+            color: var(--gold-bright);
         }
 
-        .footer-bottom {
-            padding-top: 20px;
+        .footer-copy {
+            padding-top: 22px;
             text-align: center;
             font-size: 0.82rem;
             color: #64748b;
         }
 
         /* Modal */
-        .modal-backdrop {
+        .modal-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            z-index: 1200;
-            background: rgba(2, 6, 23, 0.78);
-            backdrop-filter: blur(5px);
+            z-index: 1500;
+            background: rgba(2, 4, 10, 0.82);
+            backdrop-filter: blur(8px);
             align-items: center;
             justify-content: center;
             padding: 20px;
         }
 
-        .modal-backdrop.show {
+        .modal-overlay.show {
             display: flex;
         }
 
-        .modal-box {
+        .modal-dialog {
             position: relative;
             width: 100%;
             max-width: 470px;
-            background: var(--bg-card);
-            color: var(--ink-dark);
-            border-radius: var(--radius-lg);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-xl);
             padding: 28px;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
         }
 
-        .modal-close {
+        .modal-x {
             position: absolute;
             top: 14px;
             right: 18px;
             background: transparent;
             border: none;
+            color: var(--text-muted);
             font-size: 1.6rem;
-            color: var(--ink-muted);
             cursor: pointer;
         }
 
-        .modal-selected {
+        .modal-tag {
             margin: 10px 0 16px;
             padding: 9px 12px;
-            border-radius: 8px;
-            background: #fffbeb;
-            border: 1px solid #fde68a;
-            font-size: 0.85rem;
+            border-radius: 9px;
+            background: rgba(245, 185, 66, 0.1);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-bright);
+            font-size: 0.84rem;
             font-weight: 700;
-            color: #92400e;
         }
 
         /* Responsive */
-        @media (max-width: 980px) {
+        @media (max-width: 990px) {
             .hero-grid,
-            .cards-3,
+            .pillars-grid,
             .fleet-grid,
-            .calc-grid,
+            .calc-wrapper,
             .partner-grid,
             .footer-grid {
                 grid-template-columns: 1fr;
             }
 
-            .calc-controls {
+            .calc-inputs {
                 grid-template-columns: 1fr;
             }
 
             .nav-menu {
                 display: none;
                 position: absolute;
-                top: 76px;
+                top: 78px;
                 left: 0;
                 width: 100%;
-                background: var(--bg-dark);
+                background: #070a13;
                 flex-direction: column;
-                padding: 20px;
+                padding: 22px;
                 gap: 16px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid var(--border-subtle);
             }
 
             .nav-menu.open {
@@ -959,262 +999,322 @@
             }
         }
 
-        @media (max-width: 560px) {
+        @media (max-width: 600px) {
+            .hero-showcase-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-car-art {
+                width: 100%;
+            }
+
             .field-row,
-            .mode-switcher {
+            .mode-tabs,
+            .hero-stats-row {
                 grid-template-columns: 1fr;
             }
 
-            .nav-actions .btn-sm {
+            #navBookBtn {
                 display: none;
             }
         }
     </style>
 </head>
-<body>
+<body class="bg-grid-pattern">
 
-    <!-- Top Navigation -->
-    <header class="navbar" id="navbar">
+    <!-- Navbar -->
+    <header class="navbar">
         <div class="container nav-inner">
             <a href="#top" class="brand">
-                <img src="logo.jpg" alt="DriveLink SL Logo" class="brand-logo" onerror="this.style.display='none'">
+                <div class="brand-logo-wrap">
+                    <img src="logo.jpg" alt="DriveLink SL" class="brand-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                    <span class="brand-fallback-icon" style="display:none;">DL</span>
+                </div>
                 <div class="brand-text">
-                    <span class="brand-name">DriveLink<span class="gold">SL</span></span>
-                    <span class="brand-sub">VEHICLE &amp; DRIVER NETWORK</span>
+                    <span class="brand-name">DriveLink<span>SL</span></span>
+                    <span class="brand-sub">LUXURY MOBILITY NETWORK</span>
                 </div>
             </a>
 
             <nav class="nav-menu" id="navMenu">
-                <a href="#services">සේවාවන්</a>
-                <a href="#fleet">වාහන සහ රියදුරන්</a>
-                <a href="#earnings">ආදායම් ගණකය</a>
-                <a href="#partners">ලියාපදිංචිය</a>
-                <a href="#faq">ප්‍රශ්න</a>
+                <a href="#services" data-si="සේවාවන්" data-en="Services">සේවාවන්</a>
+                <a href="#fleet" data-si="වාහන සහ රියදුරන්" data-en="Fleet & Drivers">වාහන සහ රියදුරන්</a>
+                <a href="#earnings" data-si="ආදායම් ගණකය" data-en="Revenue Simulator">ආදායම් ගණකය</a>
+                <a href="#partners" data-si="ලියාපදිංචිය" data-en="Join Network">ලියාපදිංචිය</a>
+                <a href="#faq" data-si="ප්‍රශ්න" data-en="FAQ">ප්‍රශ්න</a>
             </nav>
 
             <div class="nav-actions">
-                <button type="button" class="btn btn-dark btn-sm" id="langToggleBtn" style="border:1px solid rgba(245,158,11,0.55);color:#fde68a;">EN / සිංහල</button>
-                <button type="button" class="btn btn-gold btn-sm open-booking-btn" id="navBookBtn" data-service="Vehicle + Driver (වාහනය සහ රියදුරු)">දැන් වෙන්කරන්න</button>
-                <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">☰</button>
+                <button type="button" class="btn btn-glass btn-sm" id="langToggleBtn">EN / සිංහල</button>
+                <button type="button" class="btn btn-gold btn-sm open-booking-btn" id="navBookBtn" data-service="Vehicle + Driver">දැන් වෙන්කරන්න</button>
+                <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="top">
-        <div class="hero-media">
-            <img src="images/hero-suv.jpg" alt="DriveLink SL Luxury SUV" class="hero-img" onerror="this.style.display='none'">
-            <div class="hero-scrim"></div>
-        </div>
-
         <div class="container hero-grid">
             <div class="hero-copy">
-                <div class="hero-pill">
-                    <span class="pulse-dot"></span>
-                    <span>ශ්‍රී ලංකාවේ පළමු 3-Sided Mobility Platform එක</span>
+                <div class="luxury-badge">
+                    <span class="badge-dot"></span>
+                    <span data-si="ශ්‍රී ලංකාවේ පළමු 3-Sided Mobility Platform එක" data-en="Sri Lanka's First 3-Sided Mobility Platform">ශ්‍රී ලංකාවේ පළමු 3-Sided Mobility Platform එක</span>
                 </div>
-                <h1>වාහනයක්, රියදුරෙක් හෝ දෙකම — <span>වඩාත් ස්මාර්ට්ව</span> එකම තැනකින්</h1>
-                <p class="hero-desc">
+
+                <h1 id="heroHeading">
+                    වාහනයක්, රියදුරෙක් හෝ දෙකම — <span>වඩාත් ස්මාර්ට්ව</span> එකම තැනකින්
+                </h1>
+
+                <p class="hero-desc" data-si="ගමනකට වාහනයක් කුලියට ගන්න, නිවසේ ඇති වාහනය ලියාපදිංචි කර ආදායම් උපයන්න, නැතිනම් වාහනයක් නැතිවත් රියදුරු බලපත්‍රයෙන් ස්ථිර ආදායම් මාර්ගයක් සකසා ගන්න." data-en="Rent a vehicle for your trip, list your idle car to earn passive income, or earn a steady income with just a valid driving license—even without owning a vehicle.">
                     ගමනකට වාහනයක් කුලියට ගන්න, නිවසේ ඇති වාහනය ලියාපදිංචි කර ආදායම් උපයන්න, නැතිනම් වාහනයක් නැතිවත් රියදුරු බලපත්‍රයෙන් ස්ථිර ආදායම් මාර්ගයක් සකසා ගන්න.
                 </p>
 
-                <div class="hero-metrics">
-                    <div class="metric-box">
-                        <strong>3</strong>
-                        <span>සේවා වර්ග</span>
+                <!-- Built-in Metallic Gold Luxury Silhouette Card -->
+                <div class="hero-showcase-banner">
+                    <div>
+                        <div style="font-size:0.74rem;font-weight:800;letter-spacing:0.12em;color:var(--gold-bright);margin-bottom:4px;">VERIFIED FLEET & CHAUFFEURS</div>
+                        <div style="font-size:0.95rem;font-weight:700;color:#fff;" data-si="Self-Drive • Vehicle + Driver • Hire a Driver" data-en="Self-Drive • Vehicle + Driver • Hire a Driver">Self-Drive • Vehicle + Driver • Hire a Driver</div>
+                        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:2px;" data-si="දිවයින පුරා ආරක්ෂිත සහ විශ්වාසනීය ප්‍රවාහන සේවාව" data-en="Safe, verified, and transparent mobility across Sri Lanka">දිවයින පුරා ආරක්ෂිත සහ විශ්වාසනීය ප්‍රවාහන සේවාව</div>
                     </div>
-                    <div class="metric-box">
+                    <div class="hero-car-art" aria-hidden="true">
+                        <svg viewBox="0 0 320 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="goldCarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#fde68a"/>
+                                    <stop offset="50%" stop-color="#f5b942"/>
+                                    <stop offset="100%" stop-color="#b87333"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M22 76 C24 62, 42 54, 72 50 L114 26 C132 18, 185 18, 212 28 L254 48 C282 52, 298 60, 300 74 L300 82 L268 82 C266 66, 234 66, 232 82 L94 82 C92 66, 60 66, 58 82 L22 82 Z" fill="url(#goldCarGrad)" fill-opacity="0.18" stroke="url(#goldCarGrad)" stroke-width="2.5"/>
+                            <path d="M118 31 L182 31 L212 48 L96 48 Z" fill="#05070d" stroke="url(#goldCarGrad)" stroke-width="1.5"/>
+                            <circle cx="76" cy="82" r="16" fill="#090d16" stroke="url(#goldCarGrad)" stroke-width="3"/>
+                            <circle cx="76" cy="82" r="6" fill="#f5b942"/>
+                            <circle cx="250" cy="82" r="16" fill="#090d16" stroke="url(#goldCarGrad)" stroke-width="3"/>
+                            <circle cx="250" cy="82" r="6" fill="#f5b942"/>
+                            <line x1="10" y1="99" x2="310" y2="99" stroke="url(#goldCarGrad)" stroke-opacity="0.35" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="hero-stats-row">
+                    <div class="stat-pill">
+                        <strong>3-in-1</strong>
+                        <span data-si="සේවා ආකාර 3ක්" data-en="Mobility Models">සේවා ආකාර 3ක්</span>
+                    </div>
+                    <div class="stat-pill">
                         <strong>100%</strong>
-                        <span>NIC &amp; License Verified</span>
+                        <span data-si="NIC & License පරීක්ෂාව" data-en="ID & License Verified">NIC & License පරීක්ෂාව</span>
                     </div>
-                    <div class="metric-box">
-                        <strong>GPS</strong>
-                        <span>Live Tracking Ready</span>
+                    <div class="stat-pill">
+                        <strong>24/7</strong>
+                        <span data-si="ක්ෂණික WhatsApp සම්බන්ධතාව" data-en="Instant WhatsApp Dispatch">ක්ෂණික WhatsApp සම්බන්ධතාව</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Interactive Booking Card -->
+            <!-- Booking Card -->
             <div class="booking-card">
-                <div class="booking-card-top">
-                    <span class="booking-tag">INSTANT REQUEST</span>
-                    <h2>ක්ෂණික වෙන්කිරීම (Booking)</h2>
-                    <p>ඔබට අවශ්‍ය සේවාව තෝරා විස්තර යවන්න</p>
+                <span class="card-eyebrow">INSTANT RESERVATION</span>
+                <h2 data-si="ක්ෂණික වෙන්කිරීම (Booking)" data-en="Instant Booking Request">ක්ෂණික වෙන්කිරීම (Booking)</h2>
+                <p data-si="ඔබට අවශ්‍ය සේවාව තෝරා විස්තර යවන්න" data-en="Select your service option and send details immediately">ඔබට අවශ්‍ය සේවාව තෝරා විස්තර යවන්න</p>
+
+                <div class="mode-tabs">
+                    <button type="button" class="mode-btn active" data-service="Self-Drive" data-rate="8500" data-si="🚗 වාහනය පමණක්" data-en="🚗 Self-Drive">🚗 වාහනය පමණක්</button>
+                    <button type="button" class="mode-btn" data-service="Vehicle + Driver" data-rate="12500" data-si="🚘 වාහනය + රියදුරු" data-en="🚘 Car + Driver">🚘 වාහනය + රියදුරු</button>
+                    <button type="button" class="mode-btn" data-service="Hire a Driver" data-rate="3500" data-si="👨‍✈️ රියදුරු පමණක්" data-en="👨‍✈️ Driver Only">👨‍✈️ රියදුරු පමණක්</button>
                 </div>
 
-                <div class="mode-switcher" role="tablist">
-                    <button type="button" class="mode-btn active" data-service="Self-Drive (වාහනය පමණක්)" data-rate="8500">
-                        🚗 වාහනය පමණක්
-                    </button>
-                    <button type="button" class="mode-btn" data-service="Vehicle + Driver (වාහනය සහ රියදුරු)" data-rate="12500">
-                        🚘 වාහනය + රියදුරු
-                    </button>
-                    <button type="button" class="mode-btn" data-service="Hire a Driver (රියදුරු පමණක්)" data-rate="3500">
-                        👨‍✈️ රියදුරු පමණක්
-                    </button>
-                </div>
-
-                <form id="heroBookingForm" class="stack-form">
+                <form id="heroBookingForm" class="dark-form">
                     <div class="field-row">
                         <div class="field">
-                            <label for="hName">ඔබේ නම</label>
-                            <input type="text" id="hName" placeholder="උදා: නිරෝෂන් සිල්වා" required>
+                            <label for="hName" data-si="ඔබේ නම" data-en="Your Name">ඔබේ නම</label>
+                            <input type="text" id="hName" placeholder="නිරෝෂන් සිල්වා" data-ph-si="නිරෝෂන් සිල්වා" data-ph-en="Niroshan Silva" required>
                         </div>
                         <div class="field">
-                            <label for="hPhone">WhatsApp අංකය</label>
-                            <input type="tel" id="hPhone" placeholder="07X XXXXXXX" required>
+                            <label for="hPhone" data-si="WhatsApp අංකය" data-en="WhatsApp Number">WhatsApp අංකය</label>
+                            <input type="tel" id="hPhone" placeholder="07X XXXXXXX" data-ph-si="07X XXXXXXX" data-ph-en="07X XXXXXXX" required>
                         </div>
                     </div>
 
                     <div class="field-row">
                         <div class="field">
-                            <label for="hPickup">ආරම්භක නගරය / ස්ථානය</label>
-                            <input type="text" id="hPickup" placeholder="උදා: මාතර / දෙයියන්දර" required>
+                            <label for="hPickup" data-si="ආරම්භක නගරය" data-en="Pickup City">ආරම්භක නගරය</label>
+                            <input type="text" id="hPickup" placeholder="මාතර / දෙයියන්දර" data-ph-si="මාතර / දෙයියන්දර" data-ph-en="Matara / Deiyandara" required>
                         </div>
                         <div class="field">
-                            <label for="hDays">දින ගණන</label>
+                            <label for="hDays" data-si="දින ගණන" data-en="Duration (Days)">දින ගණන</label>
                             <select id="hDays">
-                                <option value="1">දින 1</option>
-                                <option value="2">දින 2</option>
-                                <option value="3">දින 3</option>
-                                <option value="5">දින 5</option>
-                                <option value="7">සතියක් (දින 7)</option>
+                                <option value="1" data-si="දින 1" data-en="1 Day">දින 1</option>
+                                <option value="2" data-si="දින 2" data-en="2 Days">දින 2</option>
+                                <option value="3" data-si="දින 3" data-en="3 Days">දින 3</option>
+                                <option value="5" data-si="දින 5" data-en="5 Days">දින 5</option>
+                                <option value="7" data-si="සතියක් (දින 7)" data-en="1 Week (7 Days)">සතියක් (දින 7)</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="estimate-strip">
-                        <span>ඇස්තමේන්තුගත මූලික ගාස්තුව:</span>
-                        <strong id="heroEstimatePrice">රු. 8,500</strong>
+                    <div class="price-banner">
+                        <span data-si="ඇස්තමේන්තුගත මූලික ගාස්තුව:" data-en="Estimated Base Rate:">ඇස්තමේන්තුගත මූලික ගාස්තුව:</span>
+                        <strong id="heroEstimatePrice">LKR 8,500</strong>
                     </div>
 
-                    <button type="submit" class="btn btn-gold full-btn">WhatsApp හරහා Request යවන්න</button>
+                    <button type="submit" class="btn btn-gold full-btn" data-si="WhatsApp හරහා Request යවන්න" data-en="Send Request via WhatsApp">WhatsApp හරහා Request යවන්න</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- 3 Core Services -->
-    <section class="section" id="services">
+    <section class="section section-darker" id="services">
         <div class="container">
             <div class="section-head">
-                <span class="eyebrow">THREE-SIDED MODEL</span>
-                <h2>පාර්ශව 3ටම ගැළපෙන සේවා ව්‍යුහය</h2>
-                <p>පාරිභෝගිකයා, වාහන හිමිකරු සහ රියදුරු යන සියලු දෙනාටම පැහැදිලි හා සාධාරණ ක්‍රමවේදයක්.</p>
+                <span class="eyebrow">THREE-SIDED ECOSYSTEM</span>
+                <h2 data-si="පාර්ශව 3ටම ගැළපෙන සේවා ව්‍යුහය" data-en="Built for All 3 Sides of Mobility">පාර්ශව 3ටම ගැළපෙන සේවා ව්‍යුහය</h2>
+                <p data-si="පාරිභෝගිකයා, වාහන හිමිකරු සහ රියදුරු යන සියලු දෙනාටම පැහැදිලි හා සාධාරණ ක්‍රමවේදයක්." data-en="A transparent, high-trust system connecting passengers, vehicle owners, and licensed drivers.">පාරිභෝගිකයා, වාහන හිමිකරු සහ රියදුරු යන සියලු දෙනාටම පැහැදිලි හා සාධාරණ ක්‍රමවේදයක්.</p>
             </div>
 
-            <div class="cards-3">
-                <article class="service-box">
-                    <div class="service-badge">SERVICE 01</div>
-                    <h3>🚗 Self-Drive (වාහනය පමණක්)</h3>
-                    <p>ඔබටම වාහනය පදවාගෙන යන්න. දෛනික හෝ දිගුකාලීන ගමන් සඳහා GPS සහිත පරීක්ෂා කළ වාහන.</p>
-                    <ul class="feature-list">
-                        <li>✔ දිනපතා / සතිපතා කුලී පැකේජ</li>
-                        <li>✔ පූර්ණ ලියකියවිලි සහ GPS ආරක්ෂාව</li>
-                        <li>✔ පහසු Deposit &amp; Inspection ක්‍රමය</li>
-                    </ul>
-                    <button type="button" class="btn btn-dark full-btn open-booking-btn" data-service="Self-Drive (වාහනය පමණක්)">Self-Drive වෙන්කරන්න</button>
+            <div class="pillars-grid">
+                <article class="pillar-card">
+                    <div>
+                        <div class="pillar-icon-box">🚗</div>
+                        <h3 data-si="Self-Drive (වාහනය පමණක්)" data-en="Self-Drive Rental">Self-Drive (වාහනය පමණක්)</h3>
+                        <p data-si="ඔබටම වාහනය පදවාගෙන යන්න. දෛනික හෝ දිගුකාලීන ගමන් සඳහා GPS සහිත පරීක්ෂා කළ වාහන." data-en="Drive on your own schedule. Fully inspected, GPS-equipped vehicles for daily or weekly trips.">ඔබටම වාහනය පදවාගෙන යන්න. දෛනික හෝ දිගුකාලීන ගමන් සඳහා GPS සහිත පරීක්ෂා කළ වාහන.</p>
+                        <ul class="pillar-list">
+                            <li><span>✓</span> <span data-si="දිනපතා / සතිපතා කුලී පැකේජ" data-en="Flexible daily & weekly packages">දිනපතා / සතිපතා කුලී පැකේජ</span></li>
+                            <li><span>✓</span> <span data-si="පූර්ණ ලියකියවිලි සහ GPS ආරක්ෂාව" data-en="Full insurance & GPS protection">පූර්ණ ලියකියවිලි සහ GPS ආරක්ෂාව</span></li>
+                            <li><span>✓</span> <span data-si="පහසු Deposit & Inspection ක්‍රමය" data-en="Transparent inspection & deposit">පහසු Deposit & Inspection ක්‍රමය</span></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-glass full-btn open-booking-btn" data-service="Self-Drive" data-si="Self-Drive වෙන්කරන්න" data-en="Book Self-Drive">Self-Drive වෙන්කරන්න</button>
                 </article>
 
-                <article class="service-box highlighted">
-                    <div class="service-badge gold-badge">MOST POPULAR</div>
-                    <h3>🚘 Vehicle + Driver (වාහනය සහ රියදුරු)</h3>
-                    <p>විවාහ මංගල උත්සව, චාරිකා, Airport Transfers සහ ව්‍යාපාරික ගමන් සඳහා වාහනය සමඟ පළපුරුදු රියදුරු.</p>
-                    <ul class="feature-list">
-                        <li>✔ පළපුරුදු, විශ්වාසවන්ත රියදුරන්</li>
-                        <li>✔ දුර ගමන් සහ සංචාර සඳහා සුදුසුයි</li>
-                        <li>✔ කාලසටහනට අනුව සේවය</li>
-                    </ul>
-                    <button type="button" class="btn btn-gold full-btn open-booking-btn" data-service="Vehicle + Driver (වාහනය සහ රියදුරු)">Package වෙන්කරන්න</button>
+                <article class="pillar-card featured">
+                    <div>
+                        <div class="pillar-icon-box">🚘</div>
+                        <h3 data-si="Vehicle + Driver (වාහනය සහ රියදුරු)" data-en="Chauffeur-Driven Vehicle">Vehicle + Driver (වාහනය සහ රියදුරු)</h3>
+                        <p data-si="විවාහ මංගල උත්සව, චාරිකා, Airport Transfers සහ ව්‍යාපාරික ගමන් සඳහා වාහනය සමඟ පළපුරුදු රියදුරු." data-en="Executive travel, weddings, airport transfers, and family tours with an experienced chauffeur.">විවාහ මංගල උත්සව, චාරිකා, Airport Transfers සහ ව්‍යාපාරික ගමන් සඳහා වාහනය සමඟ පළපුරුදු රියදුරු.</p>
+                        <ul class="pillar-list">
+                            <li><span>✓</span> <span data-si="පළපුරුදු, විශ්වාසවන්ත රියදුරන්" data-en="Experienced, background-checked drivers">පළපුරුදු, විශ්වාසවන්ත රියදුරන්</span></li>
+                            <li><span>✓</span> <span data-si="දුර ගමන් සහ සංචාර සඳහා සුදුසුයි" data-en="Ideal for outstation & VIP tours">දුර ගමන් සහ සංචාර සඳහා සුදුසුයි</span></li>
+                            <li><span>✓</span> <span data-si="කාලසටහනට අනුව සේවය" data-en="Punctual door-to-door service">කාලසටහනට අනුව සේවය</span></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-gold full-btn open-booking-btn" data-service="Vehicle + Driver" data-si="Package වෙන්කරන්න" data-en="Book Vehicle + Driver">Package වෙන්කරන්න</button>
                 </article>
 
-                <article class="service-box">
-                    <div class="service-badge">SERVICE 03</div>
-                    <h3>👨‍✈️ Hire a Driver (රියදුරු පමණක්)</h3>
-                    <p>ඔබේම වාහනය පැදවීමට රියදුරෙකු ගන්න. උත්සව, රාත්‍රී ගමන් හෝ දීර්ඝ ගමන් සඳහා ආරක්ෂිත විසඳුම.</p>
-                    <ul class="feature-list">
-                        <li>✔ NIC, License &amp; Police Verified</li>
-                        <li>✔ Light &amp; Heavy Vehicle රියදුරන්</li>
-                        <li>✔ පැයකට හෝ දිනකට ලබාගත හැක</li>
-                    </ul>
-                    <button type="button" class="btn btn-dark full-btn open-booking-btn" data-service="Hire a Driver (රියදුරු පමණක්)">Driver කෙනෙක් ගන්න</button>
+                <article class="pillar-card">
+                    <div>
+                        <div class="pillar-icon-box">👨‍✈️</div>
+                        <h3 data-si="Hire a Driver (රියදුරු පමණක්)" data-en="Hire a Personal Driver">Hire a Driver (රියදුරු පමණක්)</h3>
+                        <p data-si="ඔබේම වාහනය පැදවීමට රියදුරෙකු ගන්න. උත්සව, රාත්‍රී ගමන් හෝ දීර්ඝ ගමන් සඳහා ආරක්ෂිත විසඳුම." data-en="Have your own car? Hire a verified professional driver by the hour or day for safe, stress-free travel.">ඔබේම වාහනය පැදවීමට රියදුරෙකු ගන්න. උත්සව, රාත්‍රී ගමන් හෝ දීර්ඝ ගමන් සඳහා ආරක්ෂිත විසඳුම.</p>
+                        <ul class="pillar-list">
+                            <li><span>✓</span> <span data-si="NIC, License & Police Verified" data-en="NIC, License & Police Verified">NIC, License & Police Verified</span></li>
+                            <li><span>✓</span> <span data-si="Light & Heavy Vehicle රියදුරන්" data-en="Light & Heavy vehicle specialists">Light & Heavy Vehicle රියදුරන්</span></li>
+                            <li><span>✓</span> <span data-si="පැයකට හෝ දිනකට ලබාගත හැක" data-en="Hourly or full-day booking">පැයකට හෝ දිනකට ලබාගත හැක</span></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-glass full-btn open-booking-btn" data-service="Hire a Driver" data-si="Driver කෙනෙක් ගන්න" data-en="Hire a Driver">Driver කෙනෙක් ගන්න</button>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Filterable Fleet & Drivers Showcase -->
-    <section class="section section-alt" id="fleet">
+    <!-- Fleet Showcase -->
+    <section class="section" id="fleet">
         <div class="container">
-            <div class="fleet-top-bar">
-                <div class="section-head left-head">
-                    <span class="eyebrow">AVAILABLE OPTIONS</span>
-                    <h2>වාහන සහ රියදුරු ලැයිස්තුව</h2>
-                    <p>කාණ්ඩය අනුව Filter කර ඔබට ගැළපෙන විකල්පය ක්ෂණිකව වෙන්කරගන්න.</p>
+            <div class="fleet-header">
+                <div class="section-head">
+                    <span class="eyebrow">CURATED OPTIONS</span>
+                    <h2 data-si="වාහන සහ රියදුරු ලැයිස්තුව" data-en="Featured Fleet & Chauffeurs">වාහන සහ රියදුරු ලැයිස්තුව</h2>
+                    <p data-si="කාණ්ඩය අනුව Filter කර ඔබට ගැළපෙන විකල්පය ක්ෂණිකව වෙන්කරගන්න." data-en="Filter by category and reserve your preferred option in seconds.">කාණ්ඩය අනුව Filter කර ඔබට ගැළපෙන විකල්පය ක්ෂණිකව වෙන්කරගන්න.</p>
                 </div>
 
-                <div class="filter-pills" role="group" aria-label="Filter Fleet">
-                    <button type="button" class="filter-pill active" data-filter="all">සියල්ල</button>
-                    <button type="button" class="filter-pill" data-filter="self-drive">Self-Drive</button>
-                    <button type="button" class="filter-pill" data-filter="with-driver">Vehicle + Driver</button>
-                    <button type="button" class="filter-pill" data-filter="driver-only">Driver Only</button>
+                <div class="filter-bar">
+                    <button type="button" class="filter-btn active" data-filter="all" data-si="සියල්ල" data-en="All">සියල්ල</button>
+                    <button type="button" class="filter-btn" data-filter="self-drive">Self-Drive</button>
+                    <button type="button" class="filter-btn" data-filter="with-driver">Vehicle + Driver</button>
+                    <button type="button" class="filter-btn" data-filter="driver-only">Driver Only</button>
                 </div>
             </div>
 
-            <div class="fleet-grid" id="fleetGrid">
-                <!-- Item 1 -->
-                <article class="fleet-card" data-category="self-drive with-driver">
-                    <div class="fleet-img-wrap">
-                        <img src="images/sedan.jpg" alt="Executive Sedan" onerror="this.style.display='none'">
-                        <span class="fleet-chip">Self-Drive / With Driver</span>
+            <div class="fleet-grid">
+                <!-- Card 1 -->
+                <article class="vehicle-card" data-category="self-drive with-driver">
+                    <div class="vehicle-visual">
+                        <span class="v-badge">Self-Drive / With Driver</span>
+                        <svg viewBox="0 0 300 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 72 C28 58, 46 50, 74 47 L116 25 C135 18, 182 18, 208 27 L246 46 C272 50, 286 58, 288 72 L288 79 L256 79 C254 64, 224 64, 222 79 L92 79 C90 64, 60 64, 58 79 L24 79 Z" fill="#f5b942" fill-opacity="0.16" stroke="#f5b942" stroke-width="2.4"/>
+                            <circle cx="75" cy="79" r="15" fill="#05070d" stroke="#f5b942" stroke-width="2.8"/>
+                            <circle cx="239" cy="79" r="15" fill="#05070d" stroke="#f5b942" stroke-width="2.8"/>
+                        </svg>
                     </div>
-                    <div class="fleet-body">
-                        <h3>Executive City Sedan</h3>
-                        <p class="fleet-meta">ආසන 4 • Automatic • A/C • නගර සහ දුර ගමන්</p>
-                        <div class="fleet-foot">
+                    <div class="vehicle-body">
+                        <div>
+                            <h3>Executive Hybrid Sedan</h3>
+                            <p class="vehicle-specs" data-si="ආසන 4 • Automatic • Dual A/C • නගර සහ දුර ගමන්" data-en="4 Seats • Automatic • Dual A/C • City & Outstation">ආසන 4 • Automatic • Dual A/C • නගර සහ දුර ගමන්</p>
+                        </div>
+                        <div class="vehicle-footer">
                             <div>
-                                <small>දිනකට</small>
-                                <strong>රු. 8,500</strong>
+                                <small data-si="දිනකට" data-en="Per Day">දිනකට</small>
+                                <strong>LKR 8,500</strong>
                             </div>
-                            <button type="button" class="btn btn-gold btn-sm open-booking-btn" data-service="Executive City Sedan (රු. 8,500/දිනකට)">Book Now</button>
+                            <button type="button" class="btn btn-gold btn-sm open-booking-btn" data-service="Executive Hybrid Sedan (LKR 8,500/day)" data-si="වෙන්කරන්න" data-en="Book Now">වෙන්කරන්න</button>
                         </div>
                     </div>
                 </article>
 
-                <!-- Item 2 -->
-                <article class="fleet-card" data-category="with-driver">
-                    <div class="fleet-img-wrap">
-                        <img src="images/van.jpg" alt="Group Tour Van" onerror="this.style.display='none'">
-                        <span class="fleet-chip">Vehicle + Driver</span>
+                <!-- Card 2 -->
+                <article class="vehicle-card" data-category="with-driver">
+                    <div class="vehicle-visual">
+                        <span class="v-badge">Vehicle + Driver</span>
+                        <svg viewBox="0 0 300 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M26 76 L26 42 C26 28, 38 22, 56 22 L226 22 C244 22, 256 30, 266 46 L282 54 C288 58, 290 64, 290 76 L256 76 C254 62, 224 62, 222 76 L92 76 C90 62, 60 62, 58 76 Z" fill="#f5b942" fill-opacity="0.16" stroke="#f5b942" stroke-width="2.4"/>
+                            <rect x="52" y="30" width="46" height="18" rx="3" stroke="#f5b942" stroke-width="1.4"/>
+                            <rect x="106" y="30" width="52" height="18" rx="3" stroke="#f5b942" stroke-width="1.4"/>
+                            <rect x="166" y="30" width="52" height="18" rx="3" stroke="#f5b942" stroke-width="1.4"/>
+                            <circle cx="75" cy="77" r="15" fill="#05070d" stroke="#f5b942" stroke-width="2.8"/>
+                            <circle cx="239" cy="77" r="15" fill="#05070d" stroke="#f5b942" stroke-width="2.8"/>
+                        </svg>
                     </div>
-                    <div class="fleet-body">
-                        <h3>Family &amp; Group Tour Van</h3>
-                        <p class="fleet-meta">ආසන 14 • Dual A/C • චාරිකා සහ Airport Drop</p>
-                        <div class="fleet-foot">
+                    <div class="vehicle-body">
+                        <div>
+                            <h3>Luxury KDH High-Roof Van</h3>
+                            <p class="vehicle-specs" data-si="ආසන 14 • Dual A/C • චාරිකා සහ Airport Drop" data-en="14 Seats • Dual A/C • Group Tours & Airport VIP">ආසන 14 • Dual A/C • චාරිකා සහ Airport Drop</p>
+                        </div>
+                        <div class="vehicle-footer">
                             <div>
-                                <small>දිනකට</small>
-                                <strong>රු. 16,000</strong>
+                                <small data-si="දිනකට" data-en="Per Day">දිනකට</small>
+                                <strong>LKR 16,000</strong>
                             </div>
-                            <button type="button" class="btn btn-gold btn-sm open-booking-btn" data-service="Family & Group Tour Van (රු. 16,000/දිනකට)">Book Now</button>
+                            <button type="button" class="btn btn-gold btn-sm open-booking-btn" data-service="Luxury KDH High-Roof Van (LKR 16,000/day)" data-si="වෙන්කරන්න" data-en="Book Now">වෙන්කරන්න</button>
                         </div>
                     </div>
                 </article>
 
-                <!-- Item 3 -->
-                <article class="fleet-card" data-category="driver-only">
-                    <div class="fleet-img-wrap">
-                        <img src="images/driver.jpg" alt="Verified Professional Driver" onerror="this.style.display='none'">
-                        <span class="fleet-chip green-chip">Verified Driver Only</span>
+                <!-- Card 3 -->
+                <article class="vehicle-card" data-category="driver-only">
+                    <div class="vehicle-visual">
+                        <span class="v-badge">Verified Chauffeur Only</span>
+                        <svg viewBox="0 0 220 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="110" cy="55" r="36" stroke="#f5b942" stroke-width="2.6" fill="#f5b942" fill-opacity="0.1"/>
+                            <circle cx="110" cy="55" r="10" stroke="#f5b942" stroke-width="2.2"/>
+                            <line x1="74" y1="55" x2="100" y2="55" stroke="#f5b942" stroke-width="2.6"/>
+                            <line x1="120" y1="55" x2="146" y2="55" stroke="#f5b942" stroke-width="2.6"/>
+                            <line x1="110" y1="65" x2="110" y2="91" stroke="#f5b942" stroke-width="2.6"/>
+                        </svg>
                     </div>
-                    <div class="fleet-body">
-                        <h3>Chauffeur / Personal Driver</h3>
-                        <p class="fleet-meta">8+ Years Exp • Light &amp; Heavy • Verified Profile</p>
-                        <div class="fleet-foot">
+                    <div class="vehicle-body">
+                        <div>
+                            <h3>Certified Personal Chauffeur</h3>
+                            <p class="vehicle-specs" data-si="8+ Years Exp • Light & Heavy • Police & NIC Verified" data-en="8+ Years Exp • Light & Heavy • Police & NIC Verified">8+ Years Exp • Light & Heavy • Police & NIC Verified</p>
+                        </div>
+                        <div class="vehicle-footer">
                             <div>
-                                <small>දිනකට</small>
-                                <strong>රු. 3,500</strong>
+                                <small data-si="දිනකට" data-en="Per Day">දිනකට</small>
+                                <strong>LKR 3,500</strong>
                             </div>
-                            <button type="button" class="btn btn-gold btn-sm open-booking-btn" data-service="Chauffeur / Personal Driver (රු. 3,500/දිනකට)">Book Now</button>
+                            <button type="button" class="btn btn-gold btn-sm open-booking-btn" data-service="Certified Personal Chauffeur (LKR 3,500/day)" data-si="වෙන්කරන්න" data-en="Book Now">වෙන්කරන්න</button>
                         </div>
                     </div>
                 </article>
@@ -1222,185 +1322,179 @@
         </div>
     </section>
 
-    <!-- Interactive Commission & Earnings Calculator -->
-    <section class="section" id="earnings">
-        <div class="container calc-grid">
-            <div class="calc-info">
-                <span class="eyebrow">REVENUE &amp; COMMISSION SIMULATOR</span>
-                <h2>සේවාව අනුව ආදායම් බෙදී යන ආකාරය බලන්න</h2>
-                <p>
+    <!-- Commission Simulator -->
+    <section class="section section-darker" id="earnings">
+        <div class="container calc-wrapper">
+            <div class="calc-left">
+                <span class="eyebrow" style="color:var(--gold-bright);font-size:0.74rem;font-weight:800;letter-spacing:0.15em;display:block;margin-bottom:8px;">REVENUE & COMMISSION SIMULATOR</span>
+                <h2 data-si="සේවාව අනුව ආදායම් බෙදී යන ආකාරය බලන්න" data-en="See How Trip Revenue Is Shared">සේවාව අනුව ආදායම් බෙදී යන ආකාරය බලන්න</h2>
+                <p data-si="වාහනයක් කුලියට දුන්නත්, වාහනය සමඟ රියදුරෙකු සැපයුවත්, නැතිනම් රියදුරු සේවාව පමණක් ලබා දුන්නත් එක් එක් ගනුදෙනුවට අදාළව සාධාරණ කොමිස් ප්‍රතිශතයක් (Platform Fee) DriveLink SL වෙත හිමි වේ." data-en="Whether renting out a vehicle, offering vehicle + driver packages, or driving independently, each completed trip splits cleanly between the provider and DriveLink SL.">
                     වාහනයක් කුලියට දුන්නත්, වාහනය සමඟ රියදුරෙකු සැපයුවත්, නැතිනම් රියදුරු සේවාව පමණක් ලබා දුන්නත් එක් එක් ගනුදෙනුවට අදාළව සාධාරණ කොමිස් ප්‍රතිශතයක් (Platform Fee) DriveLink SL වෙත හිමි වේ.
                 </p>
 
-                <div class="calc-controls">
+                <div class="calc-inputs">
                     <div class="field">
-                        <label for="calcServiceType">සේවා වර්ගය තෝරන්න</label>
+                        <label for="calcServiceType" data-si="සේවා වර්ගය තෝරන්න" data-en="Select Service Model">සේවා වර්ගය තෝරන්න</label>
                         <select id="calcServiceType">
-                            <option value="self-drive">වාහනය පමණක් (Self-Drive) — Platform Fee 15%</option>
-                            <option value="with-driver">වාහනය + රියදුරු — Platform Fee 12%</option>
-                            <option value="driver-only">රියදුරු පමණක් — Platform Fee 18%</option>
+                            <option value="self-drive" data-si="Self-Drive (Platform Fee 15%)" data-en="Self-Drive (Platform Fee 15%)">Self-Drive (Platform Fee 15%)</option>
+                            <option value="with-driver" data-si="Vehicle + Driver (Platform Fee 12%)" data-en="Vehicle + Driver (Platform Fee 12%)">Vehicle + Driver (Platform Fee 12%)</option>
+                            <option value="driver-only" data-si="Driver Only (Platform Fee 18%)" data-en="Driver Only (Platform Fee 18%)">Driver Only (Platform Fee 18%)</option>
                         </select>
                     </div>
 
                     <div class="field">
-                        <label for="calcAmount">ගමනේ මුළු ගාස්තුව (රු.)</label>
+                        <label for="calcAmount" data-si="ගමනේ මුළු ගාස්තුව (LKR)" data-en="Total Trip Amount (LKR)">ගමනේ මුළු ගාස්තුව (LKR)</label>
                         <input type="number" id="calcAmount" value="10000" min="1000" step="500">
                     </div>
                 </div>
             </div>
 
-            <div class="calc-result-card">
-                <h3>ඇස්තමේන්තුගත බෙදී යාම (Breakdown)</h3>
-                <div class="breakdown-row">
-                    <span>මුළු ගනුදෙනු අගය</span>
-                    <strong id="resTotal">රු. 10,000</strong>
+            <div class="calc-card">
+                <h3 data-si="ඇස්තමේන්තුගත බෙදී යාම (Breakdown)" data-en="Estimated Earnings Breakdown">ඇස්තමේන්තුගත බෙදී යාම (Breakdown)</h3>
+                <div class="calc-row">
+                    <span data-si="මුළු ගනුදෙනු අගය" data-en="Gross Booking Value">මුළු ගනුදෙනු අගය</span>
+                    <strong id="resTotal">LKR 10,000</strong>
                 </div>
-                <div class="breakdown-row">
-                    <span id="resProviderLabel">වාහන හිමියාට (85%)</span>
-                    <strong id="resProvider" class="text-success">රු. 8,500</strong>
+                <div class="calc-row">
+                    <span id="resProviderLabel">වාහන හිමියාට / රියදුරුට (85%)</span>
+                    <strong id="resProvider" class="green-val">LKR 8,500</strong>
                 </div>
-                <div class="breakdown-row">
+                <div class="calc-row">
                     <span id="resFeeLabel">DriveLink SL කොමිස් (15%)</span>
-                    <strong id="resFee" class="text-gold">රු. 1,500</strong>
+                    <strong id="resFee" class="gold-val">LKR 1,500</strong>
                 </div>
-                <p class="calc-note">
-                    * මෙය සැලසුම් කිරීමේ පහසුව සඳහා වූ ආදර්ශ ගණකයකි. සැබෑ ගනුදෙනු වලදී ඉන්ධන, රියදුරු දීමනා සහ පැකේජ කොන්දේසි අනුව ගාස්තු වෙනස් විය හැක.
+                <p class="calc-disclaimer" data-si="* සැලසුම් කිරීමේ පහසුව සඳහා වූ ආදර්ශ ගණකයකි. ඉන්ධන සහ දීමනා කොන්දේසි අනුව වෙනස් විය හැක." data-en="* Illustrative simulator for planning purposes. Final payouts depend on fuel and package terms.">
+                    * සැලසුම් කිරීමේ පහසුව සඳහා වූ ආදර්ශ ගණකයකි. ඉන්ධන සහ දීමනා කොන්දේසි අනුව වෙනස් විය හැක.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Partner Registration Section -->
-    <section class="section section-alt" id="partners">
+    <!-- Partner Registration -->
+    <section class="section" id="partners">
         <div class="container">
             <div class="section-head">
-                <span class="eyebrow">JOIN THE NETWORK</span>
-                <h2>වාහන හිමියන් සහ රියදුරන් ලියාපදිංචිය</h2>
-                <p>ඔබට වාහනයක් තිබේ නම් හෝ රියදුරු බලපත්‍රය පමණක් තිබේ නම් අදම විස්තර යොමු කරන්න.</p>
+                <span class="eyebrow">PARTNER ONBOARDING</span>
+                <h2 data-si="වාහන හිමියන් සහ රියදුරන් ලියාපදිංචිය" data-en="Vehicle Owner & Driver Registration">වාහන හිමියන් සහ රියදුරන් ලියාපදිංචිය</h2>
+                <p data-si="ඔබට වාහනයක් තිබේ නම් හෝ රියදුරු බලපත්‍රය පමණක් තිබේ නම් අදම විස්තර යොමු කරන්න." data-en="Register your vehicle or join as a licensed driver to start receiving verified booking requests.">ඔබට වාහනයක් තිබේ නම් හෝ රියදුරු බලපත්‍රය පමණක් තිබේ නම් අදම විස්තර යොමු කරන්න.</p>
             </div>
 
             <div class="partner-grid">
-                <!-- Vehicle Owner Form -->
-                <div class="partner-box">
-                    <div class="partner-head">
-                        <span class="mini-tag">VEHICLE OWNERS</span>
-                        <h3>🚘 ඔබේ වාහනය ලියාපදිංචි කරන්න</h3>
-                        <p>වාහනය කුලියට දෙන්න. ඔබට Driving License තිබේ නම් ඔබටම රියදුරු ලෙසත් සේවය කළ හැක.</p>
-                    </div>
+                <!-- Owner -->
+                <div class="partner-card">
+                    <span class="card-eyebrow">VEHICLE OWNERS</span>
+                    <h3 data-si="🚘 ඔබේ වාහනය ලියාපදිංචි කරන්න" data-en="🚘 Register Your Vehicle">🚘 ඔබේ වාහනය ලියාපදිංචි කරන්න</h3>
+                    <p data-si="වාහනය කුලියට දෙන්න. ඔබට Driving License තිබේ නම් ඔබටම රියදුරු ලෙසත් සේවය කළ හැක." data-en="List your vehicle for self-drive or chauffeur bookings—you can also drive your own vehicle.">වාහනය කුලියට දෙන්න. ඔබට Driving License තිබේ නම් ඔබටම රියදුරු ලෙසත් සේවය කළ හැක.</p>
 
-                    <form id="ownerRegisterForm" class="stack-form">
+                    <form id="ownerRegisterForm" class="dark-form">
                         <div class="field">
-                            <label for="ownName">හිමිකරුගේ නම</label>
-                            <input type="text" id="ownName" placeholder="සම්පූර්ණ නම" required>
+                            <label for="ownName" data-si="හිමිකරුගේ නම" data-en="Owner Full Name">හිමිකරුගේ නම</label>
+                            <input type="text" id="ownName" placeholder="සම්පූර්ණ නම" data-ph-si="සම්පූර්ණ නම" data-ph-en="Full Name" required>
                         </div>
                         <div class="field-row">
                             <div class="field">
-                                <label for="ownPhone">WhatsApp අංකය</label>
-                                <input type="tel" id="ownPhone" placeholder="07X XXXXXXX" required>
+                                <label for="ownPhone" data-si="WhatsApp අංකය" data-en="WhatsApp Number">WhatsApp අංකය</label>
+                                <input type="tel" id="ownPhone" placeholder="07X XXXXXXX" data-ph-si="07X XXXXXXX" data-ph-en="07X XXXXXXX" required>
                             </div>
                             <div class="field">
-                                <label for="ownArea">ප්‍රදේශය</label>
-                                <input type="text" id="ownArea" placeholder="උදා: මාතර" required>
+                                <label for="ownArea" data-si="ප්‍රදේශය" data-en="City / District">ප්‍රදේශය</label>
+                                <input type="text" id="ownArea" placeholder="මාතර / කොළඹ" data-ph-si="මාතර / කොළඹ" data-ph-en="Matara / Colombo" required>
                             </div>
                         </div>
                         <div class="field">
-                            <label for="ownVehicle">වාහන වර්ගය සහ මාදිලිය</label>
-                            <input type="text" id="ownVehicle" placeholder="උදා: Toyota Aqua / Suzuki WagonR / KDH" required>
+                            <label for="ownVehicle" data-si="වාහන වර්ගය සහ මාදිලිය" data-en="Vehicle Make & Model">වාහන වර්ගය සහ මාදිලිය</label>
+                            <input type="text" id="ownVehicle" placeholder="Toyota Aqua / Vezel / KDH" data-ph-si="Toyota Aqua / Vezel / KDH" data-ph-en="Toyota Aqua / Vezel / KDH" required>
                         </div>
                         <div class="field">
-                            <label for="ownOption">ලබා දිය හැකි සේවා ආකාරය</label>
+                            <label for="ownOption" data-si="සේවා ආකාරය" data-en="Listing Preference">සේවා ආකාරය</label>
                             <select id="ownOption" required>
-                                <option value="">තෝරන්න...</option>
-                                <option value="වාහනය පමණක් (Self-Drive)">වාහනය පමණක් (Self-Drive)</option>
-                                <option value="වාහනය + හිමිකරු රියදුරු ලෙස">වාහනය + හිමිකරු රියදුරු ලෙස</option>
-                                <option value="වාහනය + වෙනත් රියදුරෙකු සමඟ">වාහනය + වෙනත් රියදුරෙකු සමඟ</option>
+                                <option value="Self-Drive Only" data-si="වාහනය පමණක් (Self-Drive Only)" data-en="Self-Drive Only">වාහනය පමණක් (Self-Drive Only)</option>
+                                <option value="Vehicle + Owner as Driver" data-si="වාහනය + හිමිකරු රියදුරු ලෙස" data-en="Vehicle + Owner as Driver">වාහනය + හිමිකරු රියදුරු ලෙස</option>
+                                <option value="Vehicle + Assigned Driver" data-si="වාහනය + වෙනත් රියදුරෙකු සමඟ" data-en="Vehicle + Assigned Driver">වාහනය + වෙනත් රියදුරෙකු සමඟ</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-gold full-btn">වාහනය ලියාපදිංචි කරන්න</button>
+                        <button type="submit" class="btn btn-gold full-btn" data-si="වාහනය ලියාපදිංචි කරන්න" data-en="Submit Vehicle Registration">වාහනය ලියාපදිංචි කරන්න</button>
                     </form>
                 </div>
 
-                <!-- Driver Registration Form -->
-                <div class="partner-box">
-                    <div class="partner-head">
-                        <span class="mini-tag dark-tag">LICENSED DRIVERS</span>
-                        <h3>👨‍✈️ රියදුරෙකු ලෙස ලියාපදිංචි වන්න</h3>
-                        <p>වාහනයක් නොමැති වුවත්, වලංගු රියදුරු බලපත්‍රයක් ඇති අයට අප හා සම්බන්ධ වී ආදායම් ඉපයිය හැක.</p>
-                    </div>
+                <!-- Driver -->
+                <div class="partner-card">
+                    <span class="card-eyebrow">LICENSED DRIVERS</span>
+                    <h3 data-si="👨‍✈️ රියදුරෙකු ලෙස ලියාපදිංචි වන්න" data-en="👨‍✈️ Join as a Licensed Driver">👨‍✈️ රියදුරෙකු ලෙස ලියාපදිංචි වන්න</h3>
+                    <p data-si="වාහනයක් නොමැති වුවත්, වලංගු රියදුරු බලපත්‍රයක් ඇති අයට අප හා සම්බන්ධ වී ආදායම් ඉපයිය හැක." data-en="No vehicle required. Use your valid Sri Lankan driving license to accept chauffeur and vehicle-owner trips.">වාහනයක් නොමැති වුවත්, වලංගු රියදුරු බලපත්‍රයක් ඇති අයට අප හා සම්බන්ධ වී ආදායම් ඉපයිය හැක.</p>
 
-                    <form id="driverRegisterForm" class="stack-form">
+                    <form id="driverRegisterForm" class="dark-form">
                         <div class="field">
-                            <label for="drvName">රියදුරුගේ සම්පූර්ණ නම</label>
-                            <input type="text" id="drvName" placeholder="සම්පූර්ණ නම" required>
+                            <label for="drvName" data-si="රියදුරුගේ සම්පූර්ණ නම" data-en="Driver Full Name">රියදුරුගේ සම්පූර්ණ නම</label>
+                            <input type="text" id="drvName" placeholder="සම්පූර්ණ නම" data-ph-si="සම්පූර්ණ නම" data-ph-en="Full Name" required>
                         </div>
                         <div class="field-row">
                             <div class="field">
-                                <label for="drvPhone">WhatsApp අංකය</label>
-                                <input type="tel" id="drvPhone" placeholder="07X XXXXXXX" required>
+                                <label for="drvPhone" data-si="WhatsApp අංකය" data-en="WhatsApp Number">WhatsApp අංකය</label>
+                                <input type="tel" id="drvPhone" placeholder="07X XXXXXXX" data-ph-si="07X XXXXXXX" data-ph-en="07X XXXXXXX" required>
                             </div>
                             <div class="field">
-                                <label for="drvArea">පදිංචි ප්‍රදේශය</label>
-                                <input type="text" id="drvArea" placeholder="උදා: දෙයියන්දර / ගාල්ල" required>
+                                <label for="drvArea" data-si="පදිංචි ප්‍රදේශය" data-en="Home City">පදිංචි ප්‍රදේශය</label>
+                                <input type="text" id="drvArea" placeholder="දෙයියන්දර / ගාල්ල" data-ph-si="දෙයියන්දර / ගාල්ල" data-ph-en="Deiyandara / Galle" required>
                             </div>
                         </div>
                         <div class="field-row">
                             <div class="field">
-                                <label for="drvLicense">බලපත්‍ර කාණ්ඩය</label>
+                                <label for="drvLicense" data-si="බලපත්‍ර කාණ්ඩය" data-en="License Class">බලපත්‍ර කාණ්ඩය</label>
                                 <select id="drvLicense" required>
-                                    <option value="">තෝරන්න...</option>
-                                    <option value="Light Vehicle (සැහැල්ලු)">Light Vehicle (සැහැල්ලු)</option>
-                                    <option value="Heavy Vehicle (බර වාහන)">Heavy Vehicle (බර වාහන)</option>
-                                    <option value="Light + Heavy (සියල්ල)">Light + Heavy (සියල්ල)</option>
+                                    <option value="Light Vehicle" data-si="සැහැල්ලු වාහන (Light Vehicle)" data-en="Light Vehicle">සැහැල්ලු වාහන (Light Vehicle)</option>
+                                    <option value="Heavy Vehicle" data-si="බර වාහන (Heavy Vehicle)" data-en="Heavy Vehicle">බර වාහන (Heavy Vehicle)</option>
+                                    <option value="Light + Heavy" data-si="සියල්ල (Light + Heavy)" data-en="Light + Heavy">සියල්ල (Light + Heavy)</option>
                                 </select>
                             </div>
                             <div class="field">
-                                <label for="drvExp">පළපුරුද්ද (වසර)</label>
-                                <input type="number" id="drvExp" min="1" max="50" placeholder="උදා: 5" required>
+                                <label for="drvExp" data-si="පළපුරුද්ද (වසර)" data-en="Experience (Years)">පළපුරුද්ද (වසර)</label>
+                                <input type="number" id="drvExp" min="1" max="50" placeholder="5" data-ph-si="5" data-ph-en="5" required>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-dark full-btn">රියදුරෙකු ලෙස එක්වන්න</button>
+                        <button type="submit" class="btn btn-glass full-btn" style="border-color:var(--gold-bright);color:var(--gold-bright);" data-si="රියදුරෙකු ලෙස එක්වන්න" data-en="Submit Driver Application">රියදුරෙකු ලෙස එක්වන්න</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Accordion -->
-    <section class="section" id="faq">
-        <div class="container faq-wrap">
+    <!-- FAQ -->
+    <section class="section section-darker" id="faq">
+        <div class="container faq-container">
             <div class="section-head">
-                <span class="eyebrow">QUICK ANSWERS</span>
-                <h2>නිතර ඇසෙන ප්‍රශ්න</h2>
+                <span class="eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+                <h2 data-si="නිතර ඇසෙන ප්‍රශ්න" data-en="Frequently Asked Questions">නිතර ඇසෙන ප්‍රශ්න</h2>
             </div>
 
             <div class="faq-list">
                 <div class="faq-item">
-                    <button type="button" class="faq-question">
-                        <span>මට වාහනයක් නැහැ, රියදුරු බලපත්‍රය පමණයි තියෙන්නේ — මට සම්බන්ධ වෙන්න පුළුවන්ද?</span>
-                        <span class="faq-icon">+</span>
+                    <button type="button" class="faq-btn">
+                        <span data-si="මට වාහනයක් නැහැ, රියදුරු බලපත්‍රය පමණයි තියෙන්නේ — මට සම්බන්ධ වෙන්න පුළුවන්ද?" data-en="I don't own a car, only a valid driving license. Can I join?">මට වාහනයක් නැහැ, රියදුරු බලපත්‍රය පමණයි තියෙන්නේ — මට සම්බන්ධ වෙන්න පුළුවන්ද?</span>
+                        <span class="faq-plus">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p>ඔව්. වලංගු රියදුරු බලපත්‍රයක්, NIC පිටපතක් සහ අවශ්‍ය පරීක්ෂාවන් සම්පූර්ණ කරන රියදුරන්ට DriveLink SL ජාලයේ වාහන පැදවීමේ සහ Hire a Driver සේවා හරහා ආදායම් ඉපයීමට අවස්ථාව ඇත.</p>
+                    <div class="faq-body">
+                        <p data-si="ඔව්. වලංගු රියදුරු බලපත්‍රයක්, NIC පිටපතක් සහ අවශ්‍ය පරීක්ෂාවන් සම්පූර්ණ කරන රියදුරන්ට DriveLink SL ජාලයේ වාහන පැදවීමේ සහ Hire a Driver සේවා හරහා ආදායම් ඉපයීමට අවස්ථාව ඇත." data-en="Yes! Verified drivers with a valid license and NIC can earn through Hire-a-Driver bookings as well as driving listed owner vehicles.">ඔව්. වලංගු රියදුරු බලපත්‍රයක්, NIC පිටපතක් සහ අවශ්‍ය පරීක්ෂාවන් සම්පූර්ණ කරන රියදුරන්ට DriveLink SL ජාලයේ වාහන පැදවීමේ සහ Hire a Driver සේවා හරහා ආදායම් ඉපයීමට අවස්ථාව ඇත.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button type="button" class="faq-question">
-                        <span>වාහන හිමිකරුවෙකුට තමන්ගේ වාහනය තමන්ම පදවාගෙන යන්න පුළුවන්ද?</span>
-                        <span class="faq-icon">+</span>
+                    <button type="button" class="faq-btn">
+                        <span data-si="වාහන හිමිකරුවෙකුට තමන්ගේ වාහනය තමන්ම පදවාගෙන යන්න පුළුවන්ද?" data-en="Can a vehicle owner drive their own listed vehicle for bookings?">වාහන හිමිකරුවෙකුට තමන්ගේ වාහනය තමන්ම පදවාගෙන යන්න පුළුවන්ද?</span>
+                        <span class="faq-plus">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p>පුළුවන්. ඔබට රියදුරු බලපත්‍රයක් ඇත්නම්, ඔබේ වාහනය සමඟ ඔබම රියදුරු ලෙසත් කටයුතු කරමින් Vehicle + Driver booking සඳහා සම්බන්ධ විය හැක.</p>
+                    <div class="faq-body">
+                        <p data-si="පුළුවන්. ඔබට රියදුරු බලපත්‍රයක් ඇත්නම්, ඔබේ වාහනය සමඟ ඔබම රියදුරු ලෙසත් කටයුතු කරමින් Vehicle + Driver booking සඳහා සම්බන්ධ විය හැක." data-en="Absolutely. Licensed vehicle owners can select 'Vehicle + Owner as Driver' during registration to fulfill chauffeur-driven bookings personally.">පුළුවන්. ඔබට රියදුරු බලපත්‍රයක් ඇත්නම්, ඔබේ වාහනය සමඟ ඔබම රියදුරු ලෙසත් කටයුතු කරමින් Vehicle + Driver booking සඳහා සම්බන්ධ විය හැක.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button type="button" class="faq-question">
-                        <span>Self-Drive වාහන වල ආරක්ෂාව තහවුරු කරන්නේ කෙසේද?</span>
-                        <span class="faq-icon">+</span>
+                    <button type="button" class="faq-btn">
+                        <span data-si="Self-Drive වාහන වල ආරක්ෂාව තහවුරු කරන්නේ කෙසේද?" data-en="How is vehicle safety ensured for Self-Drive rentals?">Self-Drive වාහන වල ආරක්ෂාව තහවුරු කරන්නේ කෙසේද?</span>
+                        <span class="faq-plus">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p>GPS tracking, හැඳුනුම්පත්/බලපත්‍ර තහවුරු කිරීම, ගමන් ආරම්භයට සහ අවසානයට වාහන තත්ත්වය පරීක්ෂා කිරීම (Inspection) සහ අදාළ ආරක්ෂක තැන්පතු ක්‍රමවේද හරහා ආරක්ෂාව තහවුරු කෙරේ.</p>
+                    <div class="faq-body">
+                        <p data-si="GPS tracking, හැඳුනුම්පත්/බලපත්‍ර තහවුරු කිරීම, ගමන් ආරම්භයට සහ අවසානයට වාහන තත්ත්වය පරීක්ෂා කිරීම (Inspection) සහ අදාළ ආරක්ෂක තැන්පතු ක්‍රමවේද හරහා ආරක්ෂාව තහවුරු කෙරේ." data-en="Safety is maintained via live GPS tracking, strict NIC & license verification, pre/post-trip inspection checklists, and refundable security deposits.">GPS tracking, හැඳුනුම්පත්/බලපත්‍ර තහවුරු කිරීම, ගමන් ආරම්භයට සහ අවසානයට වාහන තත්ත්වය පරීක්ෂා කිරීම (Inspection) සහ අදාළ ආරක්ෂක තැන්පතු ක්‍රමවේද හරහා ආරක්ෂාව තහවුරු කෙරේ.</p>
                     </div>
                 </div>
             </div>
@@ -1410,108 +1504,102 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-grid">
-            <div class="footer-brand">
+            <div class="footer-about">
                 <a href="#top" class="brand">
-                    <img src="logo.jpg" alt="DriveLink SL Logo" class="brand-logo" onerror="this.style.display='none'">
+                    <div class="brand-logo-wrap">
+                        <img src="logo.jpg" alt="DriveLink SL" class="brand-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span class="brand-fallback-icon" style="display:none;">DL</span>
+                    </div>
                     <div class="brand-text">
-                        <span class="brand-name">DriveLink<span class="gold">SL</span></span>
-                        <span class="brand-sub">VEHICLE &amp; DRIVER NETWORK</span>
+                        <span class="brand-name">DriveLink<span>SL</span></span>
+                        <span class="brand-sub">LUXURY MOBILITY NETWORK</span>
                     </div>
                 </a>
-                <p>ශ්‍රී ලංකාවේ වාහන කුලියට ගැනීම, වාහන ලියාපදිංචි කිරීම සහ රියදුරු සේවා එකම තැනකින් සම්බන්ධ කරන නවීන වේදිකාව.</p>
+                <p data-si="ශ්‍රී ලංකාවේ වාහන කුලියට ගැනීම, වාහන ලියාපදිංචි කිරීම සහ රියදුරු සේවා එකම තැනකින් සම්බන්ධ කරන නවීන වේදිකාව." data-en="Sri Lanka's modern marketplace connecting self-drive rentals, vehicle owners, and verified chauffeurs.">ශ්‍රී ලංකාවේ වාහන කුලියට ගැනීම, වාහන ලියාපදිංචි කිරීම සහ රියදුරු සේවා එකම තැනකින් සම්බන්ධ කරන නවීන වේදිකාව.</p>
             </div>
 
             <div>
-                <h4>සේවාවන්</h4>
+                <h4 data-si="සේවාවන්" data-en="Services">සේවාවන්</h4>
                 <ul>
-                    <li><a href="#services">Self-Drive (වාහනය පමණක්)</a></li>
+                    <li><a href="#services">Self-Drive</a></li>
                     <li><a href="#services">Vehicle + Driver</a></li>
                     <li><a href="#services">Hire a Driver</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4>සම්බන්ධ වන්න</h4>
+                <h4 data-si="සම්බන්ධ වන්න" data-en="Contact">සම්බන්ධ වන්න</h4>
                 <ul>
-                    <li>📍 මාතර / දෙයියන්දර, ශ්‍රී ලංකා</li>
+                    <li>📍 Matara / Deiyandara, Sri Lanka</li>
                     <li>📞 +94 77 000 0000</li>
                     <li>✉️ info@drivelinksl.lk</li>
                 </ul>
             </div>
         </div>
-
-        <div class="container footer-bottom">
+        <div class="container footer-copy">
             <p>&copy; 2026 DriveLink SL. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Booking Modal -->
-    <div class="modal-backdrop" id="bookingModal" aria-hidden="true">
-        <div class="modal-box">
-            <button type="button" class="modal-close" id="closeModalBtn" aria-label="Close">&times;</button>
-            <span class="mini-tag">BOOKING REQUEST</span>
-            <h3>සේවාව වෙන්කරවා ගන්න</h3>
-            <p class="modal-selected" id="modalSelectedService">සේවාව: Vehicle + Driver</p>
+    <!-- Modal -->
+    <div class="modal-overlay" id="bookingModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <button type="button" class="modal-x" id="closeModalBtn">&times;</button>
+            <span class="card-eyebrow">BOOKING REQUEST</span>
+            <h3 style="color:#fff;font-size:1.25rem;" data-si="සේවාව වෙන්කරවා ගන්න" data-en="Complete Your Booking">සේවාව වෙන්කරවා ගන්න</h3>
+            <p class="modal-tag" id="modalSelectedService">Service: Vehicle + Driver</p>
 
-            <form id="modalForm" class="stack-form">
+            <form id="modalForm" class="dark-form">
                 <div class="field">
-                    <label for="mName">ඔබේ නම</label>
-                    <input type="text" id="mName" placeholder="ඔබේ නම ඇතුළත් කරන්න" required>
+                    <label for="mName" data-si="ඔබේ නම" data-en="Your Name">ඔබේ නම</label>
+                    <input type="text" id="mName" placeholder="සම්පූර්ණ නම" data-ph-si="සම්පූර්ණ නම" data-ph-en="Full Name" required>
                 </div>
                 <div class="field">
-                    <label for="mPhone">WhatsApp අංකය</label>
-                    <input type="tel" id="mPhone" placeholder="07X XXXXXXX" required>
+                    <label for="mPhone" data-si="WhatsApp අංකය" data-en="WhatsApp Number">WhatsApp අංකය</label>
+                    <input type="tel" id="mPhone" placeholder="07X XXXXXXX" data-ph-si="07X XXXXXXX" data-ph-en="07X XXXXXXX" required>
                 </div>
                 <div class="field-row">
                     <div class="field">
-                        <label for="mDate">දිනය</label>
+                        <label for="mDate" data-si="දිනය" data-en="Pickup Date">දිනය</label>
                         <input type="date" id="mDate" required>
                     </div>
                     <div class="field">
-                        <label for="mCity">නගරය</label>
-                        <input type="text" id="mCity" placeholder="උදා: මාතර" required>
+                        <label for="mCity" data-si="නගරය" data-en="City">නගරය</label>
+                        <input type="text" id="mCity" placeholder="මාතර" data-ph-si="මාතර" data-ph-en="Matara" required>
                     </div>
                 </div>
                 <div class="field">
-                    <label for="mNote">අමතර විස්තර</label>
-                    <input type="text" id="mNote" placeholder="ගමනේ ස්වභාවය හෝ විශේෂ ඉල්ලීම්">
+                    <label for="mNote" data-si="අමතර විස්තර" data-en="Trip Notes">අමතර විස්තර</label>
+                    <input type="text" id="mNote" placeholder="ගමනේ විස්තර හෝ විශේෂ ඉල්ලීම්" data-ph-si="ගමනේ විස්තර හෝ විශේෂ ඉල්ලීම්" data-ph-en="Destination or special requests">
                 </div>
-                <button type="submit" class="btn btn-gold full-btn">WhatsApp හරහා තහවුරු කරන්න</button>
+                <button type="submit" class="btn btn-gold full-btn" data-si="WhatsApp හරහා තහවුරු කරන්න" data-en="Confirm via WhatsApp">WhatsApp හරහා තහවුරු කරන්න</button>
             </form>
         </div>
     </div>
 
     <script>
-        // Replace with your actual WhatsApp number (format: 947XXXXXXXX)
         const WHATSAPP_NUMBER = "94770000000";
 
         function openWhatsApp(text) {
-            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-            window.open(url, "_blank", "noopener,noreferrer");
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
         }
 
-        // Mobile Nav Toggle
+        // Mobile Nav
         const hamburgerBtn = document.getElementById("hamburgerBtn");
         const navMenu = document.getElementById("navMenu");
-        hamburgerBtn.addEventListener("click", () => {
-            navMenu.classList.toggle("open");
-        });
-        navMenu.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => navMenu.classList.remove("open"));
-        });
+        hamburgerBtn.addEventListener("click", () => navMenu.classList.toggle("open"));
+        navMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navMenu.classList.remove("open")));
 
-        // Hero Service Switcher + Price Preview
+        // Hero Tabs + Estimate
         const modeBtns = document.querySelectorAll(".mode-btn");
         const hDays = document.getElementById("hDays");
         const heroEstimatePrice = document.getElementById("heroEstimatePrice");
-
-        let selectedHeroService = "Self-Drive (වාහනය පමණක්)";
+        let selectedHeroService = "Self-Drive";
         let selectedDailyRate = 8500;
 
         function updateHeroEstimate() {
             const days = parseInt(hDays.value, 10) || 1;
-            const total = selectedDailyRate * days;
-            heroEstimatePrice.textContent = "රු. " + total.toLocaleString("en-US");
+            heroEstimatePrice.textContent = "LKR " + (selectedDailyRate * days).toLocaleString("en-US");
         }
 
         modeBtns.forEach(btn => {
@@ -1523,46 +1611,36 @@
                 updateHeroEstimate();
             });
         });
-
         hDays.addEventListener("change", updateHeroEstimate);
-        updateHeroEstimate();
 
-        // Hero Booking Form
         document.getElementById("heroBookingForm").addEventListener("submit", (e) => {
             e.preventDefault();
-            const msg =
+            openWhatsApp(
                 `*DriveLink SL - Quick Booking*%0A` +
-                `සේවාව: ${selectedHeroService}%0A` +
-                `නම: ${document.getElementById("hName").value.trim()}%0A` +
+                `Service: ${selectedHeroService}%0A` +
+                `Name: ${document.getElementById("hName").value.trim()}%0A` +
                 `WhatsApp: ${document.getElementById("hPhone").value.trim()}%0A` +
-                `ස්ථානය: ${document.getElementById("hPickup").value.trim()}%0A` +
-                `දින ගණන: ${hDays.value}%0A` +
-                `ඇස්තමේන්තුව: ${heroEstimatePrice.textContent}`;
-            openWhatsApp(msg);
+                `City: ${document.getElementById("hPickup").value.trim()}%0A` +
+                `Days: ${hDays.value}%0A` +
+                `Estimate: ${heroEstimatePrice.textContent}`
+            );
         });
 
-        // Fleet Filter Pills
-        const filterPills = document.querySelectorAll(".filter-pill");
-        const fleetCards = document.querySelectorAll(".fleet-card");
-
-        filterPills.forEach(pill => {
-            pill.addEventListener("click", () => {
-                filterPills.forEach(p => p.classList.remove("active"));
-                pill.classList.add("active");
-                const filter = pill.dataset.filter;
-
-                fleetCards.forEach(card => {
-                    const cats = card.dataset.category || "";
-                    if (filter === "all" || cats.includes(filter)) {
-                        card.style.display = "flex";
-                    } else {
-                        card.style.display = "none";
-                    }
+        // Fleet Filter
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const vehicleCards = document.querySelectorAll(".vehicle-card");
+        filterBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                filterBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                const f = btn.dataset.filter;
+                vehicleCards.forEach(card => {
+                    card.style.display = (f === "all" || (card.dataset.category || "").includes(f)) ? "flex" : "none";
                 });
             });
         });
 
-        // Commission Simulator
+        // Revenue Calculator
         const calcServiceType = document.getElementById("calcServiceType");
         const calcAmount = document.getElementById("calcAmount");
         const resTotal = document.getElementById("resTotal");
@@ -1571,174 +1649,108 @@
         const resFeeLabel = document.getElementById("resFeeLabel");
         const resFee = document.getElementById("resFee");
 
-        const commissionConfig = {
-            "self-drive": { rate: 0.15, label: "වාහන හිමියාට (85%)", feeLabel: "DriveLink SL කොමිස් (15%)" },
-            "with-driver": { rate: 0.12, label: "වාහනය + රියදුරු පාර්ශවයට (88%)", feeLabel: "DriveLink SL කොමිස් (12%)" },
-            "driver-only": { rate: 0.18, label: "රියදුරුට (82%)", feeLabel: "DriveLink SL කොමිස් (18%)" }
+        const rates = {
+            "self-drive": { fee: 0.15, pLabel: "Owner Payout (85%)", fLabel: "DriveLink SL Fee (15%)" },
+            "with-driver": { fee: 0.12, pLabel: "Owner + Driver Payout (88%)", fLabel: "DriveLink SL Fee (12%)" },
+            "driver-only": { fee: 0.18, pLabel: "Driver Payout (82%)", fLabel: "DriveLink SL Fee (18%)" }
         };
 
-        function updateCalculator() {
-            const amount = Math.max(0, parseFloat(calcAmount.value) || 0);
-            const cfg = commissionConfig[calcServiceType.value] || commissionConfig["self-drive"];
-            const fee = Math.round(amount * cfg.rate);
-            const payout = amount - fee;
-
-            resTotal.textContent = "රු. " + amount.toLocaleString("en-US");
-            resProviderLabel.textContent = cfg.label;
-            resProvider.textContent = "රු. " + payout.toLocaleString("en-US");
-            resFeeLabel.textContent = cfg.feeLabel;
-            resFee.textContent = "රු. " + fee.toLocaleString("en-US");
+        function updateCalc() {
+            const val = Math.max(0, parseFloat(calcAmount.value) || 0);
+            const cfg = rates[calcServiceType.value] || rates["self-drive"];
+            const feeAmt = Math.round(val * cfg.fee);
+            resTotal.textContent = "LKR " + val.toLocaleString("en-US");
+            resProviderLabel.textContent = cfg.pLabel;
+            resProvider.textContent = "LKR " + (val - feeAmt).toLocaleString("en-US");
+            resFeeLabel.textContent = cfg.fLabel;
+            resFee.textContent = "LKR " + feeAmt.toLocaleString("en-US");
         }
+        calcServiceType.addEventListener("change", updateCalc);
+        calcAmount.addEventListener("input", updateCalc);
+        updateCalc();
 
-        calcServiceType.addEventListener("change", updateCalculator);
-        calcAmount.addEventListener("input", updateCalculator);
-        updateCalculator();
-
-        // Owner Registration Form
+        // Partner Forms
         document.getElementById("ownerRegisterForm").addEventListener("submit", (e) => {
             e.preventDefault();
-            const msg =
+            openWhatsApp(
                 `*DriveLink SL - Vehicle Owner Registration*%0A` +
-                `නම: ${document.getElementById("ownName").value.trim()}%0A` +
+                `Name: ${document.getElementById("ownName").value.trim()}%0A` +
                 `WhatsApp: ${document.getElementById("ownPhone").value.trim()}%0A` +
-                `ප්‍රදේශය: ${document.getElementById("ownArea").value.trim()}%0A` +
-                `වාහනය: ${document.getElementById("ownVehicle").value.trim()}%0A` +
-                `සේවා ආකාරය: ${document.getElementById("ownOption").value}`;
-            openWhatsApp(msg);
+                `Area: ${document.getElementById("ownArea").value.trim()}%0A` +
+                `Vehicle: ${document.getElementById("ownVehicle").value.trim()}%0A` +
+                `Option: ${document.getElementById("ownOption").value}`
+            );
         });
 
-        // Driver Registration Form
         document.getElementById("driverRegisterForm").addEventListener("submit", (e) => {
             e.preventDefault();
-            const msg =
+            openWhatsApp(
                 `*DriveLink SL - Driver Registration*%0A` +
-                `නම: ${document.getElementById("drvName").value.trim()}%0A` +
+                `Name: ${document.getElementById("drvName").value.trim()}%0A` +
                 `WhatsApp: ${document.getElementById("drvPhone").value.trim()}%0A` +
-                `ප්‍රදේශය: ${document.getElementById("drvArea").value.trim()}%0A` +
-                `බලපත්‍රය: ${document.getElementById("drvLicense").value}%0A` +
-                `පළපුරුද්ද: වසර ${document.getElementById("drvExp").value}`;
-            openWhatsApp(msg);
+                `Area: ${document.getElementById("drvArea").value.trim()}%0A` +
+                `License: ${document.getElementById("drvLicense").value}%0A` +
+                `Experience: ${document.getElementById("drvExp").value} Years`
+            );
         });
 
-        // FAQ Accordion
-        document.querySelectorAll(".faq-question").forEach(qBtn => {
-            qBtn.addEventListener("click", () => {
-                const item = qBtn.parentElement;
-                item.classList.toggle("open");
-            });
+        // FAQ
+        document.querySelectorAll(".faq-btn").forEach(btn => {
+            btn.addEventListener("click", () => btn.parentElement.classList.toggle("open"));
         });
 
-        // Booking Modal
+        // Modal
         const bookingModal = document.getElementById("bookingModal");
-        const closeModalBtn = document.getElementById("closeModalBtn");
         const modalSelectedService = document.getElementById("modalSelectedService");
-        let activeModalService = "Vehicle + Driver (වාහනය සහ රියදුරු)";
+        let activeModalService = "Vehicle + Driver";
 
         document.querySelectorAll(".open-booking-btn").forEach(btn => {
             btn.addEventListener("click", () => {
-                activeModalService = btn.dataset.service || "Vehicle + Driver (වාහනය සහ රියදුරු)";
-                modalSelectedService.textContent = "තෝරාගත් සේවාව: " + activeModalService;
+                activeModalService = btn.dataset.service || "Vehicle + Driver";
+                modalSelectedService.textContent = "Selected: " + activeModalService;
                 bookingModal.classList.add("show");
-                bookingModal.setAttribute("aria-hidden", "false");
             });
         });
 
-        function hideModal() {
-            bookingModal.classList.remove("show");
-            bookingModal.setAttribute("aria-hidden", "true");
-        }
-
-        closeModalBtn.addEventListener("click", hideModal);
-        bookingModal.addEventListener("click", (e) => {
-            if (e.target === bookingModal) hideModal();
-        });
+        document.getElementById("closeModalBtn").addEventListener("click", () => bookingModal.classList.remove("show"));
+        bookingModal.addEventListener("click", (e) => { if (e.target === bookingModal) bookingModal.classList.remove("show"); });
 
         document.getElementById("modalForm").addEventListener("submit", (e) => {
             e.preventDefault();
-            const msg =
+            openWhatsApp(
                 `*DriveLink SL - Detailed Booking*%0A` +
-                `සේවාව: ${activeModalService}%0A` +
-                `නම: ${document.getElementById("mName").value.trim()}%0A` +
+                `Service: ${activeModalService}%0A` +
+                `Name: ${document.getElementById("mName").value.trim()}%0A` +
                 `WhatsApp: ${document.getElementById("mPhone").value.trim()}%0A` +
-                `දිනය: ${document.getElementById("mDate").value}%0A` +
-                `නගරය: ${document.getElementById("mCity").value.trim()}%0A` +
-                `විස්තර: ${document.getElementById("mNote").value.trim() || "-"}`;
-            openWhatsApp(msg);
-            hideModal();
+                `Date: ${document.getElementById("mDate").value}%0A` +
+                `City: ${document.getElementById("mCity").value.trim()}%0A` +
+                `Notes: ${document.getElementById("mNote").value.trim() || "-"}`
+            );
+            bookingModal.classList.remove("show");
         });
 
-        // Instant Sinhala <-> English Switcher
-        const i18n = {
-            si: {
-                langToggleBtn: "EN / සිංහල",
-                navBookBtn: "දැන් වෙන්කරන්න",
-                heroPill: "ශ්‍රී ලංකාවේ පළමු 3-Sided Mobility Platform එක",
-                heroH1: 'වාහනයක්, රියදුරෙක් හෝ දෙකම — <span>වඩාත් ස්මාර්ට්ව</span> එකම තැනකින්',
-                heroDesc: "ගමනකට වාහනයක් කුලියට ගන්න, නිවසේ ඇති වාහනය ලියාපදිංචි කර ආදායම් උපයන්න, නැතිනම් වාහනයක් නැතිවත් රියදුරු බලපත්‍රයෙන් ස්ථිර ආදායම් මාර්ගයක් සකසා ගන්න.",
-                bookingTitle: "ක්ෂණික වෙන්කිරීම (Booking)",
-                bookingSub: "ඔබට අවශ්‍ය සේවාව තෝරා විස්තර යවන්න",
-                servicesTitle: "පාර්ශව 3ටම ගැළපෙන සේවා ව්‍යුහය",
-                fleetTitle: "වාහන සහ රියදුරු ලැයිස්තුව",
-                earningsTitle: "සේවාව අනුව ආදායම් බෙදී යන ආකාරය බලන්න",
-                partnersTitle: "වාහන හිමියන් සහ රියදුරන් ලියාපදිංචිය",
-                faqTitle: "නිතර ඇසෙන ප්‍රශ්න"
-            },
-            en: {
-                langToggleBtn: "සිංහල / EN",
-                navBookBtn: "Book Now",
-                heroPill: "Sri Lanka's First 3-Sided Mobility Platform",
-                heroH1: 'A Vehicle, a Driver, or Both — <span>Smarter</span> in One Place',
-                heroDesc: "Rent a vehicle for your trip, list your idle vehicle to earn extra income, or earn a steady income with just a valid driving license—even without owning a car.",
-                bookingTitle: "Instant Booking Request",
-                bookingSub: "Select your service mode and send details via WhatsApp",
-                servicesTitle: "Built for All 3 Sides of Mobility",
-                fleetTitle: "Available Vehicles & Drivers",
-                earningsTitle: "See How Trip Revenue Is Shared",
-                partnersTitle: "Vehicle Owner & Driver Registration",
-                faqTitle: "Frequently Asked Questions"
-            }
-        };
-
+        // Full Page Sinhala <-> English Switcher
         let currentLang = "si";
         const langToggleBtn = document.getElementById("langToggleBtn");
-
-        function applyLanguage(lang) {
-            currentLang = lang;
-            const d = i18n[lang];
-            document.getElementById("langToggleBtn").textContent = d.langToggleBtn;
-            document.getElementById("navBookBtn").textContent = d.navBookBtn;
-
-            const pillSpan = document.querySelector(".hero-pill span:last-child");
-            if (pillSpan) pillSpan.textContent = d.heroPill;
-
-            const heroH1 = document.querySelector(".hero-copy h1");
-            if (heroH1) heroH1.innerHTML = d.heroH1;
-
-            const heroDesc = document.querySelector(".hero-desc");
-            if (heroDesc) heroDesc.textContent = d.heroDesc;
-
-            const bTitle = document.querySelector(".booking-card-top h2");
-            const bSub = document.querySelector(".booking-card-top p");
-            if (bTitle) bTitle.textContent = d.bookingTitle;
-            if (bSub) bSub.textContent = d.bookingSub;
-
-            const sTitle = document.querySelector("#services .section-head h2");
-            const fTitle = document.querySelector("#fleet .section-head h2");
-            const eTitle = document.querySelector("#earnings .calc-info h2");
-            const pTitle = document.querySelector("#partners .section-head h2");
-            const qTitle = document.querySelector("#faq .section-head h2");
-
-            if (sTitle) sTitle.textContent = d.servicesTitle;
-            if (fTitle) fTitle.textContent = d.fleetTitle;
-            if (eTitle) eTitle.textContent = d.earningsTitle;
-            if (pTitle) pTitle.textContent = d.partnersTitle;
-            if (qTitle) qTitle.textContent = d.faqTitle;
-        }
+        const heroHeading = document.getElementById("heroHeading");
 
         langToggleBtn.addEventListener("click", () => {
-            applyLanguage(currentLang === "si" ? "en" : "si");
-        });
+            currentLang = currentLang === "si" ? "en" : "si";
+            langToggleBtn.textContent = currentLang === "si" ? "EN / සිංහල" : "සිංහල / EN";
 
+            heroHeading.innerHTML = currentLang === "si"
+                ? 'වාහනයක්, රියදුරෙක් හෝ දෙකම — <span>වඩාත් ස්මාර්ට්ව</span> එකම තැනකින්'
+                : 'A Vehicle, a Driver, or Both — <span>Smarter</span> in One Place';
+
+            document.documentElement.lang = currentLang;
+            document.querySelectorAll("[data-si][data-en]").forEach(el => {
+                el.textContent = el.getAttribute(currentLang === "si" ? "data-si" : "data-en");
+            });
+            document.querySelectorAll("[data-ph-si][data-ph-en]").forEach(inp => {
+                inp.placeholder = inp.getAttribute(currentLang === "si" ? "data-ph-si" : "data-ph-en");
+            });
+            modalSelectedService.textContent = (currentLang === "si" ? "තෝරාගත් සේවාව: " : "Selected: ") + activeModalService;
+        });
     </script>
 </body>
 </html>
