@@ -993,7 +993,8 @@
             </nav>
 
             <div class="nav-actions">
-                <button type="button" class="btn btn-gold btn-sm open-booking-btn" data-service="Vehicle + Driver (වාහනය සහ රියදුරු)">දැන් වෙන්කරන්න</button>
+                <button type="button" class="btn btn-dark btn-sm" id="langToggleBtn" style="border:1px solid rgba(245,158,11,0.55);color:#fde68a;">EN / සිංහල</button>
+                <button type="button" class="btn btn-gold btn-sm open-booking-btn" id="navBookBtn" data-service="Vehicle + Driver (වාහනය සහ රියදුරු)">දැන් වෙන්කරන්න</button>
                 <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">☰</button>
             </div>
         </div>
@@ -1432,8 +1433,8 @@
             <div>
                 <h4>සම්බන්ධ වන්න</h4>
                 <ul>
-                    <li>📍 මාතර / මාවරල, ශ්‍රී ලංකා</li>
-                    <li>📞 +94 77 6394402</li>
+                    <li>📍 මාතර / දෙයියන්දර, ශ්‍රී ලංකා</li>
+                    <li>📞 +94 77 000 0000</li>
                     <li>✉️ info@drivelinksl.lk</li>
                 </ul>
             </div>
@@ -1482,7 +1483,7 @@
 
     <script>
         // Replace with your actual WhatsApp number (format: 947XXXXXXXX)
-        const WHATSAPP_NUMBER = "94776394402";
+        const WHATSAPP_NUMBER = "94770000000";
 
         function openWhatsApp(text) {
             const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
@@ -1665,6 +1666,79 @@
             openWhatsApp(msg);
             hideModal();
         });
+
+        // Instant Sinhala <-> English Switcher
+        const i18n = {
+            si: {
+                langToggleBtn: "EN / සිංහල",
+                navBookBtn: "දැන් වෙන්කරන්න",
+                heroPill: "ශ්‍රී ලංකාවේ පළමු 3-Sided Mobility Platform එක",
+                heroH1: 'වාහනයක්, රියදුරෙක් හෝ දෙකම — <span>වඩාත් ස්මාර්ට්ව</span> එකම තැනකින්',
+                heroDesc: "ගමනකට වාහනයක් කුලියට ගන්න, නිවසේ ඇති වාහනය ලියාපදිංචි කර ආදායම් උපයන්න, නැතිනම් වාහනයක් නැතිවත් රියදුරු බලපත්‍රයෙන් ස්ථිර ආදායම් මාර්ගයක් සකසා ගන්න.",
+                bookingTitle: "ක්ෂණික වෙන්කිරීම (Booking)",
+                bookingSub: "ඔබට අවශ්‍ය සේවාව තෝරා විස්තර යවන්න",
+                servicesTitle: "පාර්ශව 3ටම ගැළපෙන සේවා ව්‍යුහය",
+                fleetTitle: "වාහන සහ රියදුරු ලැයිස්තුව",
+                earningsTitle: "සේවාව අනුව ආදායම් බෙදී යන ආකාරය බලන්න",
+                partnersTitle: "වාහන හිමියන් සහ රියදුරන් ලියාපදිංචිය",
+                faqTitle: "නිතර ඇසෙන ප්‍රශ්න"
+            },
+            en: {
+                langToggleBtn: "සිංහල / EN",
+                navBookBtn: "Book Now",
+                heroPill: "Sri Lanka's First 3-Sided Mobility Platform",
+                heroH1: 'A Vehicle, a Driver, or Both — <span>Smarter</span> in One Place',
+                heroDesc: "Rent a vehicle for your trip, list your idle vehicle to earn extra income, or earn a steady income with just a valid driving license—even without owning a car.",
+                bookingTitle: "Instant Booking Request",
+                bookingSub: "Select your service mode and send details via WhatsApp",
+                servicesTitle: "Built for All 3 Sides of Mobility",
+                fleetTitle: "Available Vehicles & Drivers",
+                earningsTitle: "See How Trip Revenue Is Shared",
+                partnersTitle: "Vehicle Owner & Driver Registration",
+                faqTitle: "Frequently Asked Questions"
+            }
+        };
+
+        let currentLang = "si";
+        const langToggleBtn = document.getElementById("langToggleBtn");
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            const d = i18n[lang];
+            document.getElementById("langToggleBtn").textContent = d.langToggleBtn;
+            document.getElementById("navBookBtn").textContent = d.navBookBtn;
+
+            const pillSpan = document.querySelector(".hero-pill span:last-child");
+            if (pillSpan) pillSpan.textContent = d.heroPill;
+
+            const heroH1 = document.querySelector(".hero-copy h1");
+            if (heroH1) heroH1.innerHTML = d.heroH1;
+
+            const heroDesc = document.querySelector(".hero-desc");
+            if (heroDesc) heroDesc.textContent = d.heroDesc;
+
+            const bTitle = document.querySelector(".booking-card-top h2");
+            const bSub = document.querySelector(".booking-card-top p");
+            if (bTitle) bTitle.textContent = d.bookingTitle;
+            if (bSub) bSub.textContent = d.bookingSub;
+
+            const sTitle = document.querySelector("#services .section-head h2");
+            const fTitle = document.querySelector("#fleet .section-head h2");
+            const eTitle = document.querySelector("#earnings .calc-info h2");
+            const pTitle = document.querySelector("#partners .section-head h2");
+            const qTitle = document.querySelector("#faq .section-head h2");
+
+            if (sTitle) sTitle.textContent = d.servicesTitle;
+            if (fTitle) fTitle.textContent = d.fleetTitle;
+            if (eTitle) eTitle.textContent = d.earningsTitle;
+            if (pTitle) pTitle.textContent = d.partnersTitle;
+            if (qTitle) qTitle.textContent = d.faqTitle;
+        }
+
+        langToggleBtn.addEventListener("click", () => {
+            applyLanguage(currentLang === "si" ? "en" : "si");
+        });
+
     </script>
 </body>
 </html>
