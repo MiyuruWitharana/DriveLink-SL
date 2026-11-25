@@ -1166,6 +1166,100 @@
         }
 
 
+        .pay-modal-dialog {
+            max-width: 540px;
+            max-height: 92vh;
+            overflow-y: auto;
+            background: linear-gradient(165deg, #111827 0%, #070b14 100%);
+            border: 1.5px solid var(--border-gold);
+            box-shadow: 0 32px 90px rgba(0, 0, 0, 0.85), var(--glow-gold);
+        }
+
+        .pay-method-pills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .pay-pill-btn {
+            background: rgba(5, 7, 13, 0.85);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-soft);
+            border-radius: 11px;
+            padding: 9px 6px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .pay-pill-btn:hover {
+            border-color: var(--border-gold);
+            color: var(--gold-bright);
+        }
+
+        .pay-pill-btn.active {
+            background: linear-gradient(135deg, rgba(245, 185, 66, 0.22), rgba(184, 115, 51, 0.16));
+            border-color: var(--gold-bright);
+            color: #ffffff;
+            box-shadow: 0 6px 18px rgba(245, 185, 66, 0.18);
+        }
+
+        .pay-visual-panel {
+            background: linear-gradient(135deg, rgba(245, 185, 66, 0.09), rgba(15, 23, 42, 0.92));
+            border: 1px solid rgba(245, 185, 66, 0.28);
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            font-size: 0.78rem;
+            color: var(--text-soft);
+        }
+
+        .koko-steps-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .koko-step-box {
+            background: rgba(5, 7, 13, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 8px 9px;
+            text-align: center;
+        }
+
+        .koko-step-box small {
+            display: block;
+            font-size: 0.67rem;
+            color: var(--text-muted);
+        }
+
+        .koko-step-box strong {
+            display: block;
+            font-size: 0.82rem;
+            color: #38bdf8;
+            margin-top: 2px;
+        }
+
+        .mini-card-preview {
+            background: linear-gradient(125deg, #1e293b 0%, #0f172a 55%, #2b1d08 100%);
+            border: 1px solid rgba(245, 185, 66, 0.45);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-top: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .payout-ledger-box {
             background: rgba(5, 7, 13, 0.85);
             border: 1px solid var(--border-gold);
@@ -1265,6 +1359,8 @@
                 width: 100%;
             }
 
+            .pay-method-pills,
+            .koko-steps-strip,
             .field-row,
             .mode-tabs,
             .hero-stats-row {
@@ -1984,11 +2080,59 @@
 
     <!-- Payment Checkout Modal -->
     <div class="modal-overlay" id="paymentModal" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog pay-modal-dialog">
             <button type="button" class="modal-x" id="closePayModalBtn">&times;</button>
             <span class="card-eyebrow">PAYMENT CHECKOUT</span>
-            <h3 style="color:#fff;font-size:1.25rem;" data-si="ගෙවීම් තොරතුරු සහ තහවුරු කිරීම" data-en="Payment Details & Confirmation">ගෙවීම් තොරතුරු සහ තහවුරු කිරීම</h3>
-            <p class="modal-tag" id="payModalMethodTag">Method: Bank Transfer</p>
+            <h3 style="color:#fff;font-size:1.28rem;" data-si="ගෙවීම් තොරතුරු සහ තහවුරු කිරීම" data-en="Payment Details & Confirmation">ගෙවීම් තොරතුරු සහ තහවුරු කිරීම</h3>
+            <p class="modal-tag" id="payModalMethodTag">Method: Koko Pay (Installments)</p>
+
+            <div class="pay-method-pills" id="payMethodPills">
+                <button type="button" class="pay-pill-btn active" data-method="Koko Pay (Installments)">
+                    <span>🥥</span>
+                    <span data-si="Koko Pay" data-en="Koko Pay">Koko Pay</span>
+                </button>
+                <button type="button" class="pay-pill-btn" data-method="Bank Transfer">
+                    <span>🏦</span>
+                    <span data-si="Bank Slip" data-en="Bank Slip">Bank Slip</span>
+                </button>
+                <button type="button" class="pay-pill-btn" data-method="Online Card">
+                    <span>💳</span>
+                    <span data-si="Card Pay" data-en="Card Pay">Card Pay</span>
+                </button>
+                <button type="button" class="pay-pill-btn" data-method="Cash / Deposit">
+                    <span>💵</span>
+                    <span data-si="Cash / Dep." data-en="Cash / Dep.">Cash / Dep.</span>
+                </button>
+            </div>
+
+            <div class="pay-visual-panel" id="payMethodVisualBox">
+                <div id="payMethodVisualTitle" style="font-weight:700;color:#fff;margin-bottom:4px;">🥥 Koko Pay — වාරික වශයෙන් ටික ටික ගෙවන්න</div>
+                <div id="payMethodVisualDesc" style="font-size:0.75rem;color:var(--text-muted);">මුළු ගාස්තුව වාරික වලට බෙදා පහසුවෙන් ගෙවිය හැකි සැලසුම.</div>
+                <div class="koko-steps-strip" id="kokoScheduleStrip">
+                    <div class="koko-step-box">
+                        <small id="kokoS1Label" data-si="1st වාරිකය (අද)" data-en="1st Installment (Today)">1st වාරිකය (අද)</small>
+                        <strong id="kokoS1Val">LKR 2,834</strong>
+                    </div>
+                    <div class="koko-step-box">
+                        <small id="kokoS2Label" data-si="2nd වාරිකය (දින 30)" data-en="2nd Installment (30d)">2nd වාරිකය (දින 30)</small>
+                        <strong id="kokoS2Val">LKR 2,833</strong>
+                    </div>
+                    <div class="koko-step-box">
+                        <small id="kokoS3Label" data-si="3rd වාරිකය (දින 60)" data-en="3rd Installment (60d)">3rd වාරිකය (දින 60)</small>
+                        <strong id="kokoS3Val">LKR 2,833</strong>
+                    </div>
+                </div>
+                <div class="mini-card-preview" id="cardPreviewBox" style="display:none;">
+                    <div>
+                        <div style="font-size:0.65rem;letter-spacing:0.14em;color:var(--gold-bright);">DRIVELINK SECURE CARD</div>
+                        <div id="cardPreviewNum" style="font-size:0.9rem;font-weight:700;color:#fff;letter-spacing:0.12em;margin-top:3px;">•••• •••• •••• 4242</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-size:0.65rem;color:var(--text-muted);">EXP / CVV</div>
+                        <div id="cardPreviewExp" style="font-size:0.8rem;font-weight:700;color:var(--gold-bright);">12/28 • •••</div>
+                    </div>
+                </div>
+            </div>
 
             <div class="payout-ledger-box">
                 <div class="payout-row">
@@ -2056,6 +2200,18 @@
                 <div class="field">
                     <label for="pCustomerName" data-si="ගෙවන්නාගේ නම" data-en="Payer Name">ගෙවන්නාගේ නම</label>
                     <input type="text" id="pCustomerName" placeholder="සම්පූර්ණ නම" data-ph-si="සම්පූර්ණ නම" data-ph-en="Full Name" required>
+                </div>
+                <div id="cardExtraFields" style="display:none;">
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="pCardLast4" data-si="Card අවසන් ඉලක්කම් 4" data-en="Card Last 4 Digits">Card අවසන් ඉලක්කම් 4</label>
+                            <input type="text" id="pCardLast4" maxlength="4" placeholder="4242" data-ph-si="4242" data-ph-en="4242">
+                        </div>
+                        <div class="field">
+                            <label for="pCardExpiry" data-si="කල් ඉකුත් වන මාසය/වසර" data-en="Expiry (MM/YY)">කල් ඉකුත් වන මාසය/වසර</label>
+                            <input type="text" id="pCardExpiry" maxlength="5" placeholder="12/28" data-ph-si="12/28" data-ph-en="12/28">
+                        </div>
+                    </div>
                 </div>
                 <div class="field">
                     <label for="pRefCode" data-si="Slip / Transaction Reference (ඇත්නම්)" data-en="Slip / Reference ID (Optional)">Slip / Transaction Reference (ඇත්නම්)</label>
@@ -2370,22 +2526,117 @@
                 if (pPayMethodSelect) pPayMethodSelect.value = activePayMethod;
                 const days = parseInt(hDays.value, 10) || 1;
                 currentGrossAmount = selectedDailyRate * days;
-                payModalMethodTag.textContent = (currentLang === "si" ? "ගෙවීම් ක්‍රමය: " : "Payment Method: ") + activePayMethod;
+                refreshPaymentMethodUI();
                 computeSplitBreakdown();
                 renderPaymentLedger();
                 paymentModal.classList.add("show");
             });
         });
 
+        const payPillBtns = document.querySelectorAll(".pay-pill-btn");
+        const kokoScheduleStrip = document.getElementById("kokoScheduleStrip");
+        const cardPreviewBox = document.getElementById("cardPreviewBox");
+        const cardExtraFields = document.getElementById("cardExtraFields");
+        const payMethodVisualTitle = document.getElementById("payMethodVisualTitle");
+        const payMethodVisualDesc = document.getElementById("payMethodVisualDesc");
+        const pCardLast4 = document.getElementById("pCardLast4");
+        const pCardExpiry = document.getElementById("pCardExpiry");
+        const cardPreviewNum = document.getElementById("cardPreviewNum");
+        const cardPreviewExp = document.getElementById("cardPreviewExp");
+
+        function refreshPaymentMethodUI() {
+            payPillBtns.forEach(b => b.classList.toggle("active", b.dataset.method === activePayMethod));
+            if (pPayMethodSelect) pPayMethodSelect.value = activePayMethod;
+            payModalMethodTag.textContent = (currentLang === "si" ? "ගෙවීම් ක්‍රමය: " : "Payment Method: ") + activePayMethod;
+
+            const isKoko = activePayMethod.toLowerCase().includes("koko");
+            const isCard = activePayMethod.toLowerCase().includes("card");
+            const isBank = activePayMethod.toLowerCase().includes("bank");
+
+            if (kokoScheduleStrip) kokoScheduleStrip.style.display = isKoko ? "grid" : "none";
+            if (cardPreviewBox) cardPreviewBox.style.display = isCard ? "flex" : "none";
+            if (cardExtraFields) cardExtraFields.style.display = isCard ? "block" : "none";
+
+            if (payMethodVisualTitle && payMethodVisualDesc) {
+                if (isKoko) {
+                    payMethodVisualTitle.textContent = currentLang === "si"
+                        ? "🥥 Koko Pay — වාරික වශයෙන් ටික ටික ගෙවන්න"
+                        : "🥥 Koko Pay — Split Into Easy Installments";
+                    payMethodVisualDesc.textContent = currentLang === "si"
+                        ? "මුළු ගාස්තුව වාරික වලට බෙදා සැලසුම් කළ වාරික ගණන අනුව ගෙවන්න."
+                        : "Divide your total fare into scheduled installments.";
+                } else if (isCard) {
+                    payMethodVisualTitle.textContent = currentLang === "si"
+                        ? "💳 Online Card Checkout"
+                        : "💳 Online Card Checkout";
+                    payMethodVisualDesc.textContent = currentLang === "si"
+                        ? "Card විස්තර හෝ Gateway Reference සටහන් කර WhatsApp හරහා තහවුරු කරන්න."
+                        : "Enter card reference/last digits and confirm via WhatsApp.";
+                } else if (isBank) {
+                    payMethodVisualTitle.textContent = currentLang === "si"
+                        ? "🏦 Bank Transfer & Slip Verification"
+                        : "🏦 Bank Transfer & Slip Verification";
+                    payMethodVisualDesc.textContent = currentLang === "si"
+                        ? "20% Advance බැර කර Slip Reference ID ඇතුළත් කර WhatsApp වෙත යොමු කරන්න."
+                        : "Pay the 20% advance, enter your slip reference ID, and confirm on WhatsApp.";
+                } else {
+                    payMethodVisualTitle.textContent = currentLang === "si"
+                        ? "💵 Cash on Pickup / Security Deposit"
+                        : "💵 Cash on Pickup / Security Deposit";
+                    payMethodVisualDesc.textContent = currentLang === "si"
+                        ? "වාහනය ලබාගන්නා අවස්ථාවේ Inspection සමඟ මුදල්/Deposit තහවුරු කිරීම."
+                        : "Confirm cash payment & refundable deposit during vehicle handover.";
+                }
+            }
+
+            const instCount = parseInt(pInstallmentCount ? pInstallmentCount.value : "3", 10) || 3;
+            const perInst = Math.ceil(currentGrossAmount / instCount);
+            const s1 = document.getElementById("kokoS1Val");
+            const s2 = document.getElementById("kokoS2Val");
+            const s3 = document.getElementById("kokoS3Val");
+            const l1 = document.getElementById("kokoS1Label");
+            const l2 = document.getElementById("kokoS2Label");
+            const l3 = document.getElementById("kokoS3Label");
+            if (l1) l1.textContent = currentLang === "si" ? "1st වාරිකය (අද)" : "1st Installment (Today)";
+            if (l2) l2.textContent = currentLang === "si" ? "2nd වාරිකය (ඊළඟ)" : "2nd Installment (Next)";
+            if (l3) l3.textContent = currentLang === "si" ? `අවසන් වාරිකය (${instCount}x)` : `Final Installment (${instCount}x)`;
+            if (s1) s1.textContent = "LKR " + perInst.toLocaleString("en-US");
+            if (s2) s2.textContent = "LKR " + perInst.toLocaleString("en-US");
+            if (s3) s3.textContent = "LKR " + perInst.toLocaleString("en-US");
+        }
+
+        payPillBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                activePayMethod = btn.dataset.method || "Koko Pay (Installments)";
+                refreshPaymentMethodUI();
+                computeSplitBreakdown();
+            });
+        });
+
+        if (pCardLast4) {
+            pCardLast4.addEventListener("input", () => {
+                const digits = (pCardLast4.value || "4242").replace(/\D/g, "").padEnd(4, "•").slice(0, 4);
+                if (cardPreviewNum) cardPreviewNum.textContent = `•••• •••• •••• ${digits}`;
+            });
+        }
+        if (pCardExpiry) {
+            pCardExpiry.addEventListener("input", () => {
+                if (cardPreviewExp) cardPreviewExp.textContent = `${pCardExpiry.value || "12/28"} • •••`;
+            });
+        }
+
         if (pPayMethodSelect) {
             pPayMethodSelect.addEventListener("change", () => {
                 activePayMethod = pPayMethodSelect.value;
-                payModalMethodTag.textContent = (currentLang === "si" ? "ගෙවීම් ක්‍රමය: " : "Payment Method: ") + activePayMethod;
+                refreshPaymentMethodUI();
                 computeSplitBreakdown();
             });
         }
         if (pInstallmentCount) {
-            pInstallmentCount.addEventListener("change", computeSplitBreakdown);
+            pInstallmentCount.addEventListener("change", () => {
+                refreshPaymentMethodUI();
+                computeSplitBreakdown();
+            });
         }
 
         if (pSplitMode) pSplitMode.addEventListener("change", computeSplitBreakdown);
